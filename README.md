@@ -17,7 +17,7 @@ Fbclone is a web application inspired by Facebook built using Ruby on Rails and 
 
 ## Design Docs
 * [View Wireframes][wireframes]
-* [React Components][components]
+* [React Components][components-hierarchy]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Redux Structure][redux-structure]
@@ -65,7 +65,7 @@ the API.
 
 ### Phase 3: Profile Model, API, and components (2 days)
 
-**Objective:** Users can be created, edited and destroyed through
+**Objective:** Profiles can be created, edited and destroyed through
 the API.
 
 - [ ] `Profile` model
@@ -79,8 +79,7 @@ the API.
 
 ### Phase 4: Post, Comment and Like Models, API, and components (2 days)
 
-**Objective:** Users can be created, edited and destroyed through
-the API.
+**Objective:** Posts, comments and likes can be created, edited and destroyed through the API.
 
 - [ ] `Post` model
 - [ ] `Comment` model
@@ -101,8 +100,7 @@ the API.
 
 ### Phase 5: NewsFeed Model, API, and components (2 days)
 
-**Objective:** Users can be created, edited and destroyed through
-the API.
+**Objective:** News feed displays various activities of friends
 
 - [ ] `NewsFeed` model
 - [ ] Seed database with a small amount of test data

@@ -49,7 +49,7 @@
         content: "I agree"
       }
     }
-  }
+  },
   newsFeed: {
     activities: {
       224: {
