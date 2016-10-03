@@ -41,3 +41,21 @@ id          | integer   | not null, primary key
 post_id     | integer   | not null
 author_id   | integer   | not null
 content     | string    | not null
+
+## likes
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+author_id   | integer   | not null
+parent_type | integer   | not null
+parent_id   | integer   | not null
+created_at  | date      | not null
+
+## activities
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_a_id   | integer   | not null
+user_b_id   | integer   | not null
+type        | string    | not null
+created_at  | date      | not null

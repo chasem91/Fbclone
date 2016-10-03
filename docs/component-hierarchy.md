@@ -1,4 +1,4 @@
-## Component Heirarchy
+## Component Hierarchy
 
 **AuthFormContainer**
  - AuthForm
@@ -7,51 +7,20 @@
  - Home
  - Sidebar
 
-**NotesContainer**
- - NotesHeader
-  * NoteIndex
+**ProfileContainer**
+ - ProfileHeader
+  * ProfileIndex
 
-**NotebookContainer**
- - NotebookHeader
-  + NoteIndex
+**PostContainer**
+ - PostHeader
+  + PostIndex
 
-**SearchResultsContainer**
- - Search
- - NoteIndex
+**CommentContainer**
+ - CommentHeader
+ - CommentIndex
 
-**TagContainer**
- - NotebookHeader
-  + NoteIndex
+**LikeContainer**
 
-**NoteIndex**
- - NoteIndexItem
-  + NoteDetail
-   * NoteTools
-    - NotebookSearch
-    - Tags
-     + Tag
-    * Note
-
-**NewNoteContainer**
- - NewNote
-  - RTETools
-  - NewNoteButton
-
-**Search**
-
-**NewNotebook**
- - NewNotebook
-
-**NewTag**
- - NewTag
-
-**NotebookSearch**
- + AutoSearch
- * AutoSearchResults
-
-**TagsSearch**
- + AutoSearch
- * AutoSearchResults
 
 ## Routes
 
@@ -60,13 +29,6 @@
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
-| "/home/note/:noteId" | "NotesContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
-| "/home/tag/:tagId/note/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
-| "/new-note" | "NewNoteContainer" |
-| "/search" | "Search" |
-| "/new-notebook" | "NewNotebook" |
-| "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/notebook-search" | "NotebookSearch" |
+| "/home/profile/:id" | "ProfileContainer" |
+| "/home/friend/:id/profile" | "ProfileContainer" |
+| "/home/newsfeed" | "NewsfeedContainer" |

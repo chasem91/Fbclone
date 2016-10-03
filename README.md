@@ -58,10 +58,61 @@ the API.
 - [ ] Seed database with a small amount of test data
 - [ ] CRUD API for users (`UsersController`)
 - [ ] JBuilder views for notes
-- Note components and respective Redux loops
+- User components and respective Redux loops
   - [ ] `UsersIndex`
   - [ ] `UserForm`
-- [ ] Seed notes
+- [ ] Seed users
+
+### Phase 3: Profile Model, API, and components (2 days)
+
+**Objective:** Users can be created, edited and destroyed through
+the API.
+
+- [ ] `Profile` model
+- [ ] Seed database with a small amount of test data
+- [ ] CRUD API for users (`ProfileController`)
+- [ ] JBuilder views for profiles
+- Profile components and respective Redux loops
+  - [ ] `ProfileHeader`
+  - [ ] `ProfileForm`
+- [ ] Seed profiles
+
+### Phase 4: Post, Comment and Like Models, API, and components (2 days)
+
+**Objective:** Users can be created, edited and destroyed through
+the API.
+
+- [ ] `Post` model
+- [ ] `Comment` model
+- [ ] `Like` model
+- [ ] Seed database with a small amount of test data
+- [ ] CRUD API for users (`PostController`)
+- [ ] CRUD API for users (`CommentController`)
+- [ ] CRUD API for users (`LikeController`)
+- [ ] JBuilder views for profiles
+- Profile components and respective Redux loops
+  - [ ] `PostHeader`
+  - [ ] `PostForm`
+  - [ ] `CommentHeader`
+  - [ ] `CommentForm`
+  - [ ] `LikeHeader`
+  - [ ] `LikeForm`
+- [ ] Seeds for all models
+
+### Phase 5: NewsFeed Model, API, and components (2 days)
+
+**Objective:** Users can be created, edited and destroyed through
+the API.
+
+- [ ] `NewsFeed` model
+- [ ] Seed database with a small amount of test data
+- [ ] CRUD API for users (`NewsFeedController`)
+- [ ] JBuilder views for profiles
+- Profile components and respective Redux loops
+  - [ ] `NewsFeedHeader`
+  - [ ] `PostForm`
+- [ ] Seeds for `activities`
+
 
 ### Bonus Features (TBD)
 - [ ] Notifications
