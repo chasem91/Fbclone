@@ -17,7 +17,7 @@ Fbclone is a web application inspired by Facebook built using Ruby on Rails and 
 
 ## Design Docs
 * [View Wireframes][wireframes]
-* [React Components][components-hierarchy]
+* [React Components][component-hierarchy]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Redux Structure][redux-structure]
