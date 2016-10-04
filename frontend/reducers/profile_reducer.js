@@ -1,22 +1,21 @@
-import { RECEIVE_PROFILE } from '../actions/profile_actions';
+import { RECEIVE_PROFILE, RECEIVE_PROFILES } from '../actions/profile_actions';
 import merge from 'lodash/merge';
 
-const _nullUser = Object.freeze({
-  currentProfile: {
-    first_name: "Chase",
-    last_name: "Martin",
-    birthday: "02-05-1991",
-    gender: "male"
-  }
+const _initialState = Object.freeze({
+  profiles: [],
+  currentProfile: { first_name: "", last_name: "", birthday: "", gender: "" }
 });
 
-const ProfileReducer = (state = _nullUser, action) => {
-  debugger
+const ProfileReducer = (state = _initialState, action) => {
+  const mergeFunc = merge;
   switch(action.type) {
     case RECEIVE_PROFILE:
-      const currentProfile = action.currentProfile;
-      return merge({}, _nullUser, {
-        currentProfile
+      return merge({}, state, {
+        currentProfile: action.currentProfile
+      });
+    case RECEIVE_PROFILES:
+      return merge({}, state, {
+        profiles: action.profiles
       });
     default:
       return state;

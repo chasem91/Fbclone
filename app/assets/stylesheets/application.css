@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+html, head, title, body, div, ul, li {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+body {
+  box-sizing: content-box;
+  font-family: serif;
+  font-size: 16px;
+  line-height: 16px;
+  line-height: 1.16666666666;
+  background: #eee;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+}
+
+.profile {
+  background: lightblue;
+  width: 500px;
+  margin: 0 auto;
+  font-size: 24px;
+}

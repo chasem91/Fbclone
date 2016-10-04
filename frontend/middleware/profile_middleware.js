@@ -1,15 +1,20 @@
-import {  GET_PROFILE,
-          receiveProfile
-       } from '../actions/profile_actions';
-
-import { fetchProfile } from '../util/profile_api_util';
+import {  GET_PROFILE, GET_PROFILES, receiveProfile, receiveProfiles } from '../actions/profile_actions';
+import { fetchProfile, fetchProfiles } from '../util/profile_api_util';
 
 export default ({getState, dispatch}) => next => action => {
-  const successCallback = profile => dispatch(receiveProfile(profile));
   switch(action.type){
     case GET_PROFILE:
-      fetchProfile(action.username, successCallback);
+      const fetchProfileSuccess = profile => {
+        dispatch(receiveProfile(profile));
+      };
+      fetchProfile(action.id, fetchProfileSuccess);
       return next(action);
+    case GET_PROFILES:
+      const fetchProfilesSuccess = profiles => {
+        debugger
+        dispatch(receiveProfiles(profiles));
+      };
+      fetchProfiles(fetchProfilesSuccess);
     default:
       return next(action);
   }

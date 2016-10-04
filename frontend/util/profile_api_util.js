@@ -1,9 +1,19 @@
-import { getProfile } from '../actions/profile_actions';
+import { getProfile, getProfiles } from '../actions/profile_actions';
 
-export const fetchProfile = (username, success) => {
+export const fetchProfile = (id, success) => {
 	$.ajax({
 		method: 'GET',
-		url: `/api/profiles/${username}`,
-		success
+		url: `/api/users/${id}`,
+		success,
+    error: () => console.log('error fetching profile')
+	});
+};
+
+export const fetchProfiles = (success) => {
+	$.ajax({
+		method: 'GET',
+		url: `/api/users`,
+		success,
+    error: () => console.log('error fetching all profiles')
 	});
 };

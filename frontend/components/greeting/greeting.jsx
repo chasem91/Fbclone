@@ -15,6 +15,8 @@ const personalGreeting = (currentUser, logout) => (
 		<button className="header-button" onClick={logout}>Log Out</button>
     <br></br>
     <Link to="/profile" activeClassName="current">Profile</Link>
+    <br></br>
+    <Link to="/profiles" activeClassName="current">Profiles</Link>
 	</hgroup>
 );
 
