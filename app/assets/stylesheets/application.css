@@ -52,7 +52,7 @@ ul {
 
 .profile {
 background: lightblue;
-width: 500px;
+width: 100%;
 margin: 0 auto;
 font-size: 24px;
 }
@@ -253,4 +253,82 @@ font-weight: bold;
 
 .login-form-box {
   float: right;
+}
+
+.header-group {
+  width: 100%;
+  height: 42px;
+  background: rgb(59, 89, 152);
+  border-bottom: 1px solid rgb(41, 72, 125);
+}
+
+.header-nav {
+  width: 1014px;
+  margin: 0 auto;
+}
+
+
+
+
+/*search bar styling*/
+
+.search-bar-form {
+  width: 500px;
+  height: 20px;
+}
+
+.search-bar {
+  margin: 0;
+  width: 380px;
+  height: 20px;
+  font-size: 1px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+}
+
+.search-submit {
+  border: none;
+  height: 20px;
+  background: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*greeting header*/
+
+.header-nav-links li{
+  float: left;
+}
+
+.small-logo {
+  font-weight: bold;
+  color: #fff;
+  font-size: 32px;
+}
+
+.search-bar-container {
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+/*profile header nav styling*/
+
+
+.profile-header-nav-container {
+  margin: 0 auto;
+}
+
+.profile-header-nav-links li {
+  float: left;
+  font-size: 18px;
+  border-left: 1px solid gray;
+}
+
+.profile-header-nav-links li:last-child {
+  border-right: 1px solid gray;
+}
+
+.profile-header-nav-links a {
+  padding: 24px;
 }

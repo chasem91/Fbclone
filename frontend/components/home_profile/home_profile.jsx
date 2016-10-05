@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import ProfileHeaderNavContainer from '../profile_header_nav/profile_header_nav_container';
 
 class HomeProfile extends React.Component {
 	constructor(props) {
@@ -14,12 +15,23 @@ class HomeProfile extends React.Component {
     const profile = this.props.currentProfile;
 		return (
 			<div className="profile">Home Profile
-        <h1>{profile.first_name} {profile.last_name}</h1>
-        <h3>GENDER: {profile.gender}</h3>
-        <h3>BIRTHDAY: {profile.birthday}</h3>
+        <img className="profile-header-image"></img>
+        <ProfileHeaderNavContainer />
 			</div>
 		);
 	}
 }
 
 export default HomeProfile;
+
+
+
+
+
+
+
+
+
+// <h1>{profile.first_name} {profile.last_name}</h1>
+// <h3>GENDER: {profile.gender}</h3>
+// <h3>BIRTHDAY: {profile.birthday}</h3>
