@@ -10,14 +10,18 @@ class Session extends React.Component {
 
 
 	render() {
-		return (
-      <div className="session-form-container">
-        <header className="logged-out-header">
-          <LogInFormContainer />
-        </header>
-        <SignUpFormContainer />
-			</div>
-		);
+    if (this.props.loggedIn) {
+      return <div></div>;
+    } else {
+      return (
+        <div className="session-form-container">
+          <header className="logged-out-header">
+            <LogInFormContainer />
+          </header>
+          <SignUpFormContainer />
+        </div>
+      );
+    }
 	}
 }
 

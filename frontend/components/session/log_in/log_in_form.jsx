@@ -5,13 +5,8 @@ class LogIn extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: "",
 			password: "",
-			email: "",
-      gender: "",
-      birthday: "",
-      first_name: "",
-      last_name: "",
+			email: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -35,15 +30,7 @@ class LogIn extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.processForm({user});
-	}
-
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
-		} else {
-			return <Link to="/login">log in instead</Link>;
-		}
+		this.props.login({user});
 	}
 
 	renderErrors() {

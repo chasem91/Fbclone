@@ -13,6 +13,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
 const App = ({children}) => (
   <div>
     <SessionContainer />
+    <GreetingContainer />
     {children}
   </div>
 );

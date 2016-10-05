@@ -30,7 +30,7 @@ html, head, title, body, div, ul, li, h1, h2, h3, h4, h5 {
 
 body {
   box-sizing: content-box;
-  font-family: serif;
+  font-family: "Tahoma", serif;
   font-size: 16px;
   line-height: 16px;
   line-height: 1.16666666666;
@@ -48,27 +48,32 @@ ul {
   display: block;
 }
 
+/*profile styling*/
+
 .profile {
-  background: lightblue;
-  width: 500px;
-  margin: 0 auto;
-  font-size: 24px;
+background: lightblue;
+width: 500px;
+margin: 0 auto;
+font-size: 24px;
 }
 
 .profile-index {
-  background: white;
-  width: 600px;
-  margin: 0 auto;
+background: white;
+width: 600px;
+margin: 0 auto;
 }
 
 .profile-index-item {
-  background: lightblue;
-  width: 80%;
-  margin: 20px auto;
-  font-size: 36px;
-  text-decoration: none;
-  font-weight: bold;
+background: lightblue;
+width: 80%;
+margin: 20px auto;
+font-size: 36px;
+text-decoration: none;
+font-weight: bold;
 }
+
+
+/*sign up styling*/
 
 .sign-up-messages {
   float: left;
@@ -76,57 +81,42 @@ ul {
 
 .sign-up-messages > h1 {
   font-size: 32px;
-  width: 408.72px;
+  width: 565px;
   margin: 80px 0;
 }
 
 .sign-up-bullets {
   margin: 60px 0;
+  color: rgb(102, 102, 102);
 }
 
-.sign-up-bullets > li {
-  margin: 40px 0;
+.sign-up-bullets li {
+  list-style-type: none;
+  height: 80px;
+  vertical-align: middle;
 }
 
-.sign-up-bullets > li > strong {
-  font-size: 22px;
-}
-
-.logged-out-header {
-  width: 100%;
-  height: 82px;
-  background: rgb(59, 89, 152);
-  float: left;
-  border-bottom: 1px solid rgb(19, 55, 131);
-}
-
-.large-logo {
-  float: left;
-  position: absolute;
-  top: 36px;
+.sign-up-bullets span {
   font-weight: bold;
-  font-size: 28px;
-  text-decoration: none;
-  color: #fff
+  color: rgb(51, 51, 51);
 }
 
-.logged-out-nav {
-  width: 980px;
-  margin: 0 auto;
-
-}
-
-.login-input {
+.sign-up-bullets img {
   float: left;
 }
 
-.login-form > ul {
-  color: white;
-  margin: 5px;
+.sign-up-bullets > li > h4 > strong  {
+  font-size: 18px;
+  color: rgb(52, 52, 52);
 }
 
-.login-form-box {
-  float: right;
+.iconImages {
+  float: left;
+}
+
+.iconImages li {
+  width: 80px;
+  height: 80px;
 }
 
 .email-input {
@@ -223,4 +213,44 @@ ul {
 .sign-up-content {
   width: 980px;
   margin: 0 auto;
+}
+
+
+/*log in styling*/
+
+.logged-out-header {
+  width: 100%;
+  height: 82px;
+  background: rgb(59, 89, 152);
+  float: left;
+  border-bottom: 1px solid rgb(19, 55, 131);
+}
+
+.large-logo {
+  float: left;
+  position: absolute;
+  top: 36px;
+  font-weight: bold;
+  font-size: 28px;
+  text-decoration: none;
+  color: #fff
+}
+
+.logged-out-nav {
+  width: 980px;
+  margin: 0 auto;
+
+}
+
+.login-input {
+  float: left;
+}
+
+.login-form > ul {
+  color: white;
+  margin: 5px;
+}
+
+.login-form-box {
+  float: right;
 }

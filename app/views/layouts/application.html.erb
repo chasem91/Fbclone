@@ -5,6 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    window.signupImages = {
+      findMoreImage: "<%= image_url("session_page/icons/find_more.png") %>",
+      seePhotosImage: "<%= image_url("session_page/icons/see_photos.png") %>",
+      shareImage: "<%= image_url("session_page/icons/share.png") %>",
+    }
+  </script>
 </head>
 <body>
 
