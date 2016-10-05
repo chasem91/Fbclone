@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 
-class SessionForm extends React.Component {
+class LogIn extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -58,42 +58,6 @@ class SessionForm extends React.Component {
 		);
 	}
 
-  // <label> First Name:
-  //   <input type="text"
-  //     value={this.state.first_name}
-  //     onChange={this.update("first_name")}
-  //     className="login-input" />
-  // </label>
-  //
-  // <label> Last Name:
-  //   <input type="text"
-  //     value={this.state.last_name}
-  //     onChange={this.update("last_name")}
-  //     className="login-input" />
-  // </label>
-  //
-  // <label> Gender:
-  //
-  //   <input type="text"
-  //     value={this.state.gender}
-  //     onChange={this.update("gender")}
-  //     className="login-input" />
-  // </label>
-  // <label> Birthday:
-  //   <input type="text"
-  //     value={this.state.birthday}
-  //     onChange={this.update("birthday")}
-  //     className="login-input" />
-  // </label>
-  //
-  // <label> Username:
-  //   <input type="text"
-  //     value={this.state.username}
-  //     onChange={this.update("username")}
-  //     className="login-input" />
-  // </label>
-  // Please {this.props.formType} or {this.navLink()}
-
 	render() {
 		return (
 			<div className="session-form-container">
@@ -131,7 +95,6 @@ class SessionForm extends React.Component {
 			</div>
 		);
 	}
-
 }
 
-export default SessionForm;
+export default LogIn;

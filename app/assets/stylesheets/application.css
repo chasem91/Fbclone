@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, head, title, body, div, ul, li, h1 {
+html, head, title, body, div, ul, li, h1, h2, h3, h4, h5 {
   border: 0;
   padding: 0;
   margin: 0;
@@ -34,12 +34,18 @@ body {
   font-size: 16px;
   line-height: 16px;
   line-height: 1.16666666666;
-  background: #eee;
+  background: #fff;
   color: #000;
 }
 
 ul {
   list-style: none;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
 .profile {
@@ -64,11 +70,34 @@ ul {
   font-weight: bold;
 }
 
+.sign-up-messages {
+  float: left;
+}
+
+.sign-up-messages > h1 {
+  font-size: 32px;
+  width: 408.72px;
+  margin: 80px 0;
+}
+
+.sign-up-bullets {
+  margin: 60px 0;
+}
+
+.sign-up-bullets > li {
+  margin: 40px 0;
+}
+
+.sign-up-bullets > li > strong {
+  font-size: 22px;
+}
+
 .logged-out-header {
   width: 100%;
-  height: 60px;
+  height: 82px;
   background: rgb(59, 89, 152);
   float: left;
+  border-bottom: 1px solid rgb(19, 55, 131);
 }
 
 .large-logo {
@@ -82,7 +111,7 @@ ul {
 }
 
 .logged-out-nav {
-  width: 900px;
+  width: 980px;
   margin: 0 auto;
 
 }
@@ -103,6 +132,7 @@ ul {
 .email-input {
   float: left;
 }
+
 .password-input {
   float: left;
 }
@@ -113,4 +143,84 @@ ul {
   background: rgb(66, 103, 178);
   border: 1px solid rgb(41, 72, 125);
   border-radius: 2px;
+}
+
+.form-and-header {
+  float: right;
+  margin: 40px 0;
+}
+
+.sign-up-header > h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.sign-up-header > h3 {
+  font-size: 20px;
+}
+
+.sign-up-form-container {
+  background: rgb(237, 240, 245);
+  height: 760px;
+  width: 100%;
+}
+
+.sign-up-form {
+  float: right;
+  width: 400px;
+}
+
+.name-inputs {
+  width: 100%;
+}
+
+.name-inputs > input {
+  float: left;
+  width: 174px;
+}
+
+.name-inputs >input:last-child {
+  margin-left: 20px;
+}
+
+.sign-up-input {
+  display: block;
+  width: 380px;
+  height: 30px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 20px;
+  padding: 4px;
+  border: 1px solid rgb(189, 199, 216);
+}
+
+.sign-up-input > ul > li {
+  float: left;
+}
+
+.sign-up-submit {
+  width: 160px;
+  height: 42px;
+  background: rgb(97, 158, 78);
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  border-left: 1px solid rgb(192, 192, 192);
+  border-top: 1px solid rgb(192, 192, 192);
+  border-right: 1px solid rgb(108, 108, 108);
+  border-bottom: 1px solid rgb(108, 108, 108);
+}
+
+.birthday-inputs > h3 {
+  font-size: 22px;
+}
+
+.gender {
+  border: none;
+}
+
+.sign-up-content {
+  width: 980px;
+  margin: 0 auto;
 }
