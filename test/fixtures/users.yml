@@ -9,6 +9,10 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  birthday        :date
+#  gender          :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

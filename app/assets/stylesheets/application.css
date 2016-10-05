@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, head, title, body, div, ul, li {
+html, head, title, body, div, ul, li, h1 {
   border: 0;
   padding: 0;
   margin: 0;
@@ -47,4 +47,70 @@ ul {
   width: 500px;
   margin: 0 auto;
   font-size: 24px;
+}
+
+.profile-index {
+  background: white;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.profile-index-item {
+  background: lightblue;
+  width: 80%;
+  margin: 20px auto;
+  font-size: 36px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logged-out-header {
+  width: 100%;
+  height: 60px;
+  background: rgb(59, 89, 152);
+  float: left;
+}
+
+.large-logo {
+  float: left;
+  position: absolute;
+  top: 36px;
+  font-weight: bold;
+  font-size: 28px;
+  text-decoration: none;
+  color: #fff
+}
+
+.logged-out-nav {
+  width: 900px;
+  margin: 0 auto;
+
+}
+
+.login-input {
+  float: left;
+}
+
+.login-form > ul {
+  color: white;
+  margin: 5px;
+}
+
+.login-form-box {
+  float: right;
+}
+
+.email-input {
+  float: left;
+}
+.password-input {
+  float: left;
+}
+
+.session-submit {
+  margin: 20px;
+  color: white;
+  background: rgb(66, 103, 178);
+  border: 1px solid rgb(41, 72, 125);
+  border-radius: 2px;
 }

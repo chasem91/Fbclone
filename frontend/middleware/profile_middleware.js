@@ -11,10 +11,10 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
     case GET_PROFILES:
       const fetchProfilesSuccess = profiles => {
-        debugger
         dispatch(receiveProfiles(profiles));
       };
       fetchProfiles(fetchProfilesSuccess);
+      return next(action);
     default:
       return next(action);
   }

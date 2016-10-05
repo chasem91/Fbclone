@@ -14,13 +14,13 @@ class ProfileIndex extends React.Component {
 	render() {
     const profiles = this.props.profiles.map( profile => {
       return (
-        <li className="profile_index_item">
+        <div className="profile_index_item">
           <ProfileIndexItem props={profile} />
-        </li>
+        </div>
       );
     });
     return (
-      <div className="profile_index">
+      <div className="profile-index">
         <ul>
           {profiles}
         </ul>

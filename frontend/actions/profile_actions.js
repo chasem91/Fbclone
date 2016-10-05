@@ -1,5 +1,5 @@
 export const GET_PROFILE = "GET_PROFILE";
-export const GET_PROFILES = "GET_PROFILE";
+export const GET_PROFILES = "GET_PROFILES";
 export const RECEIVE_PROFILE = "RECEIVE_PROFILE";
 export const RECEIVE_PROFILES = "RECEIVE_PROFILES";
 

@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router';
 
-export default ({ first_name, last_name }) => (
-  <div>
-    <h3>{first_name} {last_name}</h3>
-  </div>
-);
+export default ({ props }) => {
+  return (
+    <div className="profile-index-item">
+      <li>
+        <Link to={`/users/${props.id}`}>
+          {props.first_name} {props.last_name}
+        </Link>
+      </li>
+    </div>
+  );
+};

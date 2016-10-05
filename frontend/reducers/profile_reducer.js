@@ -1,10 +1,17 @@
 import { RECEIVE_PROFILE, RECEIVE_PROFILES } from '../actions/profile_actions';
 import merge from 'lodash/merge';
 
-const _initialState = Object.freeze({
-  profiles: [],
-  currentProfile: { first_name: "", last_name: "", birthday: "", gender: "" }
-});
+const _initialState = Object.freeze(
+  {
+    profiles: [],
+    currentProfile: {
+      first_name: "",
+      last_name: "",
+      birthday: "",
+      gender: ""
+    }
+  }
+);
 
 const ProfileReducer = (state = _initialState, action) => {
   const mergeFunc = merge;
@@ -21,7 +28,5 @@ const ProfileReducer = (state = _initialState, action) => {
       return state;
   }
 };
-
-
 
 export default ProfileReducer;

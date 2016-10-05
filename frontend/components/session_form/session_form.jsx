@@ -6,7 +6,12 @@ class SessionForm extends React.Component {
 		super(props);
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			email: "",
+      gender: "",
+      birthday: "",
+      first_name: "",
+      last_name: "",
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -53,35 +58,76 @@ class SessionForm extends React.Component {
 		);
 	}
 
+  // <label> First Name:
+  //   <input type="text"
+  //     value={this.state.first_name}
+  //     onChange={this.update("first_name")}
+  //     className="login-input" />
+  // </label>
+  //
+  // <label> Last Name:
+  //   <input type="text"
+  //     value={this.state.last_name}
+  //     onChange={this.update("last_name")}
+  //     className="login-input" />
+  // </label>
+  //
+  // <label> Gender:
+  //
+  //   <input type="text"
+  //     value={this.state.gender}
+  //     onChange={this.update("gender")}
+  //     className="login-input" />
+  // </label>
+  // <label> Birthday:
+  //   <input type="text"
+  //     value={this.state.birthday}
+  //     onChange={this.update("birthday")}
+  //     className="login-input" />
+  // </label>
+  //
+  // <label> Username:
+  //   <input type="text"
+  //     value={this.state.username}
+  //     onChange={this.update("username")}
+  //     className="login-input" />
+  // </label>
+  // Please {this.props.formType} or {this.navLink()}
+
 	render() {
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to Fbclone!
-					<br/>
-					Please {this.props.formType} or {this.navLink()}
-					{ this.renderErrors() }
-					<div className="login-form">
-						<br/>
-						<label> Username:
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
-						</label>
+			<div className="session-form-container">
+        <header className="logged-out-header">
+          <nav className="logged-out-nav">
+            <h1 className="large-logo">fbclone</h1>
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              <div className="login-form">
 
-						<br/>
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
+                <ul className="email-input">
+                  <li>Email</li>
+                  <li>
+                    <input type="text"
+                      value={this.state.email}
+                      onChange={this.update("email")}
+                      />
+                  </li>
+                </ul>
 
-						<br/>
-						<input type="submit" value="Submit" />
-					</div>
-				</form>
+                <ul className="password-input">
+                  <li>Password</li>
+                  <li>
+                    <input type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    />
+                  </li>
+                </ul>
+
+                <input className="session-submit" type="submit" value="Log In" />
+              </div>
+            </form>
+          </nav>
+        </header>
 			</div>
 		);
 	}
