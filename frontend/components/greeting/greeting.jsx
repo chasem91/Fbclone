@@ -5,13 +5,13 @@ import SearchBarContainer from '../search_bar/search_bar_container';
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
     <nav className="header-nav">
-      <ul className="header-nav-links">
-        <li><span className="small-logo">F</span></li>
-        <li className="search-bar-container"><SearchBarContainer /></li>
-        <li><button className="header-button" onClick={logout}>Log Out</button></li>
-        <li><Link to="/profile" activeClassName="current">Profile</Link></li>
-        <li><Link to="/profiles" activeClassName="current">Profiles</Link></li>
-      </ul>
+      <div className="header-nav-links">
+        <span className="small-logo">F</span>
+        <SearchBarContainer />
+        <button className="header-button" onClick={logout}>Log Out</button>
+        <Link to="/profile" activeClassName="current">Profile</Link>
+        <Link to="/profiles" activeClassName="current">Profiles</Link>
+      </div>
     </nav>
 	</hgroup>
 );

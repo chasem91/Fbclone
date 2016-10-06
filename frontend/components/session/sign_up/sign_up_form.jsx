@@ -6,11 +6,13 @@ class SignUp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: "",
 			password: "",
 			email: "",
+			verificationEmail: "",
       gender: "",
-      birthday: "",
+      birthMonth: "",
+      birthDay: "",
+      birthYear: "",
       first_name: "",
       last_name: "",
 		};
@@ -35,7 +37,10 @@ class SignUp extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const user = this.state;
+		let user = this.state;
+    user.birthday = `${user.birthMonth}-${user.birthDay}-${user.birthYear}`;
+    user.email = user.email === user.verificationEmail ? user.email : "match_error";
+    this.props.signup({ user });
 	}
 
 	navLink() {
@@ -63,6 +68,7 @@ class SignUp extends React.Component {
 			<div className="sign-up-form-container">
         <div className="sign-up-content">
           <section className="sign-up-messages">
+            {this.renderErrors()}
             <h1 className="">Connect with friends and the world around you on Fbclone.</h1>
             <ul className="iconImages">
               <li><img className="iconImage" src={window.signupImages.seePhotosImage}/></li>
@@ -97,14 +103,14 @@ class SignUp extends React.Component {
                 </div>
                 <input type="text"
                   placeholder="Email"
-                  value={this.state.first_email}
-                  onChange={this.update("first_email")}
+                  value={this.state.email}
+                  onChange={this.update("email")}
                   className="sign-up-input" />
 
                 <input type="text"
                   placeholder="Re-enter email"
-                  value={this.state.second_email}
-                  onChange={this.update("second_email")}
+                  value={this.state.verificationEmail}
+                  onChange={this.update("verificationEmail")}
                   className="sign-up-input" />
 
                 <input type="password"
@@ -115,7 +121,7 @@ class SignUp extends React.Component {
 
                 <ul className="birthday-inputs">
                   <h3>Birthday</h3>
-                  <select name="month" id="month" size="1">
+                  <select onChange={this.update("birthMonth")} name="month" id="month" size="1">
                     <option value="01">January</option>
                     <option value="02">February</option>
                     <option value="03">March</option>
@@ -129,21 +135,21 @@ class SignUp extends React.Component {
                     <option value="11">November</option>
                     <option value="12">December</option>
                   </select>
-                  <select name="day" id="day" size="1">
+                  <select onChange={this.update("birthDay")} name="day" id="day" size="1">
                     <option value="01">01</option>
                   </select>
-                  <select name="year" id="year" size="1">
+                  <select onChange={this.update("birthYear")} name="year" id="year" size="1">
                     <option value="2016">2016</option>
                   </select>
                 </ul>
 
                 <div className="sign-up-input gender group">
                   <ul className="female-input">
-                    <li><input type="radio" value="female"/></li>
+                    <li><input onChange={this.update("gender")} type="radio" name="gender" value="female"/></li>
                     <li><strong>Female</strong></li>
                   </ul>
                   <ul className="male-input">
-                    <li><input type="radio" value="male"/></li>
+                    <li><input onChange={this.update("gender")} type="radio" name="gender" value="male"/></li>
                     <li><strong>Male</strong></li>
                   </ul>
                 </div>

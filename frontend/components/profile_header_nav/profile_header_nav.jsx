@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default (props) => (
-  <div className="profile_header_nav_container">
+  <div className="">
     <form className="profile-header-nav">
       <ul className="profile-header-nav-links">
         <li><a>Timeline</a></li>

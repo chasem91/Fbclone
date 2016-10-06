@@ -14,18 +14,23 @@
  *= require_self
  */
 
-html, head, title, body, div, ul, li, h1, h2, h3, h4, h5 {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  outline: 0;
-  font: inherit;
-  box-sizing: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  color: inherit;
-  background: transparent;
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, font, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td {
+ 	margin: 0;
+ 	padding: 0;
+ 	border: 0;
+ 	outline: 0;
+ 	font-weight: inherit;
+ 	font-style: inherit;
+ 	font-size: 100%;
+ 	font-family: inherit;
+ 	vertical-align: baseline;
 }
 
 body {
@@ -169,7 +174,7 @@ font-weight: bold;
   width: 174px;
 }
 
-.name-inputs >input:last-child {
+.name-inputs > input:last-child {
   margin-left: 20px;
 }
 
@@ -255,6 +260,11 @@ font-weight: bold;
   float: right;
 }
 
+
+
+
+
+/*search bar styling*/
 .header-group {
   width: 100%;
   height: 42px;
@@ -267,32 +277,26 @@ font-weight: bold;
   margin: 0 auto;
 }
 
-
-
-
-/*search bar styling*/
-
 .search-bar-form {
   width: 500px;
   height: 20px;
 }
 
 .search-bar {
-  margin: 0;
   width: 380px;
-  height: 20px;
-  font-size: 1px;
+  height: 24px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border: none;
 }
 
 .search-submit {
-  border: none;
-  height: 20px;
+  height: 26px;
+  width: 60px;
   background: #fff;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  border: none;
 }
 
 /*greeting header*/
@@ -308,27 +312,13 @@ font-weight: bold;
 }
 
 .search-bar-container {
-  padding-left: 10px;
+  margin-top: 8px;
+  padding-left: 14px;
   padding-right: 30px;
 }
 
 /*profile header nav styling*/
 
-
 .profile-header-nav-container {
-  margin: 0 auto;
-}
-
-.profile-header-nav-links li {
-  float: left;
-  font-size: 18px;
-  border-left: 1px solid gray;
-}
-
-.profile-header-nav-links li:last-child {
-  border-right: 1px solid gray;
-}
-
-.profile-header-nav-links a {
-  padding: 24px;
+  margin-left: 400px;
 }

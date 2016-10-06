@@ -9,7 +9,7 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  signup: () => dispatch(signup()),
+  signup: user => dispatch(signup(user)),
   login: user  => dispatch(login(user)),
 });
 

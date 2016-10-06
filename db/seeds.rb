@@ -8,7 +8,6 @@
 
 20.times do
   user = User.create(
-    username: Faker::Internet.user_name,
     email: Faker::Internet.free_email,
     password_digest: BCrypt::Password.create("password"),
     session_token: "kjslkjafhldskhjfas",
@@ -20,7 +19,6 @@
 end
 
 User.create(
-  username: "chasem91",
   email: "chasemartin91@gmail.com",
   password_digest: BCrypt::Password.create("password"),
   session_token: "kahg;fkjhga;skjdfhg;",
