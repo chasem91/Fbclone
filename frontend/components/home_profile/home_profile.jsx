@@ -16,7 +16,7 @@ class HomeProfile extends React.Component {
 		return (
 			<div className="profile">Home Profile
         <img className="profile-header-image"></img>
-        <div className="profile-header-nav-container" >
+        <div className="profile-header-nav-container group" >
           <ProfileHeaderNavContainer />
         </div>
 			</div>

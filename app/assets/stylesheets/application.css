@@ -319,6 +319,12 @@ font-weight: bold;
 
 /*profile header nav styling*/
 
+.profile-header-nav-links li {
+  float: left;
+}
+
 .profile-header-nav-container {
-  margin-left: 400px;
+  border: 1px solid black;
+  width: 850px;
+  margin-left: 26%;
 }
