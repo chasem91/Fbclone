@@ -1,0 +1,31 @@
+.profile-action-bar {
+  position: absolute;
+  display: flex;
+  top: 250px;
+  left: 460px;
+}
+
+.friends-action {
+  margin-right: 20px;
+  border: 1px solid rgba(40, 40, 40, .5);
+  border-radius: 2px;
+}
+
+.side-actions {
+  display: flex;
+  border: 1px solid rgba(40, 40, 40, .5);
+  border-radius: 2px;
+}
+
+.side-actions div {
+  border-left: 1px solid #ccc;
+}
+
+.side-actions div:first-child {
+  border-left: none
+}
+
+.profile-action-bar div {
+  padding: 4px 20px;
+  background: rgb(246, 247, 249);
+}

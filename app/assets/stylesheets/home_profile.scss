@@ -1,0 +1,33 @@
+.home-profile {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 854px;
+  margin: 0 auto;
+}
+
+.profile-header-image {
+  height: 316px;
+  width: 100%;
+}
+
+.profile-picture {
+  position: absolute;
+  top: 184px;
+  left: 34px;
+  height: 162px;
+  width: 162px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid rgba(179, 179, 179, .5);
+  border-radius: 4px;
+}
+
+.profile-name {
+  position: absolute;
+  top: 260px;
+  left: 232px;
+  font-size: 28px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #fff;
+}

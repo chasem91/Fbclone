@@ -1,0 +1,31 @@
+.search-bar {
+  display: flex;
+  position: relative;
+}
+
+.search-bar-input {
+  display: inline-block;
+  font-size: 20px;
+  -webkit-appearance: none;
+  border: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  height: 24px;
+  width: 400px;
+}
+
+.search-bar-submit {
+  display: inline-block;
+  font-size: 20px;
+  -webkit-appearance: none;
+  border: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  height: 26px;
+  width: 48px;
+  background: #fff;
+}
+
+.search-bar-submit:hover {
+  background: #eee;
+}

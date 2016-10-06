@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default (props) => (
-  <form className="search-bar-form">
-    <input className="search-bar" type="text" placeholder="Search Fbclone"></input>
-    <input className="search-submit" type="submit"></input>
-  </form>
+  <div className="search-bar group">
+    <input className="search-bar-input" name="search" type="text" placeholder="Search Fbclone"></input>
+    <button className="search-bar-submit" name="search" type="submit"></button>
+  </div>
 );

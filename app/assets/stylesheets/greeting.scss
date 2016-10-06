@@ -1,0 +1,20 @@
+.personal-greeting {
+  background: rgb(59, 89, 152);
+  height: 42px;
+  display: flex;
+  justify-content: center;
+}
+
+.personal-greeting-elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 856px;
+}
+
+.small-logo {
+  font-weight: bold;
+  color: #fff;
+  font-size: 28px;
+}
