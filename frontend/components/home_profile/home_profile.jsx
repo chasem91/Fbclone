@@ -17,12 +17,14 @@ class HomeProfile extends React.Component {
     const profile = this.props.currentProfile;
 		return (
 			<div className="home-profile group">
-        <img src={window.homeProfileImages.profileBanner} className="profile-header-image"></img>
-        <img src={window.homeProfileImages.profilePicture}className="profile-picture"></img>
-        <h3 className="profile-name">{profile.first_name} {profile.last_name}</h3>
-        <ProfileActionBar />
-        <ProfileHeaderNavContainer />
-        <TimelineContainer />
+        <div className="home-profile-main">
+          <img src={window.homeProfileImages.profileBanner} className="profile-header-image"></img>
+          <img src={window.homeProfileImages.profilePicture}className="profile-picture"></img>
+          <h3 className="profile-name">{profile.first_name} {profile.last_name}</h3>
+          <ProfileActionBar />
+          <ProfileHeaderNavContainer />
+          <TimelineContainer />
+        </div>
 			</div>
 		);
 	}

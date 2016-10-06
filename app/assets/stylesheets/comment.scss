@@ -1,0 +1,31 @@
+.comment {
+  display: flex;
+  margin: 12px 0;
+}
+
+.comment-author-picture {
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+}
+
+.comment-author {
+  color: rgb(54, 88, 153);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.comment-content {
+  font-size: 14px;
+}
+
+.comment-actions {
+  color: rgb(54, 88, 153);
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.comment-date {
+  color: rgb(144, 148, 156);
+  font-size: 14px;
+}

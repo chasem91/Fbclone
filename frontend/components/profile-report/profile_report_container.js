@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import SearchBar from './search_bar';
+import ProfileReport from './timeline';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
+
 
 const mapDispatchToProps = dispatch => ({
 
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchBar);
+)(ProfileReport);

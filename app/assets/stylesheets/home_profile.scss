@@ -1,14 +1,20 @@
 .home-profile {
   display: flex;
+  width: 981px;
+  margin: 0 auto;
+}
+
+.home-profile-main {
+  display: flex;
   position: relative;
   flex-direction: column;
   width: 854px;
-  margin: 0 auto;
 }
 
 .profile-header-image {
   height: 316px;
   width: 100%;
+
 }
 
 .profile-picture {
@@ -25,8 +31,8 @@
 
 .profile-name {
   position: absolute;
-  top: 260px;
-  left: 232px;
+  top: 266px;
+  left: 207px;
   font-size: 28px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: #fff;

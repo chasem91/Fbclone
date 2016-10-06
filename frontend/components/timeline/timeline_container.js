@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Timeline from './timeline';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  currentProfile: state.profile.currentProfile
 });
 
 
