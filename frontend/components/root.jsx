@@ -23,7 +23,6 @@ const Root = ({ store }) => {
       replace('/');
     }
   }
-  // <Link to="/" className="header-link"><h1>fbclone</h1></Link>
 
   return (
     <Provider store={store}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import ProfileHeaderNavContainer from '../profile_header_nav/profile_header_nav_container';
 import ProfileActionBar from '../profile_action_bar/profile_action_bar_container';
+import TimelineContainer from '../timeline/timeline_container';
 
 class HomeProfile extends React.Component {
 	constructor(props) {
@@ -21,6 +22,7 @@ class HomeProfile extends React.Component {
         <h3 className="profile-name">{profile.first_name} {profile.last_name}</h3>
         <ProfileActionBar />
         <ProfileHeaderNavContainer />
+        <TimelineContainer />
 			</div>
 		);
 	}

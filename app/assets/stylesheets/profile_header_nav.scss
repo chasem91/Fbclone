@@ -1,8 +1,10 @@
 .profile-header-nav {
   display: flex;
   justify-content: center;
-  border: 1px solid black;
-  border: 1px solid rgb(233, 234, 237);
+  border: 1px solid rgb(211, 214, 219);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #fff;
 }
 
 .profile-header-nav-links {
@@ -11,6 +13,10 @@
 }
 
 .profile-header-nav-links li {
+}
+
+.profile-header-nav-links a {
+  cursor: pointer;
   border-left: 1px solid rgb(233, 234, 237);
   padding: 10px 20px;
 }

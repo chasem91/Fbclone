@@ -9,17 +9,23 @@ class LogIn extends React.Component {
 			email: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleGuestLogin = this.handleGuestLogin.bind(this);
 	}
 
-	componentDidUpdate() {
-		this.redirectIfLoggedIn();
-	}
+	// componentDidUpdate() {
+	// 	this.redirectIfLoggedIn();
+	// }
+  //
+	// redirectIfLoggedIn(){
+	// 	if (this.props.loggedIn) {
+	// 		hashHistory.push("/");
+	// 	}
+	// }
 
-	redirectIfLoggedIn(){
-		if (this.props.loggedIn) {
-			hashHistory.push("/");
-		}
-	}
+  handleGuestLogin() {
+    const user = {password: "password", email: "guest@email.com"};
+    this.props.login({user});
+  }
 
 	update(field) {
 		return e => this.setState({
@@ -77,6 +83,7 @@ class LogIn extends React.Component {
                 <input className="session-submit" type="submit" value="Log In" />
               </div>
             </form>
+            <button onClick={this.handleGuestLogin} className="session-submit" type="submit">Guest</button>
           </nav>
         </header>
 			</div>

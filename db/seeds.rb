@@ -19,11 +19,11 @@
 end
 
 User.create(
-  email: "chasemartin91@gmail.com",
+  email: "guest@email.com",
   password_digest: BCrypt::Password.create("password"),
   session_token: "kahg;fkjhga;skjdfhg;",
-  first_name: "Chase",
-  last_name: "Martin",
-  birthday: "02-05-1991",
+  first_name: "Firstname",
+  last_name: "Lastname",
+  birthday: "01-01-1990",
   gender: "male"
 )
