@@ -5,11 +5,12 @@ import Profile from './profile';
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   observedUser: state.profile.observedUser,
-  currentProfile: state.profile.currentProfile
+  currentProfile: state.profile.currentProfile,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getProfile: id => dispatch(getProfile(id))
+  getProfile: id => dispatch(getProfile(id)),
+  getPhoto: id => dispatch(getPhoto(id))
 });
 
 export default connect(

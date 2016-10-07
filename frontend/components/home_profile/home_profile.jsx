@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import ProfileHeaderNavContainer from '../profile_header_nav/profile_header_nav_container';
 import ProfileActionBar from '../profile_action_bar/profile_action_bar_container';
 import TimelineContainer from '../timeline/timeline_container';
+import Photo from '../photo/photo';
 
 class HomeProfile extends React.Component {
 	constructor(props) {
@@ -11,10 +12,12 @@ class HomeProfile extends React.Component {
 
   componentDidMount() {
     this.props.getProfile(this.props.currentUser.id);
+    this.props.getPhoto(1);
   }
 
 	render() {
     const profile = this.props.currentProfile;
+    const photo = this.props.currentPhoto;
 		return (
 			<div className="home-profile group">
         <div className="home-profile-main">
@@ -24,6 +27,7 @@ class HomeProfile extends React.Component {
           <ProfileActionBar />
           <ProfileHeaderNavContainer />
           <TimelineContainer />
+          <Photo photo={photo} />
         </div>
 			</div>
 		);
