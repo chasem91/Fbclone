@@ -26,6 +26,14 @@ class User < ActiveRecord::Base
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 
+  has_many :timeline_posts,
+    foreign_key: :profile_id,
+    class_name: :Post
+
+  def timeline_posts_with_comments
+    self.timeline_posts.includes(:comments)
+  end
+
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
 		@password = password

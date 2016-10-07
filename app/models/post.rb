@@ -11,4 +11,15 @@
 #
 
 class Post < ActiveRecord::Base
+  validates :author_id, :profile_id, :content, null: false
+
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User
+
+  has_many :comments
+
+  def comments_with_author
+    self.comments.includes(:author)
+  end
 end

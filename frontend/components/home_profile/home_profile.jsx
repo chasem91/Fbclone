@@ -12,12 +12,10 @@ class HomeProfile extends React.Component {
 
   componentDidMount() {
     this.props.getProfile(this.props.currentUser.id);
-    this.props.getPhoto(1);
   }
 
 	render() {
     const profile = this.props.currentProfile;
-    const photo = this.props.currentPhoto;
 		return (
 			<div className="home-profile group">
         <div className="home-profile-main">
@@ -26,8 +24,7 @@ class HomeProfile extends React.Component {
           <h3 className="profile-name">{profile.first_name} {profile.last_name}</h3>
           <ProfileActionBar />
           <ProfileHeaderNavContainer />
-          <TimelineContainer />
-          <Photo photo={photo} />
+          <TimelineContainer currentProfile={this.props.currentProfile}/>
         </div>
 			</div>
 		);

@@ -11,4 +11,11 @@
 #
 
 class Comment < ActiveRecord::Base
+  validates :author_id, :post_id, :content, null: false
+
+  belongs_to :post
+
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User
 end

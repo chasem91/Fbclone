@@ -5,7 +5,6 @@ export default ({getState, dispatch}) => next => action => {
   switch(action.type){
     case GET_PROFILE:
       const fetchProfileSuccess = profile => {
-        console.log("fetchProfileSuccess is being called");
         dispatch(receiveProfile(profile));
       };
       fetchProfile(action.id, fetchProfileSuccess);

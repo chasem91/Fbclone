@@ -10,7 +10,6 @@ import { login, signup, logout } from '../util/session_api_util';
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => {
     dispatch(receiveCurrentUser(user));
-
   }
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;

@@ -8,7 +8,31 @@ const _initialState = Object.freeze(
       first_name: "",
       last_name: "",
       birthday: "",
-      gender: ""
+      gender: "",
+      posts: [
+        {
+          id: "",
+          author: {
+            id: "",
+            full_name: ""
+          },
+          profile_id: "",
+          content: "",
+          created_at: "",
+          comments: [
+            {
+              id: "",
+              author: {
+                id: "",
+                full_name: ""
+              },
+              post_id: "",
+              content: "",
+              created_at: ""
+            }
+          ]
+        }
+      ]
     }
   }
 );
