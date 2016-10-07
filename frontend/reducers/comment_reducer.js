@@ -1,18 +1,13 @@
-import { RECEIVE_COMMENT, RECEIVE_COMMENTS } from '../actions/comment_actions';
+import { RECEIVE_COMMENTS } from '../actions/comment_actions';
 import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
   {
-
   }
 );
 
 const CommentReducer = (state = _initialState, action) => {
   switch(action.type) {
-    case RECEIVE_COMMENT:
-      return merge({}, state, {
-        currentComment: action.currentComment
-      });
     case RECEIVE_COMMENTS:
       return merge({}, state, {
         comments: action.comments

@@ -3,10 +3,6 @@ import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
   {
-    photos: [],
-    currentPhoto: {
-      url: ""
-    }
   }
 );
 

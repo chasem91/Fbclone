@@ -22,11 +22,6 @@ export default class Post extends React.Component {
     }
   }
 
-  componentDidMount() {
-
-  }
-
-  // ({ post, currentProfile }) =>
   render() {
     const currentProfileName = `${this.props.currentProfile.first_name} ${this.props.currentProfile.last_name}`;
     const post = this.props.post;
@@ -47,7 +42,7 @@ export default class Post extends React.Component {
           </ul>
           <li className="post-likes">** (Names of users who liked)</li>
           <li className="post-comments">
-            <ul>
+            <ul ref="comments_list">
               {post.comments.map( comment => <li key={comment.id}><Comment comment={comment} /></li> )}
             </ul>
           </li>

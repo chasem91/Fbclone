@@ -31,5 +31,4 @@ class HomeProfile extends React.Component {
 	}
 }
 
-
 export default HomeProfile;

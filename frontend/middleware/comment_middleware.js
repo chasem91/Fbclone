@@ -1,4 +1,5 @@
-import {  GET_COMMENT, GET_COMMENTS, CREATE_COMMENT, receiveComment, receiveComments } from '../actions/comment_actions';
+import {  GET_COMMENT, GET_COMMENTS, CREATE_COMMENT, receiveComments } from '../actions/comment_actions';
+import {  receiveComment } from '../actions/post_actions';
 import { fetchComment, fetchComments, storeComment } from '../util/comment_api_util';
 
 export default ({getState, dispatch}) => next => action => {
