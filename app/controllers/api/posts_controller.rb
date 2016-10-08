@@ -3,7 +3,7 @@ require 'byebug'
 class Api::PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.where(user_id: params[:user_id])
     render "api/posts/index"
   end
 
@@ -24,6 +24,6 @@ class Api::PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:content, :author_id, :post_id)
+		params.require(:post).permit(:content, :user_id, :author_id, :post_id)
 	end
 end

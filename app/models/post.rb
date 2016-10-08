@@ -11,7 +11,7 @@
 #
 
 class Post < ActiveRecord::Base
-  validates :author_id, :profile_id, :content, null: false
+  validates :author_id, :content, null: false
 
   belongs_to :author,
     foreign_key: :author_id,
@@ -22,4 +22,5 @@ class Post < ActiveRecord::Base
   def comments_with_author
     self.comments.includes(:author)
   end
+
 end

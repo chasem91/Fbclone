@@ -1,25 +1,14 @@
-import {  GET_POST, GET_POSTS, CREATE_POST, receivePost, receivePosts } from '../actions/post_actions';
-import { fetchPost, fetchPosts, storePost } from '../util/post_api_util';
+import { GET_COMMENTS } from '../actions/post_actions';
+import { fetch_comments } from '../util/post_api_util';
 
-export default ({getState, dispatch}) => next => action => {
+
+export default ({ dispatch }) => next => action => {
   switch(action.type){
-    case GET_POST:
-      const fetchPostSuccess = post => {
-        dispatch(receivePost(post));
+    case GET_COMMENTS:
+      const fetchCommentsSuccess = comments => {
+        dispatch(receiveComments(comments));
       };
-      fetchPost(action.id, fetchPostSuccess);
-      return next(action);
-    case GET_POSTS:
-      const fetchPostsSuccess = posts => {
-        dispatch(receivePosts(posts));
-      };
-      fetchPosts(fetchPostsSuccess);
-      return next(action);
-    case CREATE_POST:
-      const successCallback = post => {
-        dispatch(receivePost(post));
-      }
-      storePost(action.post, successCallback);
+      fetchComments(action.post_id, fetchCommentsSuccess);
       return next(action);
     default:
       return next(action);

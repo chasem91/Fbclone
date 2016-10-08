@@ -8,8 +8,8 @@ const personalGreeting = (currentUser, logout) => (
       <span className="small-logo">F</span>
       <SearchBarContainer />
       <button className="header-button" onClick={logout}>Log Out</button>
-      <Link to="/profile" activeClassName="current">Profile</Link>
-      <Link to="/profiles" activeClassName="current">Profiles</Link>
+      <Link to="/user" activeClassName="current">Profile</Link>
+      <Link to="/users" activeClassName="current">Profiles</Link>
     </div>
   </div>
 );

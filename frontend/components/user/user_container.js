@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import { getProfiles } from '../../actions/profile_actions';
-import ProfileIndex from './profile_index';
+import { getUser } from '../../actions/user_actions';
+import User from './user';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  profiles: state.profile.profiles
+  user: state.user.currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({
-  getProfiles: () => dispatch(getProfiles())
+  getUser: id => dispatch(getUser(id)),
+  getPhoto: id => dispatch(getPhoto(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileIndex);
+)(User);

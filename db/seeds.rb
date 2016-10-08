@@ -34,7 +34,7 @@ Photo.create
   (1..4).each do
     Post.create(
       author_id: rand(20),
-      profile_id: i,
+      user_id: i,
       content: Faker::Hipster.sentence
     )
   end

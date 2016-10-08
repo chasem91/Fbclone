@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
-import ProfileContainer from './profile/profile_container';
-import HomeProfileContainer from './home_profile/home_profile_container';
-import ProfileIndexContainer from './profile_index/profile_index_container';
+import UserContainer from './user/user_container';
+import HomeUserContainer from './home_user/home_user_container';
+import UserIndexContainer from './user_index/user_index_container';
 
 const Root = ({ store }) => {
 
@@ -12,8 +12,6 @@ const Root = ({ store }) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
       replace('/');
-    } else {
-      store.dispatch({type: ""})
     }
   };
 
@@ -28,9 +26,8 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <Route path="/profiles" component={ProfileIndexContainer} onEnter={_ensureLoggedIn}/>
-          <Route path="/users/*" component={ProfileContainer} onEnter={_ensureLoggedIn}/>
-          <Route path="/profile" component={HomeProfileContainer} onEnter={_ensureLoggedIn}/>
+          <Route path="/users/*" component={UserContainer} onEnter={_ensureLoggedIn}/>
+          <Route path="/user" component={HomeUserContainer} onEnter={_ensureLoggedIn}/>
         </Route>
       </Router>
     </Provider>

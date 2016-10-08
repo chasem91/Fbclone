@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 export default ({ props }) => {
   return (
-    <div className="profile-index-item">
+    <div className="user-index-item">
       <li>
         <Link to={`/users/${props.id}`}>
           {props.first_name} {props.last_name}

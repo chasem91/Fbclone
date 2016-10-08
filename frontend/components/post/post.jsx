@@ -17,21 +17,27 @@ export default class Post extends React.Component {
         post_id: this.props.post.id,
         content
       };
-      this.props.createComment({ comment });
+      // this.props.createComment({ comment });
       commentTextarea.value = "";
     }
   }
 
+  componentDidMount() {
+    this.props.receivePost(this.props.postFromTimeline);
+  }
+  // this.props.getComments(this.props.post.id);
+
+  // const currentProfileName = `${this.props.post.first_name} ${this.props.post.last_name}`;
   render() {
-    const currentProfileName = `${this.props.currentProfile.first_name} ${this.props.currentProfile.last_name}`;
-    const post = this.props.post;
+    const post = this.props.post.posts[this.props.postFromTimeline];
+    debugger
     return (
       <div className="post group">
         <ul className="post-details group">
           <ul className="post-header">
-            <li><img className="post-author-picture" src={window.homeProfileImages.profilePicture}></img></li>
+            <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
             <ul>
-              <li className="post-author">{post.author.full_name} > {currentProfileName}</li>
+              <li className="post-author">{`${post.author_id}`} > {`${post.user_id}`}</li>
               <li className="post-date">{post.created_at}</li>
             </ul>
           </ul>
@@ -43,11 +49,10 @@ export default class Post extends React.Component {
           <li className="post-likes">** (Names of users who liked)</li>
           <li className="post-comments">
             <ul ref="comments_list">
-              {post.comments.map( comment => <li key={comment.id}><Comment comment={comment} /></li> )}
             </ul>
           </li>
           <ul className="comment-compose">
-            <li><img className="comment-compose-author-picture" src={window.homeProfileImages.profilePicture}></img></li>
+            <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
             <textarea className="comment-input" ref="comment_input" onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
           </ul>
         </ul>
@@ -55,3 +60,5 @@ export default class Post extends React.Component {
     );
   }
 }
+
+// {post.comments.map( comment => <li key={comment.id}><Comment comment={comment} /></li> )}

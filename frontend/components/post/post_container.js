@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import Post from './post';
-import { getPost } from '../../actions/post_actions';
-import { createComment } from '../../actions/comment_actions';
+import { getComments, receivePost } from '../../actions/post_actions';
 
 
 const mapStateToProps = state => {
-  debugger
   return {
     currentUser: state.session.currentUser,
+    user: state.user.user,
+    post: state.post
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  createComment: comment => dispatch(createComment(comment)),
-  getPost: id => dispatch(getPost(id))
+  receivePost: post => dispatch(receivePost(post)),
+  getComments: post_id => dispatch(getComments(post_id))
 });
 
 export default connect(
