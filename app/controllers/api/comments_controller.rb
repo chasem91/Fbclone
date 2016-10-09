@@ -3,7 +3,7 @@ require 'byebug'
 class Api::CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @comments = Comment.where("post_id = ?", params[:post_id])
     render "api/comments/index"
   end
 

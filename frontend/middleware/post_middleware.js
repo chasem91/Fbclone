@@ -1,5 +1,5 @@
-import { GET_COMMENTS } from '../actions/post_actions';
-import { fetch_comments } from '../util/post_api_util';
+import { GET_COMMENTS, receiveComments } from '../actions/post_actions';
+import { fetchComments } from '../util/post_api_util';
 
 
 export default ({ dispatch }) => next => action => {

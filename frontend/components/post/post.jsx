@@ -22,15 +22,20 @@ export default class Post extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.receivePost(this.props.postFromTimeline);
+    this.props.getComments(this.props.postFromTimeline.id);
   }
-  // this.props.getComments(this.props.post.id);
 
   // const currentProfileName = `${this.props.post.first_name} ${this.props.post.last_name}`;
   render() {
-    const post = this.props.post.posts[this.props.postFromTimeline];
-    debugger
+    const post = this.props.post.posts[this.props.postFromTimeline.id];
+    const comments = []
+    for (const key in post.comments) {
+      debugger
+      let comment = post.comments[key];
+      comments.push(<li key={comment.id}><Comment comment={comment} /></li>);
+    };
     return (
       <div className="post group">
         <ul className="post-details group">
@@ -49,6 +54,7 @@ export default class Post extends React.Component {
           <li className="post-likes">** (Names of users who liked)</li>
           <li className="post-comments">
             <ul ref="comments_list">
+              {comments}
             </ul>
           </li>
           <ul className="comment-compose">
@@ -60,5 +66,3 @@ export default class Post extends React.Component {
     );
   }
 }
-
-// {post.comments.map( comment => <li key={comment.id}><Comment comment={comment} /></li> )}
