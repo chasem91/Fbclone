@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  username       :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -29,6 +28,28 @@ class User < ActiveRecord::Base
   has_many :timeline_posts,
     foreign_key: :profile_id,
     class_name: :Post
+
+  has_many :friend_requests,
+    foreign_key: :friend_id,
+    class_name: :FriendRequest
+
+  has_many :requested_friends,
+    foreign_key: :user_id,
+    class_name: :FriendRequest
+
+  has_many :friend_request_details,
+    through: :friend_requests,
+    source: :user
+
+  has_many :requested_friend_details,
+    through: :requested_friends,
+    source: :friend
+
+  has_many :friendships
+
+  has_many :friends,
+    through: :friendships,
+    source: :friend
 
   def timeline_posts_with_comments
     self.timeline_posts.includes(:comments)

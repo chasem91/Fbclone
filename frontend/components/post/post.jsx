@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from '../comment/comment';
+import { Link } from 'react-router'
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -40,7 +41,11 @@ export default class Post extends React.Component {
           <ul className="post-header">
             <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
             <ul>
-              <li className="post-author">{`${post.author_id}`} > {`${post.user_id}`}</li>
+              <li className="post-author">
+                <Link to={`/users/${post.author.id}`}>{post.author.full_name}</Link>
+                <span> >  </span>
+                <Link to={`/users/${post.user.id}`}>{post.user.full_name}</Link>
+              </li>
               <li className="post-date">{post.created_at}</li>
             </ul>
           </ul>

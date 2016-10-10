@@ -6,6 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(
+  email: "guest@email.com",
+  password_digest: BCrypt::Password.create("password"),
+  session_token: "kahg;fkjhga;skjdfhg;",
+  first_name: "Firstname",
+  last_name: "Lastname",
+  birthday: "01-01-1990",
+  gender: "male"
+)
+
 19.times do
   user = User.create(
     email: Faker::Internet.free_email,
@@ -18,22 +28,11 @@
   )
 end
 
-User.create(
-  email: "guest@email.com",
-  password_digest: BCrypt::Password.create("password"),
-  session_token: "kahg;fkjhga;skjdfhg;",
-  first_name: "Firstname",
-  last_name: "Lastname",
-  birthday: "01-01-1990",
-  gender: "male"
-)
-
-Photo.create
 
 (1..20).each do |i|
-  (1..4).each do
+  4.times do
     Post.create(
-      author_id: rand(20),
+      author_id: rand(1..20),
       user_id: i,
       content: Faker::Hipster.sentence
     )
@@ -41,11 +40,22 @@ Photo.create
 end
 
 (1..80).each do |i|
-  (1..2).each do
+  2.times do
     Comment.create(
-      author_id: rand(20),
+      author_id: rand(1..20),
       post_id: i,
       content: Faker::Hipster.sentence
+    )
+  end
+end
+
+(1..20).each do |i|
+  (1..20).each do |j|
+    next if i == j
+    FriendRequest.create(
+      user_id: i,
+      friend_id: j,
+      approved: false
     )
   end
 end

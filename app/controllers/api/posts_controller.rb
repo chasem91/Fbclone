@@ -3,7 +3,7 @@ require 'byebug'
 class Api::PostsController < ApplicationController
 
   def index
-    @posts = Post.where(user_id: params[:user_id])
+    @posts = Post.where(user_id: params[:user_id]).includes(:author, :user)
     render "api/posts/index"
   end
 

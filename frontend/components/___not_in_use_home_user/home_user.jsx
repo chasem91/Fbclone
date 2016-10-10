@@ -24,7 +24,7 @@ class HomeUser extends React.Component {
           <h3 className="user-name">{user.first_name} {user.last_name}</h3>
           <UserActionBar />
           <UserHeaderNavContainer />
-          <TimelineContainer />
+          <TimelineContainer timelineUserId={this.props.currentUser.id} />
         </div>
 			</div>
 		);

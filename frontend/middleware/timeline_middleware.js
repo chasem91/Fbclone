@@ -1,5 +1,5 @@
-import { GET_POSTS, receivePosts } from '../actions/timeline_actions';
-import { fetchPosts } from '../util/timeline_api_util';
+import { GET_POSTS, CREATE_POST, receivePosts, createPost } from '../actions/timeline_actions';
+import { fetchPosts, postPost } from '../util/timeline_api_util';
 
 
 export default ({ dispatch }) => next => action => {
@@ -10,6 +10,9 @@ export default ({ dispatch }) => next => action => {
       };
       fetchPosts(action.user_id, fetchPostsSuccess);
       return next(action);
+    case CREATE_POST:
+      postPost(action.post, action.user_id, dispatch)
+      return next(action)
     default:
       return next(action);
   }

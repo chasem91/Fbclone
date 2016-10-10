@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: friend_requests
 #
 #  id         :integer          not null, primary key
-#  author_id  :integer          not null
-#  content    :string           not null
+#  user_id    :integer          not null
+#  friend_id  :integer          not null
+#  approved   :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer
 #
 
 require 'test_helper'
 
-class PostTest < ActiveSupport::TestCase
+class FriendRequestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

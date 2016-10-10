@@ -1,26 +1,40 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import UserHeaderNavContainer from '../user_header_nav/user_header_nav_container';
+import UserActionBar from '../user_action_bar/user_action_bar_container';
+import TimelineContainer from '../timeline/timeline_container';
+import Photo from '../photo/photo';
 
-class Profile extends React.Component {
+class HomeUser extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
   componentDidMount() {
-    const id = this.props.route.path === "/users/*" ? this.props.params.splat : this.props.currentUser.id;
-    this.props.getProfile(id);
+    this.props.getUser(parseInt(this.props.params.userId));
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.user.id !== parseInt(newProps.params.userId)) {
+      this.props.getUser(parseInt(newProps.params.userId));
+    }
   }
 
 	render() {
-    const profile = this.props.currentProfile;
+    const user = this.props.user;
 		return (
-			<div className="profile">
-        <h1>{profile.first_name} {profile.last_name}</h1>
-        <h3>GENDER: {profile.gender}</h3>
-        <h3>BIRTHDAY: {profile.birthday}</h3>
+			<div className="home-user group">
+        <div className="home-user-main">
+          <img src={window.homeUserImages.profileBanner} className="profile-header-image"></img>
+          <img src={window.homeUserImages.profilePicture} className="profile-picture"></img>
+          <h3 className="user-name">{user.first_name} {user.last_name}</h3>
+          <UserActionBar />
+          <UserHeaderNavContainer />
+          <TimelineContainer timelineUserId={this.props.params.userId} />
+        </div>
 			</div>
 		);
 	}
 }
 
-export default Profile;
+export default HomeUser;

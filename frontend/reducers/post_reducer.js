@@ -50,14 +50,15 @@ const PostReducer = (state = _initialState, action) => {
   switch(action.type) {
     case RECEIVE_POST:
       const newPosts = state.posts;
-      newPosts[action.post.id] = {
-        id: action.post.id,
-        author_id: action.post.author_id,
-        user_id: action.post.user_id,
-        content: action.post.content,
-        created_at: action.post.created_at,
-        comments: {}
-      };
+      // newPosts[action.post.id] = {
+      //   id: action.post.id,
+      //   author_id: action.post.author_id,
+      //   user_id: action.post.user_id,
+      //   content: action.post.content,
+      //   created_at: action.post.created_at,
+      //   comments: {}
+      // };
+      newPosts[action.post.id] = action.post
       return merge({}, state, {newPosts});
     case RECEIVE_COMMENTS:
       if (action.comments.length === 0) {

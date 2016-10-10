@@ -1,5 +1,18 @@
-import {  GET_USER, GET_USERS, receiveUser, receiveUsers } from '../actions/user_actions';
-import { fetchUser, fetchUsers } from '../util/user_api_util';
+import {
+  GET_USER,
+  GET_USERS,
+  GET_FRIEND_REQUESTS,
+  receiveUser,
+  receiveUsers,
+  getFriendRequests,
+  receiveFriendRequests
+} from '../actions/user_actions';
+
+import {
+  fetchUser,
+  fetchUsers,
+  fetchFriendRequests
+} from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
   switch(action.type){
@@ -15,6 +28,11 @@ export default ({getState, dispatch}) => next => action => {
       };
       fetchUsers(fetchUsersSuccess);
       return next(action);
+    case GET_FRIEND_REQUESTS:
+      const fetchFriendRequestsSuccess = friendRequests => {
+        dispatch(receiveFriendRequests(friendRequests));
+      }
+      fetchFriendRequests(action.user_id, fetchFriendRequestsSuccess);
     default:
       return next(action);
   }
