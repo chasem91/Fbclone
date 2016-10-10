@@ -37,6 +37,7 @@ gem 'paperclip', '~> 5.0.0.beta1'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 
+gem 'byebug'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -45,7 +46,6 @@ gem 'aws-sdk', '>= 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
