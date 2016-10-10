@@ -1,0 +1,86 @@
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(211, 214, 219);
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+.new-post-form-header {
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  background: rgb(246, 247, 249);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-post-form-tabs {
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+
+.new-post-form-tabs a {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(54, 88, 153);
+}
+
+.new-post-form-tabs li {
+  border-right: 1px solid rgb(204, 204, 204);
+  height: 14px;
+}
+
+.new-post-form-tabs li:last-child {
+  border: none;
+}
+
+
+.new-post-form-tabs a:last-of-type {
+  border: none;
+}
+
+.new-post-form-input {
+  display: flex;
+  flex-direction: row;
+  height: 75px;
+  align-items: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.new-post-form-footer {
+  height: 42px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.poster-profile-thumb {
+  height: 42px;
+  width: 42px;
+  margin-right: 10px;
+  margin: 12px;
+}
+
+.new-post-form-text-input {
+  width: calc(100% - 95px);
+  margin: 8px;
+  border: none;
+}
+
+.new-post-submit {
+  height: 24px;
+  width: 60px;
+  background: rgb(66, 103, 178);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 8px;
+}
