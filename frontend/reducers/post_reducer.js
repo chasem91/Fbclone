@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENTS, RECEIVE_POST } from '../actions/post_actions';
+import { RECEIVE_COMMENTS, RECEIVE_POST, RECEIVE_COMMENT } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const _initialState = Object.freeze({
@@ -69,6 +69,11 @@ const PostReducer = (state = _initialState, action) => {
           newPostComments
         });
       }
+      break;
+    case RECEIVE_COMMENT:
+      const newState = state;
+      newState.posts[action.post_id].comments[action.comment.id]=action.comment;
+      return merge({}, state, newState);
     default:
       return state;
   }

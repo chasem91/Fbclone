@@ -3,6 +3,7 @@ export const GET_COMMENTS = "GET_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_POST = "RECEIVE_POST";
+export const CREATE_COMMENT = "CREATE_COMMENT";
 
 export const getComment = id => ({
   type: GET_COMMENT,
@@ -14,17 +15,25 @@ export const getComments = post_id => ({
   post_id
 });
 
-export const receiveComment = currentComment => ({
+export const receiveComment = (comment, post_id) => ({
   type: RECEIVE_COMMENT,
-  currentComment
+  comment,
+  post_id
 });
 
-export const receiveComments = comments => ({
+export const receiveComments = (comments, post_id) => ({
   type: RECEIVE_COMMENTS,
-  comments
+  comments,
+  post_id
 });
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
   post
+});
+
+export const createComment = (comment, post_id) => ({
+  type: CREATE_COMMENT,
+  comment,
+  post_id
 });

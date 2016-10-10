@@ -10,15 +10,14 @@ export default class Post extends React.Component {
   handleCreateComment(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      const commentTextarea = this.refs.comment_input;
-      const content = commentTextarea.value;
+      const content = e.currentTarget.value;
       const comment = {
         author_id: this.props.currentUser.id,
-        post_id: this.props.post.id,
+        post_id: e.currentTarget.id,
         content
       };
-      // this.props.createComment({ comment });
-      commentTextarea.value = "";
+      this.props.createComment({ comment }, comment.post_id);
+      e.currentTarget.value = "";
     }
   }
 
@@ -30,12 +29,11 @@ export default class Post extends React.Component {
   // const currentProfileName = `${this.props.post.first_name} ${this.props.post.last_name}`;
   render() {
     const post = this.props.post.posts[this.props.postFromTimeline.id];
-    const comments = []
+    const comments = [];
     for (const key in post.comments) {
-      debugger
       let comment = post.comments[key];
       comments.push(<li key={comment.id}><Comment comment={comment} /></li>);
-    };
+    }
     return (
       <div className="post group">
         <ul className="post-details group">
@@ -59,7 +57,7 @@ export default class Post extends React.Component {
           </li>
           <ul className="comment-compose">
             <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
-            <textarea className="comment-input" ref="comment_input" onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
+            <textarea className="comment-input" id={post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
           </ul>
         </ul>
       </div>
