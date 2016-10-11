@@ -4,6 +4,10 @@ class Api::FriendRequestsController < ApplicationController
   def index
     @friend_requests = FriendRequest.includes(:user)
       .where("friend_id = ? AND approved = ?", params[:user_id], "false")
+
+    @requested_friends = FriendRequest.includes(:friend)
+      .where("user_id = ? AND approved = ?", params[:user_id], "false")
+
     render 'api/friend_requests/index'
   end
 
@@ -25,9 +29,4 @@ class Api::FriendRequestsController < ApplicationController
       }
     end
   end
-
-  # private
-  # def friend_request_params
-  #   params.require(:friend_request).permits(:user_id, :friend_id)
-  # end
 end

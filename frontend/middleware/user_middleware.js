@@ -4,13 +4,15 @@ import {
   GET_FRIEND_REQUESTS,
   ACCEPT_REQUEST,
   REQUEST_FRIEND,
+  GET_REQUESTED_FRIENDS,
   receiveUser,
   receiveUsers,
   getFriendRequests,
   receiveFriendRequests,
   receiveFriend,
   removeRequest,
-  receiveMadeRequest
+  receiveMadeRequest,
+  receiveRequestedFriends
 } from '../actions/user_actions';
 
 import {
@@ -18,7 +20,8 @@ import {
   fetchUsers,
   fetchFriendRequests,
   acceptFriend,
-  postFriendRequest
+  postFriendRequest,
+  fetchRequestedFriends
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
@@ -36,8 +39,9 @@ export default ({getState, dispatch}) => next => action => {
       fetchUsers(fetchUsersSuccess);
       return next(action);
     case GET_FRIEND_REQUESTS:
-      const fetchFriendRequestsSuccess = friendRequests => {
-        dispatch(receiveFriendRequests(friendRequests));
+      const fetchFriendRequestsSuccess = requests => {
+        dispatch(receiveFriendRequests(requests.friend_requests));
+        dispatch(receiveRequestedFriends(requests.requested_friends));
       }
       fetchFriendRequests(action.user_id, fetchFriendRequestsSuccess);
       return next(action)
@@ -54,6 +58,12 @@ export default ({getState, dispatch}) => next => action => {
       }
       postFriendRequest(action.user_id, action.friend_id, postFriendRequestSuccess);
       return next(action);
+    // case GET_REQUESTED_FRIENDS:
+    //   const fetchRequestedFriendsSuccess = requestedFriends => {
+    //     dispatch(receiveRequestedFriends(requestedFriends));
+    //   }
+    //   fetchRequestedFriends(action.user_id, fetchRequestedFriendsSuccess);
+    //   return next(action);
     default:
       return next(action);
   }

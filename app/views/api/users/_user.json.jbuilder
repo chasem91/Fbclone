@@ -1,4 +1,20 @@
 json.extract! user, :id, :first_name, :last_name, :birthday, :gender
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # json.posts do
 #   json.array! user.timeline_posts_with_comments do |post|
 #     json.extract! post, :id, :profile_id, :content, :created_at

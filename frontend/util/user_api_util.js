@@ -1,4 +1,9 @@
-import { receiveUser, receiveUsers, receiveFriendRequests } from '../actions/user_actions';
+import {
+  receiveUser,
+  receiveUsers,
+  receiveFriendRequests,
+  receiveRequestedFriends
+} from '../actions/user_actions';
 
 export const fetchUser = (id, success) => {
 	$.ajax({
@@ -37,12 +42,23 @@ export const acceptFriend = (user_id, friend_id, success) => {
     error: () => console.log('error accepting friend')
   });
 };
- export const postFriendRequest = (user_id, friend_id, success) => {
-   $.ajax({
-     method: 'POST',
-     url: `/api/friend_requests`,
-     data: { user_id, friend_id },
-     success,
-     error: () => console.log('error requesting friend')
-   });
- };
+
+export const postFriendRequest = (user_id, friend_id, success) => {
+  $.ajax({
+    method: 'POST',
+    url: `/api/friend_requests`,
+    data: { user_id, friend_id },
+    success,
+    error: () => console.log('error requesting friend')
+  });
+};
+
+// export const fetchRequestedFriends = (user_id, success) => {
+//   $.ajax({
+//     method: 'GET',
+//     url: `/api/friend_requests`,
+//     data: { user_id },
+//     success,
+//     error: () => console.log('error fetching requested friends')
+//   });
+// };

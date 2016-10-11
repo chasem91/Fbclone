@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default class UserActionBar extends React.Component {
   constructor(props) {
     super(props);
@@ -11,8 +10,12 @@ export default class UserActionBar extends React.Component {
     this.props.requestFriend(this.props.currentUser.id, this.props.user.id);
   }
 
-  addFriendButton() {
-    if(this.props.requestedFriends[this.props.user.id]){
+  addFriendButton(requestedFriends) {
+    const userId = this.props.user.id;
+    const hasBeenRequested = Object.keys(this.props.requestedFriends).some(
+      key => userId === parseInt(key)
+    );
+    if(hasBeenRequested){
       return <div className="update-action-requested">Requested</div>;
     } else {
       return <a className="update-action" onClick={this.handleAddFriend}>Add Friend</a>;

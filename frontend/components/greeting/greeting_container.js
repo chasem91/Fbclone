@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
+import { getRequestedFriends } from '../../actions/user_actions';
 import Greeting from './greeting';
 
 const mapStateToProps = state => ({
@@ -7,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
 });
 
 export default connect(
