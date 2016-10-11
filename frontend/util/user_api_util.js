@@ -29,7 +29,6 @@ export const fetchFriendRequests = (user_id, success) => {
 };
 
 export const acceptFriend = (user_id, friend_id, success) => {
-  debugger
   $.ajax({
     method: 'POST',
     url: `/api/friendships`,

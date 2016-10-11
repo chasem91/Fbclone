@@ -1,10 +1,10 @@
-.home-profile {
+.home-user {
   display: flex;
   width: 981px;
   margin: 0 auto;
 }
 
-.home-profile-main {
+.home-user-main {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -14,7 +14,6 @@
 .profile-header-image {
   height: 316px;
   width: 100%;
-
 }
 
 .profile-picture {
@@ -29,7 +28,7 @@
   border-radius: 4px;
 }
 
-.profile-name {
+.user-name {
   position: absolute;
   top: 266px;
   left: 207px;

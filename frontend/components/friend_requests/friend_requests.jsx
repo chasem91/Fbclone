@@ -13,7 +13,6 @@ export default class FriendRequests extends React.Component {
 
   handleFriendApproval (e) {
     e.preventDefault();
-    debugger
     this.props.acceptRequest(
       this.props.currentUser.id,
       parseInt(e.currentTarget.id)
@@ -32,7 +31,7 @@ export default class FriendRequests extends React.Component {
           <input
             type="submit"
             value="Approve"
-            id={request.requester_id}
+            id={key}
             onClick={this.handleFriendApproval}
           />
         </li>

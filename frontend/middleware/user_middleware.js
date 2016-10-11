@@ -7,7 +7,8 @@ import {
   receiveUsers,
   getFriendRequests,
   receiveFriendRequests,
-  receiveFriend
+  receiveFriend,
+  removeRequest
 } from '../actions/user_actions';
 
 import {
@@ -40,8 +41,8 @@ export default ({getState, dispatch}) => next => action => {
     case ACCEPT_REQUEST:
       const acceptFriendSuccess = friend => {
         dispatch(receiveFriend(friend));
+        dispatch(removeRequest(friend));
       }
-      debugger
       acceptFriend(action.user_id, action.friend_id, acceptFriendSuccess);
       return next(action)
     default:

@@ -33,6 +33,3 @@ const Root = ({ store }) => {
 };
 
 export default Root;
-
-
-// <Route path=`/user/${currentUser}` component={HomeUserContainer} onEnter={_ensureLoggedIn}/>

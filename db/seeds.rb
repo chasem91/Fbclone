@@ -49,13 +49,10 @@ end
   end
 end
 
-(1..20).each do |i|
-  (1..20).each do |j|
-    next if i == j
-    FriendRequest.create(
-      user_id: i,
-      friend_id: j,
-      approved: false
-    )
-  end
+(2..20).each do |i|
+  FriendRequest.create(
+    user_id: i,
+    friend_id: 1,
+    approved: false
+  )
 end

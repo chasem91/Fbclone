@@ -1,4 +1,4 @@
-import { RECEIVE_USER, RECEIVE_FRIEND_REQUESTS } from '../actions/user_actions';
+import { RECEIVE_USER, RECEIVE_FRIEND_REQUESTS, REMOVE_REQUEST } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
@@ -26,7 +26,11 @@ const UserReducer = (state = _initialState, action) => {
     case RECEIVE_FRIEND_REQUESTS:
       return merge({}, state, {
         friendRequests: action.friendRequests
-      })
+      });
+    case REMOVE_REQUEST:
+      let newState = merge({}, state);
+      delete newState.friendRequests[Object.keys(action.friend)[0]];
+      return newState;
     default:
       return state;
   }
