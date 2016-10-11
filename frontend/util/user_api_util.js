@@ -27,3 +27,14 @@ export const fetchFriendRequests = (user_id, success) => {
     error: () => console.log('error fetching friend requests')
   });
 };
+
+export const acceptFriend = (user_id, friend_id, success) => {
+  debugger
+  $.ajax({
+    method: 'POST',
+    url: `/api/friendships`,
+    data: { user_id, friend_id },
+    success,
+    error: () => console.log('error accepting friend')
+  });
+};

@@ -13,7 +13,11 @@ export default class FriendRequests extends React.Component {
 
   handleFriendApproval (e) {
     e.preventDefault();
-    this.props.acceptRequest(parseInt(e.currentTarget.id));
+    debugger
+    this.props.acceptRequest(
+      this.props.currentUser.id,
+      parseInt(e.currentTarget.id)
+    );
   }
 
   render() {

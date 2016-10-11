@@ -2,16 +2,19 @@ import {
   GET_USER,
   GET_USERS,
   GET_FRIEND_REQUESTS,
+  ACCEPT_REQUEST,
   receiveUser,
   receiveUsers,
   getFriendRequests,
-  receiveFriendRequests
+  receiveFriendRequests,
+  receiveFriend
 } from '../actions/user_actions';
 
 import {
   fetchUser,
   fetchUsers,
-  fetchFriendRequests
+  fetchFriendRequests,
+  acceptFriend
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
@@ -33,6 +36,14 @@ export default ({getState, dispatch}) => next => action => {
         dispatch(receiveFriendRequests(friendRequests));
       }
       fetchFriendRequests(action.user_id, fetchFriendRequestsSuccess);
+      return next(action)
+    case ACCEPT_REQUEST:
+      const acceptFriendSuccess = friend => {
+        dispatch(receiveFriend(friend));
+      }
+      debugger
+      acceptFriend(action.user_id, action.friend_id, acceptFriendSuccess);
+      return next(action)
     default:
       return next(action);
   }
