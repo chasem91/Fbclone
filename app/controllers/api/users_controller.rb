@@ -8,7 +8,10 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:friends).find(params[:id])
+    @user = User.includes(:friends).find(@user.id)
+    friend_ids = @user.friends.map { |friend| friend.id }
+    @newsfeed_posts = Post.includes(:author, :user, :comments).where(author_id: friend_ids)
     render "api/users/show"
   end
 

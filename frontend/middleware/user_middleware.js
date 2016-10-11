@@ -58,12 +58,6 @@ export default ({getState, dispatch}) => next => action => {
       }
       postFriendRequest(action.user_id, action.friend_id, postFriendRequestSuccess);
       return next(action);
-    // case GET_REQUESTED_FRIENDS:
-    //   const fetchRequestedFriendsSuccess = requestedFriends => {
-    //     dispatch(receiveRequestedFriends(requestedFriends));
-    //   }
-    //   fetchRequestedFriends(action.user_id, fetchRequestedFriendsSuccess);
-    //   return next(action);
     default:
       return next(action);
   }

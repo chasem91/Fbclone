@@ -27,6 +27,7 @@ export default class Greeting extends React.Component {
           <SearchBarContainer />
           <Link to={`/`} onClick={this.props.logout} className="header-button">Log Out</Link>
           <Link to={`/users/${this.props.currentUser.id}`} activeClassName="current">Profile</Link>
+          <Link to={`/newsfeed`} activeClassName="current">Newsfeed</Link>
         </div>
       </div>
     );

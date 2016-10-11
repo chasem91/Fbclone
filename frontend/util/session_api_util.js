@@ -4,7 +4,7 @@ export const login = (user, success, error) => {
 	$.ajax({
 		method: 'POST',
 		url: '/api/session',
-		data: user,
+		data: { user },
 		success,
 		error
 	});

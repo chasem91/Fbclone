@@ -1,6 +1,6 @@
 import React from 'react';
 import Comment from '../comment/comment';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -23,13 +23,21 @@ export default class Post extends React.Component {
   }
 
   componentWillMount() {
-    this.props.receivePost(this.props.postFromTimeline);
-    this.props.getComments(this.props.postFromTimeline.id);
+    if (this.props.path !== "/newsfeed") {
+      this.props.receivePost(this.props.postFromTimeline);
+      this.props.getComments(this.props.postFromTimeline.id);
+    } else {
+      
+    }
   }
 
-  // const currentProfileName = `${this.props.post.first_name} ${this.props.post.last_name}`;
   render() {
-    const post = this.props.post.posts[this.props.postFromTimeline.id];
+    let post;
+    if (this.props.path === "/newsfeed") {
+      post = this.props.post;
+    } else {
+      post = this.props.postFromState.posts[this.props.postFromTimeline.id];
+    }
     const comments = [];
     for (const key in post.comments) {
       let comment = post.comments[key];

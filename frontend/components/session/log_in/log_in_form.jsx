@@ -24,7 +24,7 @@ class LogIn extends React.Component {
 
   handleGuestLogin() {
     const user = {password: "password", email: "guest@email.com"};
-    this.props.login({user});
+    this.props.login(user);
   }
 
 	update(field) {

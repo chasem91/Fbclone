@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import UserContainer from './user/user_container';
 import UserIndexContainer from './user_index/user_index_container';
-// import Newsfeed from './newsfeed/newsfeed';
+import NewsfeedContainer from './newsfeed/newsfeed_container';
 
 const Root = ({ store }) => {
 
@@ -22,11 +22,11 @@ const Root = ({ store }) => {
     }
   }
 
-  // <Route path="/newsfeed" component={Newsfeed} onEnter={_ensureLoggedIn}/>
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <Route path="/newsfeed" component={NewsfeedContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/users/:userId" component={UserContainer} onEnter={_ensureLoggedIn}/>
         </Route>
       </Router>

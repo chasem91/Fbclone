@@ -1,0 +1,15 @@
+.friends-preview {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(211, 214, 219);
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+
+.friends-preview-thumb {
+  margin: 3px;
+  height: 100px;
+  width: 100px;
+}

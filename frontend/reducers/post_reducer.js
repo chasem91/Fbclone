@@ -61,7 +61,7 @@ const PostReducer = (state = _initialState, action) => {
       newPosts[action.post.id] = action.post
       return merge({}, state, {newPosts});
     case RECEIVE_COMMENTS:
-      if (action.comments.length === 0) {
+      if (Object.keys(action.comments).length === 0) {
         return state;
       } else {
         const newPostComments = state.posts[action.post_id];
