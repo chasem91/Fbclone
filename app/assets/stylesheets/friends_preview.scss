@@ -1,15 +1,32 @@
 .friends-preview {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border: 1px solid rgb(211, 214, 219);
   border-radius: 4px;
   background: #fff;
   margin: 8px 0;
 }
 
-
 .friends-preview-thumb {
-  margin: 3px;
   height: 100px;
   width: 100px;
+  float: left;
+  margin: 1px;
+  border: 1px solid gray;
+}
+
+.friends-preview-thumbs {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
+.friends-preview-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
 }

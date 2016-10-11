@@ -1,0 +1,61 @@
+.friend-requests {
+  width: 430px;
+  background: #fff;
+  position: absolute;
+  top: 42px;
+  left: 346px;
+  border: 1px solid rgb(211, 214, 219);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.friend-request-thumb {
+  height: 50px;
+  width: 50px;
+}
+
+.friend-request {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-top: 1px solid rgb(233, 235, 238);
+}
+
+.friend-request-details {
+  display: flex;
+  align-items: center;
+}
+
+.friend-request-link {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(66, 103, 178);
+}
+
+.friend-request-approve {
+  height: 24px;
+  width: 60px;
+  background: rgb(66, 103, 178);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 8px;
+}
+
+.friend-requests-header {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.friend-requests-pointer {
+  background: #fff;
+  position: absolute;
+  top: -10px;
+  left: 350px;
+  height: 20px;
+  width: 20px;
+  transform: rotateZ(45deg);
+}

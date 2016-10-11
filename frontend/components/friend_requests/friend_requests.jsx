@@ -25,11 +25,15 @@ export default class FriendRequests extends React.Component {
       const request = this.props.friendRequests[key];
       friendRequests.push(
         <li key={key} className="friend-request">
-          <Link to={`/users/${request.requester_id}`}>
-            {request.requester_name}
-          </Link>
+          <div className="friend-request-details">
+            <img className="friend-request-thumb" src={window.homeUserImages.profilePicture}/>
+            <Link to={`/users/${request.requester_id}`} className="friend-request-link">
+              {request.requester_name}
+            </Link>
+          </div>
           <input
             type="submit"
+            className="friend-request-approve"
             value="Approve"
             id={key}
             onClick={this.handleFriendApproval}
@@ -40,7 +44,12 @@ export default class FriendRequests extends React.Component {
 
     return (
       <div className="friend-requests">
-        <ul>
+        <div className="friend-requests-header">
+          Friend Requests
+        </div>
+        <div className="friend-requests-pointer">
+        </div>
+        <ul className="friend-requests-list">
           {friendRequests}
         </ul>
       </div>
