@@ -9,7 +9,6 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @newsfeed_posts = Post.includes(:author, where("user")
     render "api/users/show"
   end
 
