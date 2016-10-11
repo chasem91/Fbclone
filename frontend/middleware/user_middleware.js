@@ -3,19 +3,22 @@ import {
   GET_USERS,
   GET_FRIEND_REQUESTS,
   ACCEPT_REQUEST,
+  REQUEST_FRIEND,
   receiveUser,
   receiveUsers,
   getFriendRequests,
   receiveFriendRequests,
   receiveFriend,
-  removeRequest
+  removeRequest,
+  receiveMadeRequest
 } from '../actions/user_actions';
 
 import {
   fetchUser,
   fetchUsers,
   fetchFriendRequests,
-  acceptFriend
+  acceptFriend,
+  postFriendRequest
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
@@ -44,7 +47,13 @@ export default ({getState, dispatch}) => next => action => {
         dispatch(removeRequest(friend));
       }
       acceptFriend(action.user_id, action.friend_id, acceptFriendSuccess);
-      return next(action)
+      return next(action);
+    case REQUEST_FRIEND:
+      const postFriendRequestSuccess = friend => {
+        dispatch(receiveMadeRequest(friend));
+      }
+      postFriendRequest(action.user_id, action.friend_id, postFriendRequestSuccess);
+      return next(action);
     default:
       return next(action);
   }

@@ -11,12 +11,12 @@ const personalGreeting = (currentUser, logout) => (
       <FriendRequestsContainer />
       <span className="small-logo">F</span>
       <SearchBarContainer />
-      <button className="header-button" onClick={logout}>Log Out</button>
+      <Link to={`/`} onClick={logout} className="header-button">Log Out</Link>
       <Link to={`/users/${currentUser.id}`} activeClassName="current">Profile</Link>
-      <Link to="/users" activeClassName="current">Profiles</Link>
     </div>
   </div>
 );
+// <button className="header-button" onClick={logout}>Log Out</button>
 
 const Greeting = ({ currentUser, logout }) => {
   if (currentUser) {

@@ -16,6 +16,7 @@ export default class NewPostForm extends React.Component {
       author_id: this.props.currentUser.id
     };
     this.props.createPost(post);
+    e.currentTarget.reset();
   }
 
   handleChange (e) {
@@ -29,9 +30,6 @@ export default class NewPostForm extends React.Component {
         <div className="new-post-form-header">
           <ul className="new-post-form-tabs">
             <li><a>Status</a></li>
-            <li><a>Photo/Video</a></li>
-            <li><a>Live Video</a></li>
-            <li><a>Life Event</a></li>
           </ul>
         </div>
         <form onSubmit={this.handlePostSubmit}>

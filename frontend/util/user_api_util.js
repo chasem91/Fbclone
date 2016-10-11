@@ -37,3 +37,12 @@ export const acceptFriend = (user_id, friend_id, success) => {
     error: () => console.log('error accepting friend')
   });
 };
+ export const postFriendRequest = (user_id, friend_id, success) => {
+   $.ajax({
+     method: 'POST',
+     url: `/api/friend_requests`,
+     data: { user_id, friend_id },
+     success,
+     error: () => console.log('error requesting friend')
+   });
+ };

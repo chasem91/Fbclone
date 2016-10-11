@@ -1,4 +1,9 @@
-import { RECEIVE_USER, RECEIVE_FRIEND_REQUESTS, REMOVE_REQUEST } from '../actions/user_actions';
+import {
+  RECEIVE_USER,
+  RECEIVE_FRIEND_REQUESTS,
+  REMOVE_REQUEST,
+  RECEIVE_MADE_REQUEST
+} from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
@@ -13,6 +18,9 @@ const _initialState = Object.freeze(
     },
     friendRequests: {
 
+    },
+    requestedFriends: {
+      2: {"1": 1}
     }
   }
 );
@@ -37,38 +45,3 @@ const UserReducer = (state = _initialState, action) => {
 };
 
 export default UserReducer;
-
-// const _initialState = Object.freeze(
-//   {
-//     currentProfile: {
-//       first_name: "",
-//       last_name: "",
-//       birthday: "",
-//       gender: "",
-//       posts: [
-//         {
-//           id: "",
-//           author: {
-//             id: "",
-//             full_name: ""
-//           },
-//           profile_id: "",
-//           content: "",
-//           created_at: "",
-//           comments: [
-//             {
-//               id: "",
-//               author: {
-//                 id: "",
-//                 full_name: ""
-//               },
-//               post_id: "",
-//               content: "",
-//               created_at: ""
-//             }
-//           ]
-//         }
-//       ]
-//     }
-//   }
-// );

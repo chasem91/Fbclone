@@ -6,8 +6,7 @@ class Api::FriendshipsController < ApplicationController
       user_id: params[:friend_id],
       friend_id: params[:user_id]
     )
-    debugger
-    if friend_request.update!(approved: 'true')
+    if friend_request.update(approved: 'true')
       friendship = Friendship.new(
         user_id: params[:user_id],
         friend_id: params[:friend_id]
