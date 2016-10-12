@@ -1,5 +1,6 @@
 import React from 'react';
-import PostContainer from '../post/post_container'
+import PostContainer from '../post/post_container';
+import NewPostFormContainer from '../timeline/new_post_form/new_post_form_container';
 
 export default class Newsfeed extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class Newsfeed extends React.Component {
   render () {
     return (
       <div className="newsfeed group">
+        <NewPostFormContainer />
         { this.newsfeedPosts() }
       </div>
     );

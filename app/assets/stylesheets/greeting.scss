@@ -3,31 +3,138 @@
   height: 42px;
   display: flex;
   justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.header-bar-fix {
+  height: 42px;
 }
 
 .personal-greeting-elements {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
-  width: 856px;
+  width: 980px;
 }
 
 .small-logo {
-  display: block;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
+  margin: 0 6px 0 8px;
   color: #fff;
   background-image: image-url('small_logo.png');
   background-position: 0px 205px, center;
 }
-// font-size: 28px;
-// overflow: hidden;
 
-// .logo {
-//   background-image: url(/assets/icons/small_logo.png);
-//   position: relative;
-//   bottom: 40px;
-//   width: 54px;
-//   height: 54px;
-// }
+.my-profile-link-thumb {
+  width: 24px;
+  height: 24px;
+}
+
+.my-profile-link-name {
+  margin: 0 10px;
+}
+
+.my-profile-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 2px;
+}
+
+.my-profile-link:hover {
+  background-color: rgb(53, 80, 137);
+  border: 2px solid rgb(53, 80, 137);
+}
+
+.friend-requests-container {
+  display: flex;
+  position: relative;
+  top: 68px;
+  left: 373px;
+}
+
+.hidden {
+  display: none;
+}
+
+.friend-requests-icon {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: image-url('header_icons.png');
+  background-position: 0px 584px, center;
+  cursor: pointer;
+}
+
+.friend-requests-icon-clicked {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: image-url('header_icons.png');
+  background-position: 0px 558px, center;
+  cursor: pointer;
+}
+
+.notifications-icon {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: image-url('header_icons.png');
+  background-position: 0px 534px, center;
+}
+
+.newsfeed-link {
+  padding: 5px 10px;
+  color: white;
+  font-size: 12px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 2px;
+  margin-right: 30px;
+}
+
+.newsfeed-link:hover {
+  background-color: rgb(53, 80, 137);
+  border: 2px solid rgb(53, 80, 137);
+}
+
+.logout-button {
+  padding: 5px 10px;
+  margin: 0 18px;
+  color: white;
+  font-size: 12px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 2px;
+}
+
+.logout-button:hover {
+  background-color: rgb(53, 80, 137);
+  border: 2px solid rgb(53, 80, 137);
+}
+
+.pipe {
+  width: 1px;
+  height: 16px;
+  background-image: image-url('small_logo.png');
+  background-position: 0px 178px, center;
+}
+
+.icon-and-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.header-icons-and-logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}

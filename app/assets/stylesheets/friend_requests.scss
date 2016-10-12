@@ -1,12 +1,13 @@
 .friend-requests {
   width: 430px;
   background: #fff;
-  position: absolute;
-  top: 42px;
-  left: 346px;
-  border: 1px solid rgb(211, 214, 219);
-  border-radius: 4px;
+  border: 1px solid rgba(100, 100, 100, .4);
   background: #fff;
+  position: absolute;
+  right: 316px;
+  top: -34px;
+  z-index: 1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
 
 .friend-request-thumb {
@@ -48,14 +49,15 @@
   padding: 6px 12px;
   font-size: 12px;
   font-weight: bold;
+  color: black;
 }
 
 .friend-requests-pointer {
   background: #fff;
   position: absolute;
-  top: -10px;
+  top: -6px;
   left: 350px;
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   transform: rotateZ(45deg);
 }

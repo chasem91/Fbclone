@@ -12,6 +12,9 @@
   display: flex;
   flex-direction: row;
   background: rgb(246, 247, 249);
+  border: 0px solid rgb(211, 214, 219);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   align-items: center;
   justify-content: space-between;
 }

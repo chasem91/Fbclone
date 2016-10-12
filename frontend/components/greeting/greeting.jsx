@@ -9,26 +9,52 @@ export default class Greeting extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   if(!this.props.currentUser){
-  //     return;
-  //   } else {
-  //     this.props.getRequestedFriends(this.props.currentUser.id);
-  //   }
-  // }
+  toggleFriendRequests (e) {
+    const target = e.currentTarget;
+    const child = e.currentTarget.children[0];
+    const clicked = "friend-requests-icon-clicked";
+    const unclicked = "friend-requests-icon";
+    const hidden = "hidden";
+    const shown = "friend-requests-container";
+    target.className = target.className === clicked ? unclicked : clicked;
+    child.className = child.className === hidden ? shown : hidden;
+  }
 
   personalGreeting () {
     return (
-      <div className="personal-greeting group">
-        <div className="personal-greeting-elements">
-          <div className="small-logo"></div>
-          <SearchBarContainer />
-          <Link to={`/users/${this.props.currentUser.id}`} activeClassName="current">Profile</Link>
-          <Link to={`/newsfeed`} activeClassName="current">Newsfeed</Link>
-          <FriendRequestsContainer />
-          <NotificationsContainer />
-          <Link to={`/`} onClick={this.props.logout} className="header-button">Log Out</Link>
+      <div>
+        <div className="personal-greeting group">
+          <div className="personal-greeting-elements">
+            <div className="icon-and-search">
+              <div className="small-logo"></div>
+              <SearchBarContainer />
+            </div>
+            <div className="header-icons-and-logout">
+              <Link to={`/users/${this.props.currentUser.id}`} className="my-profile-link">
+                <img className="my-profile-link-thumb" src={window.homeUserImages.profilePicture}></img>
+                <div className="my-profile-link-name">
+                  {this.props.currentUser.first_name}
+                </div>
+              </Link>
+              <div className="pipe"/>
+              <Link to={`/newsfeed`} className="newsfeed-link">Home</Link>
+              <div className="friend-requests-icon-and-container">
+                <div className="friend-requests-icon" onClick={this.toggleFriendRequests}>
+                  <div className="hidden">
+                    <FriendRequestsContainer />
+                  </div>
+                </div>
+              </div>
+              <div className="notifications-icon-and-container">
+                <div className="notifications-icon" />
+                <div className="notifications-container">
+                </div>
+              </div>
+              <Link to={`/`} onClick={this.props.logout} className="logout-button">Log Out</Link>
+            </div>
+          </div>
         </div>
+        <div className="header-bar-fix"/>
       </div>
     );
   }
