@@ -18,6 +18,7 @@ class Session extends React.Component {
           <header className="logged-out-header">
             <LogInFormContainer />
           </header>
+          <div className="login-header-fix"/>
           <SignUpFormContainer />
         </div>
       );

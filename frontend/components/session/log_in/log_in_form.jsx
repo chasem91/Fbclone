@@ -12,16 +12,6 @@ class LogIn extends React.Component {
 		this.handleGuestLogin = this.handleGuestLogin.bind(this);
 	}
 
-	// componentDidUpdate() {
-	// 	this.redirectIfLoggedIn();
-	// }
-  //
-	// redirectIfLoggedIn(){
-	// 	if (this.props.loggedIn) {
-	// 		hashHistory.push("/");
-	// 	}
-	// }
-
   handleGuestLogin() {
     const user = {password: "password", email: "guest@email.com"};
     this.props.login(user);

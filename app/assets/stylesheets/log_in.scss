@@ -1,4 +1,7 @@
 .logged-out-header {
+  position: fixed;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 82px;
   background: rgb(59, 89, 152);
@@ -7,23 +10,21 @@
 }
 
 .large-logo {
-  float: left;
   position: absolute;
   top: 36px;
   font-weight: bold;
   font-size: 28px;
-  text-decoration: none;
   color: #fff
 }
 
 .logged-out-nav {
   width: 980px;
-  margin: 0 auto;
-
+  display: flex;
+  align-items: center;
 }
 
-.login-input {
-  float: left;
+.login-form {
+
 }
 
 .login-form > ul {
@@ -31,6 +32,6 @@
   margin: 5px;
 }
 
-.login-form-box {
-  float: right;
+.login-header-fix {
+  height: 83px;
 }
