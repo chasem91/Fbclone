@@ -20,7 +20,9 @@ const _initialState = Object.freeze(
       gender: "",
       posts: {},
       friends: {},
-      newsfeed_posts: {}
+      newsfeed_posts: {
+
+      }
     },
     friendRequests: {
 
@@ -67,12 +69,15 @@ const UserReducer = (state = _initialState, action) => {
         }
       });
     case RECEIVE_NEWSFEED_COMMENT:
-      newState = state;
-      newState.user
-        .newsfeed_posts[action.post_id]
-        .comments = action.comment;
-        // [Object.keys(actions.comment)[0]]
-      return merge({}, state, newState );
+      if (state.user.newsfeed_posts[action.post_id] === undefined) {
+        return merge({}, state);
+      } else {
+        newState = { user: { newsfeed_posts: { [action.post_id]: {
+                comments: action.comment
+              } } } };
+        return merge( {}, state, newState);
+      }
+      return newState;
     default:
       return state;
   }

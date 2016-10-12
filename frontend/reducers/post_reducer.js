@@ -5,8 +5,14 @@ const _initialState = Object.freeze({
   posts: {
     77: {
       id: 123,
-      author_id: 321,
-      user_id: 869,
+      author: {
+        id: 321,
+        full_name: ""
+      },
+      user: {
+        id: 869,
+        full_name: ""
+      },
       content: "Sample Post 1",
       created_at: "05-23-1995",
       comments: {
@@ -18,30 +24,6 @@ const _initialState = Object.freeze({
           created_at: "01-01-2000"
         }
       }
-    },
-    78: {
-      id: 123,
-      author_id: 321,
-      user_id: 869,
-      content: "Sample Post 2",
-      created_at: "05-23-1995",
-      comments: {}
-    },
-    79: {
-      id: 123,
-      author_id: 321,
-      user_id: 869,
-      content: "Sample Post 3",
-      created_at: "05-23-1995",
-      comments: {}
-    },
-    80: {
-      id: 123,
-      author_id: 321,
-      user_id: 869,
-      content: "Sample Post 4",
-      created_at: "05-23-1995",
-      comments: {}
     }
   }
 });
@@ -50,15 +32,7 @@ const PostReducer = (state = _initialState, action) => {
   switch(action.type) {
     case RECEIVE_POST:
       const newPosts = state.posts;
-      // newPosts[action.post.id] = {
-      //   id: action.post.id,
-      //   author_id: action.post.author_id,
-      //   user_id: action.post.user_id,
-      //   content: action.post.content,
-      //   created_at: action.post.created_at,
-      //   comments: {}
-      // };
-      newPosts[action.post.id] = action.post
+      newPosts[action.post.id] = action.post;
       return merge({}, state, {newPosts});
     case RECEIVE_COMMENTS:
       if (Object.keys(action.comments).length === 0) {
@@ -72,13 +46,11 @@ const PostReducer = (state = _initialState, action) => {
       }
       break;
     case RECEIVE_COMMENT:
-      const newState = state;
-      if (newState.posts[action.post_id] === undefined) {
-        return merge({}, state, newState);
-      } else {
-        newState.posts[action.post_id].comments[action.comment.id]=action.comment;
-        return merge({}, state, newState);
-      }
+      window.merge = merge;
+      const newState = { posts: { [action.post_id]: {
+            comments: action.comment
+          } } };
+      return merge( {}, state, newState);
     default:
       return state;
   }

@@ -1,0 +1,36 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgb(211, 214, 219);
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+.intro-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.intro-details {
+  margin: 0 12px 8px 12px;
+  font-size: 14px;
+}
+
+.intro-details div {
+  margin: 4px 0;
+}
+
+.intro-icon {
+  display: block;
+  margin: 0 10px 0 4px;
+  background-image: image-url('icons3.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-position: 0px -22px;
+}
