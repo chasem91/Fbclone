@@ -1,6 +1,7 @@
 require 'byebug'
 
-json.extract! post, :id, :content, :created_at
+json.extract! post, :id, :content
+json.time_ago "#{time_ago_in_words(post.created_at)} ago"
 json.author do
   json.full_name "#{post.author.first_name} #{post.author.last_name}"
   json.id post.author.id

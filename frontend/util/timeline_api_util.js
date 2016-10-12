@@ -1,4 +1,11 @@
-import { receivePosts, receivePostOnTimeline } from '../actions/timeline_actions';
+import {
+  receivePosts,
+  receivePostOnTimeline
+} from '../actions/timeline_actions';
+
+import {
+  receiveNewsfeedPost
+} from '../actions/user_actions';
 
 export const fetchPosts = (user_id, success) => {
 	$.ajax({
@@ -16,6 +23,7 @@ export const postPost = (post, user_id, dispatch) => {
       url: `/api/posts`,
       data: { post },
       success: post => {
+        dispatch(receiveNewsfeedPost(post));
         dispatch(receivePostOnTimeline(post, user_id));
       },
       error: () => console.log('error posting post')

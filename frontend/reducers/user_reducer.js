@@ -4,7 +4,9 @@ import {
   REMOVE_REQUEST,
   RECEIVE_MADE_REQUEST,
   RECEIVE_REQUESTED_FRIENDS,
-  RECEIVE_FRIEND
+  RECEIVE_FRIEND,
+  RECEIVE_NEWSFEED_POST,
+  RECEIVE_NEWSFEED_COMMENT
 } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
@@ -17,15 +19,13 @@ const _initialState = Object.freeze(
       birthday: "",
       gender: "",
       posts: {},
-      friends: {}
+      friends: {},
+      newsfeed_posts: {}
     },
     friendRequests: {
 
     },
     requestedFriends: {
-
-    },
-    newsfeedPosts: {
 
     }
   }
@@ -60,6 +60,19 @@ const UserReducer = (state = _initialState, action) => {
           friends: action.friend
         }
       });
+    case RECEIVE_NEWSFEED_POST:
+      return merge({}, state, {
+        user: {
+          newsfeed_posts: action.post
+        }
+      });
+    case RECEIVE_NEWSFEED_COMMENT:
+      newState = state;
+      newState.user
+        .newsfeed_posts[action.post_id]
+        .comments = action.comment;
+        // [Object.keys(actions.comment)[0]]
+      return merge({}, state, newState );
     default:
       return state;
   }

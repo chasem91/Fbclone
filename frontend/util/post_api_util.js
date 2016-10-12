@@ -1,4 +1,9 @@
-import { receiveComments, receiveComment } from '../actions/post_actions';
+import {
+  receiveComments,
+  receiveComment
+} from '../actions/post_actions';
+
+import { receiveNewsfeedComment } from '../actions/user_actions';
 
 export const fetchComments = (post_id, dispatch) => {
 	$.ajax({
@@ -19,6 +24,7 @@ export const postComment = (comment, post_id, dispatch) => {
     data: comment,
     success: comment => {
       dispatch(receiveComment(comment, post_id));
+      dispatch(receiveNewsfeedComment(comment, post_id));
     },
     error: () => console.log('error posting comment')
   });

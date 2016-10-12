@@ -73,8 +73,12 @@ const PostReducer = (state = _initialState, action) => {
       break;
     case RECEIVE_COMMENT:
       const newState = state;
-      newState.posts[action.post_id].comments[action.comment.id]=action.comment;
-      return merge({}, state, newState);
+      if (newState.posts[action.post_id] === undefined) {
+        return merge({}, state, newState);
+      } else {
+        newState.posts[action.post_id].comments[action.comment.id]=action.comment;
+        return merge({}, state, newState);
+      }
     default:
       return state;
   }

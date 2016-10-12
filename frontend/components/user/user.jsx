@@ -6,7 +6,7 @@ import TimelineContainer from '../timeline/timeline_container';
 import UserReportContainer from '../user_report/user_report_container';
 import Photo from '../photo/photo';
 
-class HomeUser extends React.Component {
+class User extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -39,4 +39,4 @@ class HomeUser extends React.Component {
 	}
 }
 
-export default HomeUser;
+export default User;

@@ -27,7 +27,25 @@ export default class Post extends React.Component {
       this.props.receivePost(this.props.postFromTimeline);
       this.props.getComments(this.props.postFromTimeline.id);
     } else {
-      
+
+    }
+  }
+
+  authorDisplay(post) {
+    if (post.author.id === post.user.id) {
+      return (
+        <li className="post-author">
+          <Link to={`/users/${post.author.id}`}>{post.author.full_name}</Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="post-author">
+          <Link to={`/users/${post.author.id}`}>{post.author.full_name}</Link>
+          <div className="post-author-arrow" />
+          <Link to={`/users/${post.user.id}`}>{post.user.full_name}</Link>
+        </li>
+      );
     }
   }
 
@@ -49,20 +67,25 @@ export default class Post extends React.Component {
           <ul className="post-header">
             <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
             <ul>
-              <li className="post-author">
-                <Link to={`/users/${post.author.id}`}>{post.author.full_name}</Link>
-                <span> >  </span>
-                <Link to={`/users/${post.user.id}`}>{post.user.full_name}</Link>
-              </li>
-              <li className="post-date">{post.created_at}</li>
+              {this.authorDisplay(post)}
+              <li className="post-date">{post.time_ago}</li>
             </ul>
           </ul>
           <li className="post-content">{post.content}</li>
           <ul className="post-actions">
-            <li className="post-like">** Like </li>
-            <li>** Comment </li>
+            <div className="post-action-buttons">
+              <div className="post-like-container">
+                <div className="post-comment-container">
+                  <div className="post-like"></div>
+                  <div className="post-like-name">Like</div>
+                </div>
+              </div>
+              <div className="post-comment-container">
+                <div className="post-comment"></div>
+                <div className="post-comment-name">Comment</div>
+              </div>
+            </div>
           </ul>
-          <li className="post-likes">** (Names of users who liked)</li>
           <li className="post-comments">
             <ul ref="comments_list">
               {comments}
@@ -77,3 +100,5 @@ export default class Post extends React.Component {
     );
   }
 }
+
+// <li className="post-likes">** (Names of users who liked)</li>

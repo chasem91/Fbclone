@@ -3,11 +3,12 @@ import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
   {
-    posts: []
+    posts: {}
   }
 );
 
 const TimelineReducer = (state = _initialState, action) => {
+  let newState;
   switch(action.type) {
     case RECEIVE_POSTS:
       return merge({}, state, {
@@ -15,7 +16,9 @@ const TimelineReducer = (state = _initialState, action) => {
       });
     case RECEIVE_POST_ON_TIMELINE:
       return merge({}, state, {
-        posts: [action.post, ...state.posts]
+        posts: {
+          posts: action.post
+        }
       });
     default:
       return state;

@@ -17,11 +17,20 @@ export default class Timeline extends React.Component {
     }
   }
 
+  displayTimelinePosts(posts) {
+    const timelinePosts = [];
+    for(const key in posts) {
+      timelinePosts.push( <PostContainer key={posts[key].id} postFromTimeline={posts[key]} /> );
+    }
+    return timelinePosts.reverse();
+  }
+
   render() {
     return (
       <div className="timeline group">
+        <div className="timeline-pointer" />
         <NewPostFormContainer />
-        { this.props.timeline.posts.map( post => <PostContainer key={post.id} postFromTimeline={post} /> ) }
+        {this.displayTimelinePosts(this.props.timeline.posts.posts)}
       </div>
     );
   }

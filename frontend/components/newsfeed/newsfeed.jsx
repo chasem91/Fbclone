@@ -12,13 +12,13 @@ export default class Newsfeed extends React.Component {
   }
 
   newsfeedPosts () {
-    let newsfeedPosts = this.props.user.newsfeed_posts || {};
+    let newsfeedPosts = this.props.user.newsfeed_posts || [];
     const posts = [];
     for (const key in newsfeedPosts){
       let post = newsfeedPosts[key];
       posts.push(<PostContainer key={post.id} path="/newsfeed" post={post} />);
     }
-    return posts;
+    return posts.reverse();
   }
 
   render () {

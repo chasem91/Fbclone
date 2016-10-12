@@ -11,7 +11,10 @@ class Api::UsersController < ApplicationController
     @user = User.includes(:friends).find(params[:id])
     @user = User.includes(:friends).find(@user.id)
     friend_ids = @user.friends.map { |friend| friend.id }
-    @newsfeed_posts = Post.includes(:author, :user, :comments).where(author_id: friend_ids)
+    friend_ids << @user.id
+    @newsfeed_posts = Post
+      .includes(:author, :user, :comments)
+      .where(author_id: friend_ids).reverse
     render "api/users/show"
   end
 

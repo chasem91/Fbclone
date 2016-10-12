@@ -11,6 +11,8 @@ export const REQUEST_FRIEND = "REQUEST_FRIEND";
 export const RECEIVE_MADE_REQUEST = "RECEIVE_MADE_REQUEST";
 // export const GET_REQUESTED_FRIENDS = "GET_REQUESTED_FRIENDS";
 export const RECEIVE_REQUESTED_FRIENDS = "RECEIVE_REQUESTED_FRIENDS";
+export const RECEIVE_NEWSFEED_POST = "RECEIVE_NEWSFEED_POST";
+export const RECEIVE_NEWSFEED_COMMENT = "RECEIVE_NEWSFEED_COMMENT";
 
 
 export const getUser = id => ({
@@ -77,4 +79,15 @@ export const receiveMadeRequest = friend => ({
 export const receiveRequestedFriends = requestedFriends => ({
   type: RECEIVE_REQUESTED_FRIENDS,
   requestedFriends
+});
+
+export const receiveNewsfeedPost = post => ({
+  type: RECEIVE_NEWSFEED_POST,
+  post
+});
+
+export const receiveNewsfeedComment = (comment, post_id) => ({
+  type: RECEIVE_NEWSFEED_COMMENT,
+  comment,
+  post_id
 });

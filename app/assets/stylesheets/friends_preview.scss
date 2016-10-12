@@ -9,11 +9,10 @@
 }
 
 .friends-preview-thumb {
-  height: 100px;
-  width: 100px;
+  height: 101px;
+  width: 101px;
   float: left;
   margin: 1px;
-  border: 1px solid gray;
 }
 
 .friends-preview-thumbs {
@@ -29,4 +28,15 @@
   display: flex;
   align-items: center;
   margin: 5px;
+}
+
+.friends-preview-icon {
+  display: block;
+  margin: 0 10px 0 4px;
+  background-image: image-url('icons2.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-position: 0 -180px;
 }
