@@ -14,7 +14,20 @@
 }
 
 .small-logo {
-  font-weight: bold;
+  display: block;
+  width: 24px;
+  height: 24px;
   color: #fff;
-  font-size: 28px;
+  background-image: url(/assets/icons/small_logo.png);
+  background-position: 0px 205px, center;
 }
+// font-size: 28px;
+// overflow: hidden;
+
+// .logo {
+//   background-image: url(/assets/icons/small_logo.png);
+//   position: relative;
+//   bottom: 40px;
+//   width: 54px;
+//   height: 54px;
+// }
