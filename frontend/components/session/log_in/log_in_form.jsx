@@ -47,33 +47,36 @@ class LogIn extends React.Component {
         <header className="logged-out-header">
           <nav className="logged-out-nav">
             <h1 className="large-logo">fbclone</h1>
-            <form onSubmit={this.handleSubmit} className="login-form-box">
-              <div className="login-form">
-
-                <ul className="email-input">
-                  <li>Email</li>
-                  <li>
+            <form onSubmit={this.handleSubmit} className="login-form">
+              <div className="login-form-inputs">
+                <div className="login-input-container">
+                  <div className="login-input-label">Email</div>
+                  <div>
                     <input type="text"
+                      className="login-input"
                       value={this.state.email}
                       onChange={this.update("email")}
                       />
-                  </li>
-                </ul>
+                  </div>
+                </div>
 
-                <ul className="password-input">
-                  <li>Password</li>
-                  <li>
+                <div className="login-input-container">
+                  <div className="login-input-label">Password</div>
+                  <div>
                     <input type="password"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    />
-                  </li>
-                </ul>
+                      className="login-input"
+                      value={this.state.password}
+                      onChange={this.update("password")}
+                      />
+                  </div>
+                </div>
+              </div>
 
+              <div className="login-buttons">
                 <input className="session-submit" type="submit" value="Log In" />
+                <button onClick={this.handleGuestLogin} className="session-submit" type="submit">Guest</button>
               </div>
             </form>
-            <button onClick={this.handleGuestLogin} className="session-submit" type="submit">Guest</button>
           </nav>
         </header>
 			</div>

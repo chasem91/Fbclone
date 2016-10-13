@@ -1,67 +1,33 @@
+.sign-up-background {
+  height: 608px;
+  background: rgb(237, 240, 245);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
 
 .sign-up-messages {
   float: left;
 }
 
-.sign-up-messages > h1 {
-  font-size: 32px;
+.sign-up-connect-message {
+  font-size: 28px;
   width: 565px;
   margin: 80px 0;
 }
 
-.sign-up-bullets {
-  margin: 60px 0;
-  color: rgb(102, 102, 102);
-}
-
-.sign-up-bullets li {
-  list-style-type: none;
-  height: 80px;
-  vertical-align: middle;
-}
-
-.sign-up-bullets span {
-  font-weight: bold;
-  color: rgb(51, 51, 51);
-}
-
-.sign-up-bullets img {
-  float: left;
-}
-
-.sign-up-bullets > li > h4 > strong  {
-  font-size: 18px;
-  color: rgb(52, 52, 52);
-}
-
-.iconImages {
-  float: left;
-}
-
-.iconImages li {
-  width: 80px;
-  height: 80px;
-}
-
-.email-input {
-  float: left;
-}
-
-.password-input {
-  float: left;
-}
-
-.session-submit {
-  margin: 20px;
-  color: white;
-  background: rgb(66, 103, 178);
-  border: 1px solid rgb(41, 72, 125);
-  border-radius: 2px;
-}
-
 .form-and-header {
   float: right;
-  margin: 40px 0;
+  margin: 22px 0 0 0;
+}
+
+.sign-up-header {
+  display: flex;
+  flex-direction: column;
+  height: 72px;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
 .sign-up-header > h1 {
@@ -70,7 +36,7 @@
 }
 
 .sign-up-header > h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .sign-up-form-container {
@@ -84,19 +50,6 @@
   width: 400px;
 }
 
-.name-inputs {
-  width: 100%;
-}
-
-.name-inputs > input {
-  float: left;
-  width: 174px;
-}
-
-.name-inputs > input:last-child {
-  margin-left: 20px;
-}
-
 .sign-up-input {
   display: block;
   width: 380px;
@@ -108,15 +61,28 @@
   border: 1px solid rgb(189, 199, 216);
 }
 
-.sign-up-input > ul > li {
-  float: left;
+.sign-up-name-input {
+  width: 180px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 4px;
+  border: 1px solid rgb(189, 199, 216);
+}
+
+.sign-up-name-inputs {
+  width: 390px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sign-up-submit {
   width: 200px;
   height: 42px;
-  background: #5b93fc;
-  background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, .1) );
+  background: linear-gradient(#67ae55, #578843);
+  background-color: #69a74e;
+  box-shadow: inset 0 1px 1px #a4e388;
+  border-color: #3b6e22 #3b6e22 #2c5115;
   border-radius: 6px;
   font-size: 24px;
   font-weight: bold;
@@ -128,19 +94,85 @@
   border-bottom: 1px solid rgb(26, 58, 109);
 }
 
-.guest-submit {
-  background: green;
-}
-
-.birthday-inputs > h3 {
-  font-size: 22px;
-}
-
-.gender {
-  border: none;
-}
-
 .sign-up-content {
   width: 980px;
   margin: 0 auto;
+}
+
+.sign-up-bullet {
+  display: flex;
+  align-items: center;
+}
+
+.icon-image {
+  width: 55px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.bullet-message {
+  display: flex;
+  flex-direction: row;
+}
+
+.bullet-message-bold {
+  font-size: 17px;
+  margin-right: 16px;
+  font-weight: bold;
+}
+
+.bullet-message-normal {
+  font-size: 15px;
+  color: rgb(102, 102, 102);
+}
+
+.sign-up-bullets {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-and-header select {
+  -webkit-appearance: menulist;
+  font-size: 13px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid rgb(189, 199, 216);
+}
+
+.gender-input {
+  display: flex;
+  align-items: center;
+}
+
+.gender-inputs {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+
+.gender-radio-input {
+  margin: 0 8px 0 10px;
+}
+
+.gender-input-text {
+  font-size: 17px;
+}
+
+.birthday-title {
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+.sign-up-white-background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: -2;
 }

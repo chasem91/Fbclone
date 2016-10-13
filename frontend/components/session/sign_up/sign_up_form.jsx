@@ -63,86 +63,150 @@ class SignUp extends React.Component {
 		);
 	}
 
+  birthdayInputs() {
+    const months = [];
+    const days = [];
+    const years = [];
+    for(let i = 1; i <= 31; i++){
+      days.push(<option value={`${i}`}>{i}</option>);
+    }
+    for(let i = 2016; i >= 1900; i-= 1){
+      years.push(<option value={`${i}`}>{i}</option>);
+    }
+
+    return (
+      <div>
+        <select onChange={this.update("birthMonth")} name="month" id="month" size="1">
+          <option selected>Month</option>
+          <option value="01">Jan</option>
+          <option value="02">Feb</option>
+          <option value="03">Mar</option>
+          <option value="04">Apr</option>
+          <option value="05">May</option>
+          <option value="06">Jun</option>
+          <option value="07">Jul</option>
+          <option value="08">Aug</option>
+          <option value="09">Sep</option>
+          <option value="10">Oct</option>
+          <option value="11">Nov</option>
+          <option value="12">Dec</option>
+        </select>
+        <select onChange={this.update("birthDay")} name="day" id="day" size="1">
+          <option selected>Day</option>
+          {days}
+        </select>
+        <select onChange={this.update("birthYear")} name="year" id="year" size="1">
+          <option selected>Year</option>
+          {years}
+        </select>
+      </div>
+    );
+  }
+
+  formAndHeader() {
+    return (
+      <section className="form-and-header">
+        <header className="sign-up-header">
+          <h1>Sign Up</h1>
+          <h3>It's free and always will be.</h3>
+        </header>
+
+        <div className="sign-up-name-inputs">
+          <input type="text"
+            placeholder="First name"
+            value={this.state.first_name}
+            onChange={this.update("first_name")}
+            className="sign-up-name-input" />
+          <input type="text"
+            placeholder="Last name"
+            value={this.state.last_name}
+            onChange={this.update("last_name")}
+            className="sign-up-name-input" />
+        </div>
+        <input type="text"
+          placeholder="Email"
+          value={this.state.email}
+          onChange={this.update("email")}
+          className="sign-up-input" />
+        <input type="text"
+          placeholder="Re-enter email"
+          value={this.state.verificationEmail}
+          onChange={this.update("verificationEmail")}
+          className="sign-up-input" />
+        <input type="password"
+          placeholder="New password"
+          value={this.state.password}
+          onChange={this.update("password")}
+          className="sign-up-input" />
+
+        <div className="birthday-title">Birthday</div>
+        {this.birthdayInputs()}
+
+        <div className="gender-inputs">
+          <div className="gender-input">
+            <input type="radio" value="female" className="gender-radio-input" name="gender"/>
+            <div className="gender-input-text">Female</div>
+          </div>
+
+          <div className="gender-input">
+            <input type="radio" value="male" className="gender-radio-input" name="gender"/>
+            <div className="gender-input-text">Male</div>
+          </div>
+        </div>
+        <input className="sign-up-submit" type="submit" value="Sign Up" />
+      </section>
+    );
+  }
+
+  signupMessages() {
+    return (
+      <section className="sign-up-messages">
+        <div className="sign-up-errors">
+          {this.renderErrors()}
+        </div>
+        <h1 className="sign-up-connect-message">Connect with friends and the <br/> world around you on Fbclone.</h1>
+        <div className="sign-up-bullets">
+          <div className="sign-up-bullet">
+            <div className="icon-image">
+              <img src={window.signupImages.seePhotosImage}/>
+            </div>
+            <div className="bullet-message">
+              <div className="bullet-message-bold">See photos and updates</div>
+              <div className="bullet-message-normal">from friends in News Feed.</div>
+            </div>
+          </div>
+          <div className="sign-up-bullet">
+            <div className="icon-image">
+              <img src={window.signupImages.shareImage}/>
+            </div>
+            <div className="bullet-message">
+              <div className="bullet-message-bold">Share what's new</div>
+              <div className="bullet-message-normal">in your life on your Timeline.</div>
+            </div>
+          </div>
+          <div className="sign-up-bullet">
+            <div className="icon-image">
+              <img src={window.signupImages.findMoreImage}/>
+            </div>
+            <div className="bullet-message">
+              <div className="bullet-message-bold">Find more</div>
+              <div className="bullet-message-normal">of what you're looking for with Fbclone Search.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   render() {
     return (
       <div className="sign-up group">
+        <div className="sign-up-background"/>
         <div className="sign-up-content">
-          <section className="sign-up-messages">
-            <div className="sign-up-errors">
-              {this.renderErrors()}
-            </div>
-            <h1 className="sign-up-connect-message">Connect with friends and the world around you on Fbclone.</h1>
-            <div className="sign-up-bullet">
-              <img className="iconImage" src={window.signupImages.seePhotosImage}/>
-              <span>See photos and updates </span> from friends in News Feed.
-            </div>
-            <div className="sign-up-bullet">
-              <img className="iconImage" src={window.signupImages.shareImage}/>
-              <span>Share what's new </span> in your life on your Timeline.
-            </div>
-            <div className="sign-up-bullet">
-              <img className="iconImage" src={window.signupImages.findMoreImage}/>
-              <span>Find more </span> of what you're looking for with Fbclone Search.
-            </div>
-          </section>
-          <section className="form-and-header">
-            <header className="sign-up-header">
-              <h1>Sign Up</h1>
-              <h3>It's free and always will be.</h3>
-            </header>
-
-            <input type="text"
-              placeholder="First name"
-              value={this.state.first_name}
-              onChange={this.update("first_name")}
-              className="sign-up-input" />
-            <input type="text"
-              placeholder="Last name"
-              value={this.state.last_name}
-              onChange={this.update("last_name")}
-              className="sign-up-input" />
-            <input type="text"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.update("email")}
-              className="sign-up-input" />
-            <input type="text"
-              placeholder="Re-enter email"
-              value={this.state.verificationEmail}
-              onChange={this.update("verificationEmail")}
-              className="sign-up-input" />
-            <input type="password"
-              placeholder="New password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              className="sign-up-input" />
-
-            <h3>Birthday</h3>
-            <select onChange={this.update("birthMonth")} name="month" id="month" size="1">
-              <option value="01">January</option>
-              <option value="02">February</option>
-              <option value="03">March</option>
-              <option value="04">April</option>
-              <option value="05">May</option>
-              <option value="06">June</option>
-              <option value="07">July</option>
-              <option value="08">August</option>
-              <option value="09">September</option>
-              <option value="10">October</option>
-              <option value="11">November</option>
-              <option value="12">December</option>
-            </select>
-            <select onChange={this.update("birthDay")} name="day" id="day" size="1">
-              <option value="01">01</option>
-            </select>
-            <select onChange={this.update("birthYear")} name="year" id="year" size="1">
-              <option value="2016">2016</option>
-            </select>
-
-            <input className="sign-up-submit" type="submit" value="Sign Up" />
-
-          </section>
+          {this.signupMessages()}
+          {this.formAndHeader()}
         </div>
+        <div className="sign-up-white-background"/>
       </div>
     );
   }

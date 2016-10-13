@@ -1,19 +1,21 @@
 .logged-out-header {
+  display: flex;
+  justify-content: center;
   position: fixed;
   left: 0;
   right: 0;
   width: 100%;
   height: 82px;
-  background: rgb(59, 89, 152);
+  background-image: linear-gradient(#4e69a2, #3b5998 50%);
   float: left;
   border-bottom: 1px solid rgb(19, 55, 131);
 }
 
 .large-logo {
-  position: absolute;
-  top: 36px;
+  position: relative;
+  top: 8px;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 40px;
   color: #fff
 }
 
@@ -21,17 +23,58 @@
   width: 980px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .login-form {
-
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 443px;
+  justify-content: space-between;
+  position: relative;
+  bottom: 6px;
 }
 
-.login-form > ul {
-  color: white;
-  margin: 5px;
+.login-buttons {
+  display: flex;
+  width: 115px;
+  justify-content: space-between;
 }
 
 .login-header-fix {
   height: 83px;
+}
+
+.login-input {
+  width: 146px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.login-form-inputs {
+  display: flex;
+  width: 314px;
+  justify-content: space-between;
+}
+
+.session-submit {
+  color: white;
+  height: 26px;
+  width: 50px;
+  background: rgb(66, 103, 178);
+  border: 1px solid rgb(41, 72, 125);
+  border-radius: 2px;
+}
+
+.session-submit:hover {
+  background: rgb(54, 88, 153);
+  cursor: pointer;
+}
+
+.login-input-label {
+  color: white;
+  font-size: 13px;
+  margin: 0 0 4px 2px;
 }

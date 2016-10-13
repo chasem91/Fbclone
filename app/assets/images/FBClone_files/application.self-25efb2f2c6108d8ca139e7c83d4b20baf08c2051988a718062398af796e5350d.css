@@ -1,0 +1,1159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/comment.scss */
+.comment {
+  display: flex;
+  margin: 12px 0;
+}
+
+/* line 6, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/comment.scss */
+.comment-author-picture {
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+}
+
+/* line 12, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/comment.scss */
+.comment-author a {
+  color: #365899;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* line 18, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/comment.scss */
+.comment-content {
+  font-size: 14px;
+}
+
+/* line 22, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/comment.scss */
+.comment-actions {
+  color: #365899;
+  font-size: 14px;
+}
+
+/* line 27, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/comment.scss */
+.comment-date {
+  color: #90949c;
+  font-size: 14px;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.personal-greeting {
+  background: #3b5998;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  border-bottom: 1px solid #29487d;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* line 13, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.header-bar-fix {
+  height: 42px;
+}
+
+/* line 17, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.personal-greeting-elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 980px;
+}
+
+/* line 25, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.small-logo {
+  width: 25px;
+  height: 25px;
+  margin: 0 6px 0 8px;
+  color: #fff;
+  background-image: url(/assets/small_logo-28f7b978bc0a1ba3ccb3c6affab8039912b0a5240c894d6090245e5a586c85ed.png);
+  background-position: 0px 205px, center;
+}
+
+/* line 34, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.my-profile-link-thumb {
+  width: 24px;
+  height: 24px;
+}
+
+/* line 39, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.my-profile-link-name {
+  margin: 0 10px;
+}
+
+/* line 43, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.my-profile-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  border: 2px solid transparent;
+  border-radius: 2px;
+}
+
+/* line 52, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.my-profile-link:hover {
+  background-color: #355089;
+  border: 2px solid #355089;
+}
+
+/* line 57, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.friend-requests-container {
+  display: flex;
+  position: relative;
+  top: 68px;
+  left: 373px;
+}
+
+/* line 64, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.hidden {
+  display: none;
+}
+
+/* line 68, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.friend-requests-icon {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: url(/assets/header_icons-318ebe4743f6ff2c003604eb16f377d939cfe94ef707fafed91b9d7d857c4d29.png);
+  background-position: 0px 584px, center;
+  cursor: pointer;
+}
+
+/* line 77, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.friend-requests-icon-clicked {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: url(/assets/header_icons-318ebe4743f6ff2c003604eb16f377d939cfe94ef707fafed91b9d7d857c4d29.png);
+  background-position: 0px 558px, center;
+  cursor: pointer;
+}
+
+/* line 86, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.notifications-icon {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: url(/assets/header_icons-318ebe4743f6ff2c003604eb16f377d939cfe94ef707fafed91b9d7d857c4d29.png);
+  background-position: 0px 534px, center;
+}
+
+/* line 94, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.newsfeed-link {
+  padding: 5px 10px;
+  color: white;
+  font-size: 12px;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  margin-right: 30px;
+}
+
+/* line 103, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.newsfeed-link:hover {
+  background-color: #355089;
+  border: 2px solid #355089;
+}
+
+/* line 108, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.logout-button {
+  padding: 5px 10px;
+  margin: 0 18px;
+  color: white;
+  font-size: 12px;
+  border: 2px solid transparent;
+  border-radius: 2px;
+}
+
+/* line 117, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.logout-button:hover {
+  background-color: #355089;
+  border: 2px solid #355089;
+}
+
+/* line 122, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.pipe {
+  width: 1px;
+  height: 16px;
+  background-image: url(/assets/small_logo-28f7b978bc0a1ba3ccb3c6affab8039912b0a5240c894d6090245e5a586c85ed.png);
+  background-position: 0px 178px, center;
+}
+
+/* line 129, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.icon-and-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+/* line 136, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/greeting.scss */
+.header-icons-and-logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/home_profile.scss */
+.home-user {
+  display: flex;
+  width: 981px;
+  margin: 0 auto;
+}
+
+/* line 7, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/home_profile.scss */
+.home-user-main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 854px;
+}
+
+/* line 14, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/home_profile.scss */
+.profile-header-image {
+  height: 316px;
+  width: 100%;
+}
+
+/* line 19, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/home_profile.scss */
+.profile-picture {
+  position: absolute;
+  top: 168px;
+  left: 18px;
+  height: 162px;
+  width: 162px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid rgba(179, 179, 179, 0.5);
+  border-radius: 4px;
+}
+
+/* line 31, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/home_profile.scss */
+.user-name {
+  position: absolute;
+  top: 266px;
+  left: 207px;
+  font-size: 28px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #fff;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.logged-out-header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 82px;
+  background-image: linear-gradient(#4e69a2, #3b5998 50%);
+  float: left;
+  border-bottom: 1px solid #133783;
+}
+
+/* line 14, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.large-logo {
+  position: relative;
+  top: 8px;
+  font-weight: bold;
+  font-size: 40px;
+  color: #fff;
+}
+
+/* line 22, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.logged-out-nav {
+  width: 980px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* line 29, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.login-form {
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 443px;
+  justify-content: space-between;
+  position: relative;
+  bottom: 6px;
+}
+
+/* line 40, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.login-buttons {
+  display: flex;
+  width: 115px;
+  justify-content: space-between;
+}
+
+/* line 46, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.login-header-fix {
+  height: 83px;
+}
+
+/* line 50, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.login-input {
+  width: 146px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+/* line 56, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.login-form-inputs {
+  display: flex;
+  width: 314px;
+  justify-content: space-between;
+}
+
+/* line 62, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.session-submit {
+  color: white;
+  height: 26px;
+  width: 50px;
+  background: #4267b2;
+  border: 1px solid #29487d;
+  border-radius: 2px;
+}
+
+/* line 71, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.session-submit:hover {
+  background: #365899;
+  cursor: pointer;
+}
+
+/* line 76, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/log_in.scss */
+.login-input-label {
+  color: white;
+  font-size: 13px;
+  margin: 0 0 4px 2px;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post {
+  display: flex;
+  border: 1px solid #d3d6db;
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+/* line 9, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-details {
+  margin: 10px;
+  width: 100%;
+}
+
+/* line 14, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-author-picture {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+/* line 20, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-author-arrow {
+  display: inline-block;
+  background-image: url(/assets/icons-5df9c50ffa933c49aba5561aef92962311bd5f9ca26f99986e32aa607c3717ed.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 11px;
+  height: 9px;
+  background-position: -203px -268px;
+  margin: 2px 6px;
+}
+
+/* line 31, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-header {
+  display: flex;
+  align-items: center;
+  background: #f6f7f9;
+}
+
+/* line 37, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-author {
+  margin-bottom: 10px;
+}
+
+/* line 41, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-author a {
+  font-weight: bold;
+  color: #365899;
+}
+
+/* line 46, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-date {
+  font-size: 10px;
+}
+
+/* line 50, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-content {
+  margin: 8px 0 10px 0;
+}
+
+/* line 54, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-actions {
+  display: flex;
+  padding: 6px 0;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  color: #7f7f7f;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* line 64, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-action-buttons {
+  width: 160px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 70, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-comment-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 76, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-comment {
+  display: inline-block;
+  background-image: url(/assets/icons-5df9c50ffa933c49aba5561aef92962311bd5f9ca26f99986e32aa607c3717ed.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 14px;
+  height: 14px;
+  background-position: -385px -250px;
+  margin: 0 6px -3px 0;
+}
+
+/* line 87, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-like-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 93, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-like {
+  display: inline-block;
+  background-image: url(/assets/icons-5df9c50ffa933c49aba5561aef92962311bd5f9ca26f99986e32aa607c3717ed.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 14px;
+  height: 14px;
+  background-position: -400px -250px;
+  margin: 0 6px -3px 0;
+}
+
+/* line 107, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.post-likes {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #355695;
+  border-bottom: 1px solid lightgray;
+}
+
+/* line 114, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.comment-compose {
+  display: flex;
+}
+
+/* line 118, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.comment-compose-author-picture {
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+}
+
+/* line 124, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/post.scss */
+.comment-input {
+  width: 100%;
+  height: 22px;
+  font-size: 13px;
+  padding: 4px;
+  color: #90949c;
+  border: 1px solid #dddfe2;
+  -webkit-appearance: none;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.user-action-bar {
+  position: absolute;
+  display: flex;
+  top: 270px;
+  left: 548px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* line 10, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.update-action {
+  margin-right: 20px;
+  border: 1px solid rgba(40, 40, 40, 0.5);
+  border-radius: 2px;
+}
+
+/* line 16, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.update-action-requested {
+  margin-right: 20px;
+  border: 1px solid rgba(40, 40, 40, 0.5);
+  border-radius: 2px;
+  background: #3b5998;
+  padding: 6px 14px;
+  color: #fff;
+}
+
+/* line 25, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.side-actions {
+  display: flex;
+  border: 1px solid rgba(40, 40, 40, 0.5);
+  border-radius: 2px;
+}
+
+/* line 31, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.side-actions a {
+  border-left: 1px solid #ccc;
+}
+
+/* line 35, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.side-actions a:first-child {
+  border-left: none;
+}
+
+/* line 39, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.user-action-bar a {
+  padding: 6px 14px;
+  background: #f6f7f9;
+  color: #4b4f56;
+}
+
+/* line 45, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_action_bar.scss */
+.user-action-bar a:hover {
+  background: #e9ebee;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_header_nav.scss */
+.profile-header-nav {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #d3d6db;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #fff;
+}
+
+/* line 10, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_header_nav.scss */
+.profile-header-nav-links {
+  display: flex;
+  border-right: 1px solid #e9eaed;
+}
+
+/* line 18, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_header_nav.scss */
+.inactive-header-nav-tab {
+  cursor: pointer;
+  border-left: 1px solid #e9eaed;
+  padding: 10px 20px;
+  color: #365899;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* line 27, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile_header_nav.scss */
+.active-header-nav-tab {
+  cursor: pointer;
+  border-left: 1px solid #e9eaed;
+  padding: 10px 20px;
+  color: #4b4f56;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile.scss */
+.profile {
+  background: lightblue;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+/* line 8, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile.scss */
+.profile-index {
+  background: white;
+  width: 600px;
+  margin: 0 auto;
+}
+
+/* line 14, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/profile.scss */
+.profile-index-item {
+  background: lightblue;
+  width: 80%;
+  margin: 20px auto;
+  font-size: 36px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/search_bar.scss */
+.search-bar {
+  display: flex;
+  position: relative;
+}
+
+/* line 6, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/search_bar.scss */
+.search-bar-input {
+  display: inline-block;
+  font-family: helvetica, arial, sans-serif;
+  color: black;
+  font-size: 16px;
+  -webkit-appearance: none;
+  border: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  height: 22px;
+  width: 400px;
+}
+
+/* line 19, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/search_bar.scss */
+.search-bar-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  height: 24px;
+  width: 48px;
+  background: #fff;
+}
+
+/* line 32, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/search_bar.scss */
+.search-submit-icon {
+  height: 18px;
+  width: 18px;
+  background-image: url(/assets/small_logo-28f7b978bc0a1ba3ccb3c6affab8039912b0a5240c894d6090245e5a586c85ed.png);
+  background-position: -18px 646px, center;
+}
+
+/* line 39, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/search_bar.scss */
+.search-bar-submit:hover {
+  background: #eee;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-background {
+  height: 608px;
+  background: #edf0f5;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+/* line 10, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-messages {
+  float: left;
+}
+
+/* line 14, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-messages > h1 {
+  font-size: 32px;
+  width: 565px;
+  margin: 80px 0;
+}
+
+/* line 20, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-bullets {
+  margin: 60px 0;
+  color: #666666;
+}
+
+/* line 25, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.form-and-header {
+  float: right;
+  margin: 40px 0;
+}
+
+/* line 30, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-header > h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* line 35, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-header > h3 {
+  font-size: 20px;
+}
+
+/* line 39, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-form-container {
+  background: #edf0f5;
+  height: 760px;
+  width: 100%;
+}
+
+/* line 45, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-form {
+  float: right;
+  width: 400px;
+}
+
+/* line 50, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.name-inputs {
+  width: 100%;
+}
+
+/* line 54, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-input {
+  display: block;
+  width: 380px;
+  height: 30px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 20px;
+  padding: 4px;
+  border: 1px solid #bdc7d8;
+}
+
+/* line 65, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-submit {
+  width: 200px;
+  height: 42px;
+  background: #5b93fc;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  border-radius: 6px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+  border-left: 1px solid #29487c;
+  border-top: 1px solid #29487d;
+  border-right: 1px solid #29487c;
+  border-bottom: 1px solid #1a3a6d;
+}
+
+/* line 81, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-content {
+  width: 980px;
+  margin: 0 auto;
+}
+
+/* line 86, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.sign-up-bullet {
+  display: flex;
+  align-items: center;
+}
+
+/* line 91, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/sign_up.scss */
+.iconImage {
+  width: 55px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/timeline.scss */
+.timeline {
+  position: absolute;
+  top: 362px;
+  left: 344px;
+  display: flex;
+  flex-direction: column;
+  width: 510px;
+}
+
+/* line 10, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/timeline.scss */
+.timeline-pointer {
+  width: 11px;
+  height: 11px;
+  background: #e9ebee;
+  position: absolute;
+  transform: rotateZ(45deg);
+  top: -15px;
+  left: -88px;
+  border-top: 1px solid #d3d6db;
+  border-left: 1px solid #d3d6db;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d3d6db;
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+/* line 10, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-header {
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  background: #f6f7f9;
+  border: 0px solid #d3d6db;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* line 22, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-tabs {
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+
+/* line 28, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-tabs a {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #365899;
+}
+
+/* line 37, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-tabs li {
+  border-right: 1px solid #cccccc;
+  height: 14px;
+}
+
+/* line 42, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-tabs li:last-child {
+  border: none;
+}
+
+/* line 47, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-tabs a:last-of-type {
+  border: none;
+}
+
+/* line 51, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-input {
+  display: flex;
+  flex-direction: row;
+  height: 75px;
+  align-items: center;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 60, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-footer {
+  height: 42px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+/* line 68, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.poster-profile-thumb {
+  height: 42px;
+  width: 42px;
+  margin-right: 10px;
+  margin: 12px;
+}
+
+/* line 75, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-form-text-input {
+  width: calc(100% - 95px);
+  margin: 8px;
+  border: none;
+}
+
+/* line 81, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/new_post_form.scss */
+.new-post-submit {
+  height: 24px;
+  width: 60px;
+  background: #4267b2;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 8px;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/newsfeed.scss */
+.newsfeed {
+  position: absolute;
+  top: 46px;
+  left: 196px;
+  display: flex;
+  flex-direction: column;
+  width: 510px;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friends_preview.scss */
+.friends-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #d3d6db;
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+/* line 11, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friends_preview.scss */
+.friends-preview-thumb {
+  height: 101px;
+  width: 101px;
+  float: left;
+  margin: 1px;
+}
+
+/* line 18, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friends_preview.scss */
+.friends-preview-thumbs {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
+/* line 26, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friends_preview.scss */
+.friends-preview-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+/* line 33, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friends_preview.scss */
+.friends-preview-icon {
+  display: block;
+  margin: 0 10px 0 4px;
+  background-image: url(/assets/icons2-d527c5876a6b8f74bf2a41949738f69bf7ab4dacbfc3d021d712e5c27d206cc7.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-position: 0 -180px;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/user_report.scss */
+.user-report {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+  width: 328px;
+  float: left;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-requests {
+  width: 430px;
+  background: #fff;
+  border: 1px solid rgba(100, 100, 100, 0.4);
+  background: #fff;
+  position: absolute;
+  right: 316px;
+  top: -34px;
+  z-index: 1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* line 13, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-request-thumb {
+  height: 50px;
+  width: 50px;
+}
+
+/* line 18, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-request {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-top: 1px solid #e9ebee;
+}
+
+/* line 26, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.no-friend-requests {
+  display: flex;
+  align-items: center;
+  color: black;
+  border-top: 1px solid #e9ebee;
+}
+
+/* line 33, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-request-details {
+  display: flex;
+  align-items: center;
+}
+
+/* line 38, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-request-link {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #4267b2;
+}
+
+/* line 45, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-request-approve {
+  height: 24px;
+  width: 60px;
+  background: #4267b2;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 8px;
+}
+
+/* line 55, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-requests-header {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+/* line 62, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/friend_requests.scss */
+.friend-requests-pointer {
+  background: #fff;
+  position: absolute;
+  top: -6px;
+  left: 350px;
+  height: 16px;
+  width: 16px;
+  transform: rotateZ(45deg);
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/photos_preview.scss */
+.photos-preview-icon {
+  display: block;
+  margin: 0 10px 0 4px;
+  background-image: url(/assets/icons2-d527c5876a6b8f74bf2a41949738f69bf7ab4dacbfc3d021d712e5c27d206cc7.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-position: -25px -180px;
+}
+
+/* line 1, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/intro.scss */
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #d3d6db;
+  border-radius: 4px;
+  background: #fff;
+  margin: 8px 0;
+}
+
+/* line 11, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/intro.scss */
+.intro-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+/* line 18, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/intro.scss */
+.intro-details {
+  margin: 0 12px 8px 12px;
+  font-size: 14px;
+}
+
+/* line 23, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/intro.scss */
+.intro-details div {
+  margin: 4px 0;
+}
+
+/* line 27, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/intro.scss */
+.intro-icon {
+  display: block;
+  margin: 0 10px 0 4px;
+  background-image: url(/assets/icons3-5497741871ed027cdfc71d94885742881ad436876ce6761c1586fb4d2f63a721.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-position: 0px -22px;
+}
+
+/* line 37, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 57, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+body {
+  box-sizing: content-box;
+  font-family: "Tahoma", serif;
+  font-size: 16px;
+  line-height: 16px;
+  line-height: 1.16666666666;
+  background: #e9ebee;
+  color: #000;
+}
+
+/* line 67, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+ul {
+  list-style: none;
+}
+
+/* line 71, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+a {
+  cursor: pointer;
+}
+
+/* line 75, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* line 82, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+textarea {
+  resize: none;
+}
+
+/* line 86, /Users/appacademy/Desktop/FBClone/app/assets/stylesheets/application.scss */
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
