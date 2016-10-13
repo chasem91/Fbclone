@@ -28,12 +28,9 @@
   border-radius: 2px;
 }
 
-.side-actions a {
-  border-left: 1px solid #ccc;
-}
 
 .side-actions a:first-child {
-  border-left: none
+  border-right: 1px solid #ccc;
 }
 
 .user-action-bar a {

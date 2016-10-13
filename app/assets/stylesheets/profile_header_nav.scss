@@ -1,9 +1,11 @@
 .profile-header-nav {
   display: flex;
   justify-content: center;
-  border: 1px solid rgb(211, 214, 219);
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   background: #fff;
 }
 
