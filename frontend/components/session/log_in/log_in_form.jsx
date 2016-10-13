@@ -12,7 +12,8 @@ class LogIn extends React.Component {
 		this.handleGuestLogin = this.handleGuestLogin.bind(this);
 	}
 
-  handleGuestLogin() {
+  handleGuestLogin(e) {
+    e.preventDefault();
     const user = {password: "password", email: "guest@email.com"};
     this.props.login(user);
   }

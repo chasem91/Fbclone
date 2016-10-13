@@ -94,6 +94,20 @@
   border-bottom: 1px solid rgb(26, 58, 109);
 }
 
+.sign-up-submit:hover {
+  background: linear-gradient(#79bc64, #578843);
+  cursor: pointer;
+}
+
+.sign-up-submit:active {
+  position: relative;
+  top: 1px;
+}
+
+.sign-up-submit:focus {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
 .sign-up-content {
   width: 980px;
   margin: 0 auto;

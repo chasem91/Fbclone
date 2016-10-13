@@ -1,6 +1,11 @@
+.newsfeed-container {
+  width: 980px;
+  display: flex;
+  margin: 0 auto;
+}
+
 .newsfeed {
-  position: absolute;
-  top: 46px;
+  position: relative;
   left: 196px;
   display: flex;
   flex-direction: column;

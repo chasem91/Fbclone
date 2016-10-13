@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.includes(:friends).find(params[:id])
-    @user = User.includes(:friends).find(@user.id)
+    # @user = User.includes(:friends).find(@user.id)
     friend_ids = @user.friends.map { |friend| friend.id }
     friend_ids << @user.id
     @newsfeed_posts = Post
@@ -22,6 +22,7 @@ class Api::UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			login(@user)
+      @newsfeed_posts = []
 			render "api/users/show"
 		else
 			render json: @user.errors.full_messages, status: 422

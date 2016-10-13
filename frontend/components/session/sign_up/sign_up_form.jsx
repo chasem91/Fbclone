@@ -38,8 +38,11 @@ class SignUp extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		let user = this.state;
-    user.birthday = `${user.birthMonth}-${user.birthDay}-${user.birthYear}`;
+    user.birthday = `${user.birthDay}-${user.birthMonth}-${user.birthYear}`;
     user.email = user.email === user.verificationEmail ? user.email : "match_error";
+    delete user.birthDay;
+    delete user.birthMonth;
+    delete user.birthYear;
     this.props.signup({ user });
 	}
 
@@ -64,39 +67,38 @@ class SignUp extends React.Component {
 	}
 
   birthdayInputs() {
-    const months = [];
     const days = [];
     const years = [];
     for(let i = 1; i <= 31; i++){
-      days.push(<option value={`${i}`}>{i}</option>);
+      days.push(<option key={i} value={`${i}`}>{i}</option>);
     }
     for(let i = 2016; i >= 1900; i-= 1){
-      years.push(<option value={`${i}`}>{i}</option>);
+      years.push(<option key={i} value={`${i}`}>{i}</option>);
     }
 
     return (
       <div>
-        <select onChange={this.update("birthMonth")} name="month" id="month" size="1">
-          <option selected>Month</option>
-          <option value="01">Jan</option>
-          <option value="02">Feb</option>
-          <option value="03">Mar</option>
-          <option value="04">Apr</option>
-          <option value="05">May</option>
-          <option value="06">Jun</option>
-          <option value="07">Jul</option>
-          <option value="08">Aug</option>
-          <option value="09">Sep</option>
+        <select defaultValue="default" onChange={this.update("birthMonth")} name="month" id="month" size="1">
+          <option value="default">Month</option>
+          <option value="1">Jan</option>
+          <option value="2">Feb</option>
+          <option value="3">Mar</option>
+          <option value="4">Apr</option>
+          <option value="5">May</option>
+          <option value="6">Jun</option>
+          <option value="7">Jul</option>
+          <option value="8">Aug</option>
+          <option value="9">Sep</option>
           <option value="10">Oct</option>
           <option value="11">Nov</option>
           <option value="12">Dec</option>
         </select>
-        <select onChange={this.update("birthDay")} name="day" id="day" size="1">
-          <option selected>Day</option>
+        <select defaultValue="default" onChange={this.update("birthDay")} name="day" id="day" size="1">
+          <option value="default">Day</option>
           {days}
         </select>
-        <select onChange={this.update("birthYear")} name="year" id="year" size="1">
-          <option selected>Year</option>
+        <select defaultValue="default" onChange={this.update("birthYear")} name="year" id="year" size="1">
+          <option value="default">Year</option>
           {years}
         </select>
       </div>
@@ -144,16 +146,29 @@ class SignUp extends React.Component {
 
         <div className="gender-inputs">
           <div className="gender-input">
-            <input type="radio" value="female" className="gender-radio-input" name="gender"/>
+            <input
+              type="radio"
+              value="female"
+              onChange={this.update("gender")}
+              className="gender-radio-input"
+              name="gender"/>
             <div className="gender-input-text">Female</div>
           </div>
 
           <div className="gender-input">
-            <input type="radio" value="male" className="gender-radio-input" name="gender"/>
+            <input
+              type="radio"
+              value="male"
+              onChange={this.update("gender")}
+              className="gender-radio-input"
+              name="gender"/>
             <div className="gender-input-text">Male</div>
           </div>
         </div>
-        <input className="sign-up-submit" type="submit" value="Sign Up" />
+        <input onClick={this.handleSubmit}
+          className="sign-up-submit"
+          type="submit"
+          value="Sign Up" />
       </section>
     );
   }

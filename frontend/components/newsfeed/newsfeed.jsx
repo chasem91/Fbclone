@@ -23,9 +23,11 @@ export default class Newsfeed extends React.Component {
 
   render () {
     return (
-      <div className="newsfeed group">
-        <NewPostFormContainer />
-        { this.newsfeedPosts() }
+      <div className="newsfeed-container">
+        <div className="newsfeed group">
+          <NewPostFormContainer />
+          { this.newsfeedPosts() }
+        </div>
       </div>
     );
   }

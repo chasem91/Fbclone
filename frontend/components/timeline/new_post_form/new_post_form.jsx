@@ -23,6 +23,11 @@ export default class NewPostForm extends React.Component {
     e.preventDefault();
     this.currentPostText = e.currentTarget.value;
   }
+  //
+  // handleClick (e) {
+  //   e.preventDefault();
+  // }
+  // onClick={this.handleClick} 
 
   render () {
     return (
