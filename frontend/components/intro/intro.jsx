@@ -20,11 +20,11 @@ export default class Intro extends React.Component {
           <div className="intro-elements">
             <div className="intro-element">
               <div className="intro-element-category">Birthday:</div>
-              <div className="intro-element-value">{this.props.currentUser.birthday}</div>
+              <div className="intro-element-value">{this.props.user.birthday}</div>
             </div>
             <div className="intro-element">
               <div className="intro-element-category">Gender:</div>
-              <div className="intro-element-value">{this.props.currentUser.gender}</div>
+              <div className="intro-element-value">{this.props.user.gender}</div>
             </div>
           </div>
         </div>

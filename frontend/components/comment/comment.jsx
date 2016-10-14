@@ -12,7 +12,7 @@ export default ({ comment }) => {
           </span>
           {` ${comment.content}`}
         </li>
-        <li className="comment-actions">Like - <span className="comment-date">{comment.time_ago}</span></li>
+        <li className="comment-actions"><span className="comment-date">{comment.time_ago}</span></li>
       </ul>
     </div>
   );

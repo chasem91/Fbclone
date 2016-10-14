@@ -33,14 +33,16 @@ export default class UserActionBar extends React.Component {
   }
 
   render() {
+    if (this.props.user.id === this.props.currentUser.id) return null;
     return (
       <div className="user-action-bar">
         {this.addFriendButton()}
-        <aside className="side-actions">
-          <a>Message</a>
-          <a>...</a>
-        </aside>
       </div>
     );
   }
 }
+
+// <aside className="side-actions">
+//   <a>Message</a>
+//   <a>...</a>
+// </aside>

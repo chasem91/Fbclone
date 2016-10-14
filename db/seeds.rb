@@ -12,7 +12,7 @@ User.create(
   session_token: "kahg;fkjhga;skjdfhg;",
   first_name: "Guest",
   last_name: "User",
-  birthday: "01-01-190",
+  birthday: "01-01-1900",
   gender: "female"
 )
 

@@ -184,10 +184,6 @@ export default class Post extends React.Component {
               <div className="post-like-container">
                 {this.renderLike(post)}
               </div>
-              <div className="post-comment-container">
-                <div className="post-comment"></div>
-                <div className="post-comment-name">Comment</div>
-              </div>
             </div>
           </ul>
           {this.likers(post, this.props.user.friends)}
@@ -203,3 +199,8 @@ export default class Post extends React.Component {
     );
   }
 }
+
+// <div className="post-comment-container">
+//   <div className="post-comment"></div>
+//   <div className="post-comment-name">Comment</div>
+// </div>

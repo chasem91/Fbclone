@@ -16,7 +16,7 @@ class User extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return !!nextProps.currentUser;
+    return (!!nextProps.currentUser);
   }
 
   componentWillReceiveProps(newProps) {

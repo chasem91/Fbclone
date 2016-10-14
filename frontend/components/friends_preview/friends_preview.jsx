@@ -7,7 +7,7 @@ export default class FriendsPreview extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return !!nextProps.currentUser;
+    return (!!nextProps.currentUser);
   }
 
   thumbsList () {
@@ -22,7 +22,7 @@ export default class FriendsPreview extends React.Component {
       <div className="friends-preview group">
         <div className="friends-preview-header">
           <div className="friends-preview-icon"></div>
-          Friends - {Object.keys(this.props.currentUser.friends).length}
+          Friends - {Object.keys(this.props.user.friends).length}
         </div>
         <div className="friends-preview-thumbs">
           {this.thumbsList()}
