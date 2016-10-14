@@ -10,10 +10,10 @@ User.create(
   email: "guest@email.com",
   password_digest: BCrypt::Password.create("password"),
   session_token: "kahg;fkjhga;skjdfhg;",
-  first_name: "Firstname",
-  last_name: "Lastname",
-  birthday: "01-01-1990",
-  gender: "male"
+  first_name: "Guest",
+  last_name: "User",
+  birthday: "01-01-190",
+  gender: "female"
 )
 
 19.times do
@@ -28,9 +28,8 @@ User.create(
   )
 end
 
-
 (1..20).each do |i|
-  4.times do
+  6.times do
     Post.create(
       author_id: rand(1..20),
       user_id: i,
@@ -40,7 +39,7 @@ end
 end
 
 (1..80).each do |i|
-  2.times do
+  6.times do
     Comment.create(
       author_id: rand(1..20),
       post_id: i,
