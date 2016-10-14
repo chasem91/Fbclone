@@ -10,6 +10,7 @@ class Api::SessionsController < ApplicationController
     if @user
 			login(@user)
       @newsfeed_posts = []
+      @user = User.includes(:friends).where(id: @user.id).first
 			render "api/users/show"
 		else
 			render(

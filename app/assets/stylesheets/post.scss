@@ -18,6 +18,15 @@
   margin-right: 12px;
 }
 
+.liker-names-icon {
+  width: 16px;
+  height: 16px;
+  background-image: image-url('icons4');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: -144px -35px;
+}
+
 .post-author-arrow {
   display: inline-block;
   background-image: image-url('icons.png');
@@ -32,7 +41,6 @@
 .post-header {
   display: flex;
   align-items: center;
-  background: rgb(246, 247, 249);
 }
 
 .post-author {
@@ -106,6 +114,9 @@
 }
 
 .post-likes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 6px 0;
   font-size: 14px;
   color: rgb(53, 86, 149);

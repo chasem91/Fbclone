@@ -2,7 +2,9 @@ import {
   receiveUser,
   receiveUsers,
   receiveFriendRequests,
-  receiveRequestedFriends
+  receiveRequestedFriends,
+  receiveNewsfeedLike,
+  receiveLikeOnTimeline
 } from '../actions/user_actions';
 
 export const fetchUser = (id, success) => {
@@ -50,6 +52,16 @@ export const postFriendRequest = (user_id, friend_id, success) => {
     data: { user_id, friend_id },
     success,
     error: () => console.log('error requesting friend')
+  });
+};
+
+export const postLike = (liker_id, likeable_id, likeable_type, success) => {
+  $.ajax({
+    method: 'POST',
+    url: `/api/likes`,
+    data: { like: { liker_id, likeable_id, likeable_type } },
+    success,
+    error: () => console.log('error posting like')
   });
 };
 

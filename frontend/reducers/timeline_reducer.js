@@ -1,9 +1,17 @@
-import { RECEIVE_POSTS, RECEIVE_POST_ON_TIMELINE } from '../actions/timeline_actions';
+import {
+  RECEIVE_POSTS,
+  RECEIVE_POST_ON_TIMELINE,
+  RECEIVE_LIKE_ON_TIMELINE
+} from '../actions/timeline_actions';
 import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
   {
-    posts: {}
+    posts: {
+      posts: {
+
+      }
+    }
   }
 );
 
@@ -11,9 +19,7 @@ const TimelineReducer = (state = _initialState, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_POSTS:
-      return merge({}, state, {
-        posts: action.posts
-      });
+      return { posts: action.posts };
     case RECEIVE_POST_ON_TIMELINE:
       return merge({}, state, {
         posts: {

@@ -21,6 +21,8 @@ class Post < ActiveRecord::Base
 
   has_many :comments
 
+  has_many :likes, as: :likeable
+
   def comments_with_author
     self.comments.includes(:author)
   end

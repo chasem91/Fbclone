@@ -7,11 +7,11 @@ const thumbsList = () => {
   ));
 };
 
-export default () => (
+export default (props) => (
   <div className="friends-preview group">
     <div className="friends-preview-header">
       <div className="friends-preview-icon"></div>
-      Friends - 583
+      Friends - {Object.keys(props.user.friends).length}
     </div>
     <div className="friends-preview-thumbs">
       {thumbsList()}

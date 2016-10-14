@@ -12,10 +12,16 @@ export default class UserActionBar extends React.Component {
 
   addFriendButton(requestedFriends) {
     const userId = this.props.user.id;
-    const hasBeenRequested = Object.keys(this.props.requestedFriends).some(
-      key => userId === parseInt(key)
-    );
-    if(hasBeenRequested){
+    const hasBeenRequested = Object.keys(this.props.requestedFriends).includes(`${userId}`);
+    let areFriends;
+    if (Object.keys(this.props.currentUser).includes('friends')) {
+      areFriends = Object.keys(this.props.currentUser.friends).includes(`${userId}`);
+    } else {
+      areFriends = false;
+    }
+    if (areFriends){
+      return <div className="update-action-friends">Friends</div>;
+    } else if(hasBeenRequested){
       return <div className="update-action-requested">Requested</div>;
     } else {
       return <a className="update-action" onClick={this.handleAddFriend}>Add Friend</a>;

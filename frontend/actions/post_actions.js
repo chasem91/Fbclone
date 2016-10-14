@@ -4,6 +4,7 @@ export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const CREATE_COMMENT = "CREATE_COMMENT";
+export const RECEIVE_LIKE = "RECEIVE_LIKE";
 
 export const getComment = id => ({
   type: GET_COMMENT,
@@ -36,4 +37,9 @@ export const createComment = (comment, post_id) => ({
   type: CREATE_COMMENT,
   comment,
   post_id
+});
+
+export const receiveLike = like => ({
+  type: RECEIVE_LIKE,
+  like
 });

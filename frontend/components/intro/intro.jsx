@@ -7,9 +7,8 @@ export default () => (
       Intro
     </div>
     <div className="intro-details">
-      <div>Descibe Who You Are</div>
+      <div></div>
       <div>From Somewhere</div>
-      <div>Add Photos</div>
     </div>
   </div>
 );

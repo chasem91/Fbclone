@@ -6,6 +6,7 @@ export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.handleCreateComment = this.handleCreateComment.bind(this);
+    this.createLike = this.createLike.bind(this);
   }
 
   handleCreateComment(e) {
@@ -26,8 +27,6 @@ export default class Post extends React.Component {
     if (this.props.path !== "/newsfeed") {
       this.props.receivePost(this.props.postFromTimeline);
       this.props.getComments(this.props.postFromTimeline.id);
-    } else {
-
     }
   }
 
@@ -48,6 +47,63 @@ export default class Post extends React.Component {
       );
     }
   }
+
+  createLike(e) {
+    const liker_id = this.props.currentUser.id;
+    let likeable_id;
+    if (this.props.path === "/newsfeed") {
+      likeable_id = this.props.post.id;
+    } else {
+      likeable_id = this.props.postFromTimeline.id;
+    }
+    const likeable_type = "Post";
+    this.props.createLike(liker_id, likeable_id, likeable_type);
+  }
+
+  likers(post, friends) {
+    const names = [];
+    const likes = post.likes || {};
+    let i = 1;
+    let remaining = 0;
+    for(const key in likes) {
+      const like = likes[key];
+      if (Object.keys(friends).includes(`${like.liker.id}`) || this.props.currentUser.id === like.liker.id) {
+        if (i === Object.keys(likes).length) {
+          names.push( <Link key={like.id} to={`/users/${like.liker.id}`}>{like.liker.full_name}</Link> );
+        } else {
+          names.push( <Link key={like.id} to={`/users/${like.liker.id}`}>{like.liker.full_name}, &nbsp;</Link> );
+        }
+      } else {
+        remaining++;
+      }
+      i++;
+    }
+    if (Object.keys(likes).length === 0) {
+      return (<div></div>);
+    } else if (names.length === 0){
+      return (
+        <li className="post-likes">
+          <div className="liker-names-icon" />
+          <div>{Object.keys(likes).length}</div>
+        </li>
+      );
+    } else if (remaining === 0) {
+      return (
+        <li className="post-likes">
+          <div className="liker-names-icon" />
+          {names}
+        </li>
+      );
+    }
+    return (
+      <li className="post-likes">
+        <div className="liker-names-icon" />
+        {names}
+        <div>&nbsp; and {remaining} others</div>
+      </li>
+    );
+  }
+
 
   render() {
     let post;
@@ -75,7 +131,7 @@ export default class Post extends React.Component {
           <ul className="post-actions">
             <div className="post-action-buttons">
               <div className="post-like-container">
-                <div className="post-comment-container">
+                <div onClick={this.createLike} className="post-comment-container">
                   <div className="post-like"></div>
                   <div className="post-like-name">Like</div>
                 </div>
@@ -86,6 +142,7 @@ export default class Post extends React.Component {
               </div>
             </div>
           </ul>
+          {this.likers(post, this.props.user.friends)}
           <li className="post-comments">
             <ul ref="comments_list">
               {comments}
@@ -100,5 +157,3 @@ export default class Post extends React.Component {
     );
   }
 }
-
-// <li className="post-likes">** (Names of users who liked)</li>

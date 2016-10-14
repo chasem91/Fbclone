@@ -1,7 +1,6 @@
 require 'byebug'
 
 class Api::UsersController < ApplicationController
-
   def index
     @users = User.all
     render "api/users/index"
@@ -9,11 +8,10 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.includes(:friends).find(params[:id])
-    # @user = User.includes(:friends).find(@user.id)
     friend_ids = @user.friends.map { |friend| friend.id }
     friend_ids << @user.id
     @newsfeed_posts = Post
-      .includes(:author, :user, :comments)
+      .includes(:author, :user, { comments: [ { likes: [:liker] } ] }, { likes: [:liker] } )
       .where(author_id: friend_ids).reverse
     render "api/users/show"
   end

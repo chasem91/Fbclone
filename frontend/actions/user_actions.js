@@ -13,6 +13,8 @@ export const RECEIVE_MADE_REQUEST = "RECEIVE_MADE_REQUEST";
 export const RECEIVE_REQUESTED_FRIENDS = "RECEIVE_REQUESTED_FRIENDS";
 export const RECEIVE_NEWSFEED_POST = "RECEIVE_NEWSFEED_POST";
 export const RECEIVE_NEWSFEED_COMMENT = "RECEIVE_NEWSFEED_COMMENT";
+export const CREATE_LIKE = "CREATE_LIKE";
+export const RECEIVE_NEWSFEED_LIKE = "RECEIVE_NEWSFEED_LIKE";
 
 
 export const getUser = id => ({
@@ -90,4 +92,16 @@ export const receiveNewsfeedComment = (comment, post_id) => ({
   type: RECEIVE_NEWSFEED_COMMENT,
   comment,
   post_id
+});
+
+export const createLike = (liker_id, likeable_id, likeable_type) => ({
+  type: CREATE_LIKE,
+  liker_id,
+  likeable_id,
+  likeable_type
+});
+
+export const receiveNewsfeedLike = like => ({
+  type: RECEIVE_NEWSFEED_LIKE,
+  like
 });

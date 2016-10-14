@@ -1,4 +1,9 @@
-import { RECEIVE_COMMENTS, RECEIVE_POST, RECEIVE_COMMENT } from '../actions/post_actions';
+import {
+  RECEIVE_COMMENTS,
+  RECEIVE_POST,
+  RECEIVE_COMMENT,
+  RECEIVE_LIKE
+} from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const _initialState = Object.freeze({
@@ -23,6 +28,9 @@ const _initialState = Object.freeze({
           content: "Sample Comment 1",
           created_at: "01-01-2000"
         }
+      },
+      likes: {
+
       }
     }
   }
@@ -46,11 +54,22 @@ const PostReducer = (state = _initialState, action) => {
       }
       break;
     case RECEIVE_COMMENT:
-      window.merge = merge;
       const newState = { posts: { [action.post_id]: {
             comments: action.comment
           } } };
       return merge( {}, state, newState);
+    case RECEIVE_LIKE:
+      window.merge = merge;
+      if (action.like[Object.keys(action.like)[0]].likeable.type === "Post") {
+        return merge({}, state, {
+          posts: {
+            [action.like[Object.keys(action.like)[0]].likeable.id]: {
+              likes: action.like
+            }
+          }
+        });
+      }
+      return state;
     default:
       return state;
   }

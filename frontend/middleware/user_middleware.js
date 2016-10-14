@@ -5,6 +5,7 @@ import {
   ACCEPT_REQUEST,
   REQUEST_FRIEND,
   GET_REQUESTED_FRIENDS,
+  CREATE_LIKE,
   receiveUser,
   receiveUsers,
   getFriendRequests,
@@ -12,8 +13,14 @@ import {
   receiveFriend,
   removeRequest,
   receiveMadeRequest,
-  receiveRequestedFriends
+  receiveRequestedFriends,
+  createLike,
+  receiveNewsfeedLike
 } from '../actions/user_actions';
+
+import {
+  receiveLike
+} from '../actions/post_actions';
 
 import {
   fetchUser,
@@ -21,7 +28,8 @@ import {
   fetchFriendRequests,
   acceptFriend,
   postFriendRequest,
-  fetchRequestedFriends
+  fetchRequestedFriends,
+  postLike
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
@@ -58,6 +66,12 @@ export default ({getState, dispatch}) => next => action => {
       }
       postFriendRequest(action.user_id, action.friend_id, postFriendRequestSuccess);
       return next(action);
+    case CREATE_LIKE:
+      const postLikeSuccess = like => {
+        dispatch(receiveNewsfeedLike(like));
+        dispatch(receiveLike(like));
+      }
+      postLike(action.liker_id, action.likeable_id, action.likeable_type, postLikeSuccess);
     default:
       return next(action);
   }
