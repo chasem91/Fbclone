@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import GreetingContainer from './greeting/greeting_container';
-import SessionContainer from './session/session_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.currentUser;
@@ -12,7 +11,6 @@ const _redirectIfLoggedIn = (nextState, replace) => {
 
 const App = ({children}) => (
   <div>
-    <SessionContainer />
     <GreetingContainer />
     {children}
   </div>

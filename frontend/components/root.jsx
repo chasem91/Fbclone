@@ -5,28 +5,32 @@ import App from './app';
 import UserContainer from './user/user_container';
 import UserIndexContainer from './user_index/user_index_container';
 import NewsfeedContainer from './newsfeed/newsfeed_container';
+import SessionContainer from './session/session_container';
+
 
 const Root = ({ store }) => {
 
   const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
-      replace('/');
+      replace('/login');
     }
   };
 
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/newsfeed');
+      replace('/');
     }
   }
 
+  // <IndexRoute onEnter={_redirectIfLoggedIn}/>
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
+        <Route path="/login" component={SessionContainer} onEnter={_redirectIfLoggedIn}/>
         <Route path="/" component={App}>
-          <Route path="/newsfeed" component={NewsfeedContainer} onEnter={_ensureLoggedIn}/>
+          <IndexRoute component={NewsfeedContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/users/:userId" component={UserContainer} onEnter={_ensureLoggedIn}/>
         </Route>
       </Router>

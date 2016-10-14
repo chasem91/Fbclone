@@ -37,7 +37,7 @@ export default class Greeting extends React.Component {
                 </div>
               </Link>
               <div className="pipe"/>
-              <Link to={`/newsfeed`} className="newsfeed-link">Home</Link>
+              <Link to={`/`} className="newsfeed-link">Home</Link>
               <div className="friend-requests-icon-and-container">
                 <div className="friend-requests-icon" onClick={this.toggleFriendRequests}>
                   <div className="hidden">
@@ -50,7 +50,7 @@ export default class Greeting extends React.Component {
                 <div className="notifications-container">
                 </div>
               </div>
-              <Link to={`/`} onClick={this.props.logout} className="logout-button">Log Out</Link>
+              <div onClick={this.props.logout} className="logout-button">Log Out</div>
             </div>
           </div>
         </div>

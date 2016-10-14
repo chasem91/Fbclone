@@ -23,8 +23,12 @@ export default class Post extends React.Component {
     }
   }
 
+  shouldComponentUpdate(nextProps) {
+    return !!nextProps.currentUser;
+  }
+
   componentWillMount() {
-    if (this.props.path !== "/newsfeed") {
+    if (this.props.path !== "/") {
       this.props.receivePost(this.props.postFromTimeline);
       this.props.getComments(this.props.postFromTimeline.id);
     }
@@ -51,7 +55,7 @@ export default class Post extends React.Component {
   createLike(e) {
     const liker_id = this.props.currentUser.id;
     let likeable_id;
-    if (this.props.path === "/newsfeed") {
+    if (this.props.path === "/") {
       likeable_id = this.props.post.id;
     } else {
       likeable_id = this.props.postFromTimeline.id;
@@ -69,9 +73,23 @@ export default class Post extends React.Component {
       const like = likes[key];
       if (Object.keys(friends).includes(`${like.liker.id}`) || this.props.currentUser.id === like.liker.id) {
         if (i === Object.keys(likes).length) {
-          names.push( <Link key={like.id} to={`/users/${like.liker.id}`}>{like.liker.full_name}</Link> );
+          names.push(
+            <Link
+              className="post-like-user-link"
+              key={like.id}
+              to={`/users/${like.liker.id}`}>
+              {like.liker.full_name}
+            </Link>
+          );
         } else {
-          names.push( <Link key={like.id} to={`/users/${like.liker.id}`}>{like.liker.full_name}, &nbsp;</Link> );
+          names.push(
+            <Link
+              className="post-like-user-link"
+              key={like.id}
+              to={`/users/${like.liker.id}`}>
+              {like.liker.full_name}, &nbsp;
+            </Link>
+          );
         }
       } else {
         remaining++;
@@ -104,18 +122,51 @@ export default class Post extends React.Component {
     );
   }
 
-
-  render() {
-    let post;
-    if (this.props.path === "/newsfeed") {
-      post = this.props.post;
-    } else {
-      post = this.props.postFromState.posts[this.props.postFromTimeline.id];
+  renderLike (post) {
+    const likers = [];
+    for (const key in post.likes) {
+      likers.push(post.likes[key].liker.id);
     }
+    if (likers.includes(this.props.currentUser.id)) {
+      return (
+        <div className="post-liked-container">
+          <div className="post-liked"></div>
+          <div className="post-liked-name">Like</div>
+        </div>
+      );
+    } else {
+      return (
+        <div onClick={this.createLike} className="post-comment-container">
+          <div className="post-like"></div>
+          <div className="post-like-name">Like</div>
+        </div>
+      );
+    }
+  }
+
+  renderComments(post) {
     const comments = [];
     for (const key in post.comments) {
       let comment = post.comments[key];
       comments.push(<li key={comment.id}><Comment comment={comment} /></li>);
+    }
+    if (comments.length === 0) {
+      return (<div></div>);
+    } else {
+      return (
+        <ul className="comments-list" ref="comments_list">
+          {comments}
+        </ul>
+      );
+    }
+  }
+
+  render() {
+    let post;
+    if (this.props.path === "/") {
+      post = this.props.post;
+    } else {
+      post = this.props.postFromState.posts[this.props.postFromTimeline.id];
     }
     return (
       <div className="post group">
@@ -131,10 +182,7 @@ export default class Post extends React.Component {
           <ul className="post-actions">
             <div className="post-action-buttons">
               <div className="post-like-container">
-                <div onClick={this.createLike} className="post-comment-container">
-                  <div className="post-like"></div>
-                  <div className="post-like-name">Like</div>
-                </div>
+                {this.renderLike(post)}
               </div>
               <div className="post-comment-container">
                 <div className="post-comment"></div>
@@ -144,9 +192,7 @@ export default class Post extends React.Component {
           </ul>
           {this.likers(post, this.props.user.friends)}
           <li className="post-comments">
-            <ul ref="comments_list">
-              {comments}
-            </ul>
+            {this.renderComments(post)}
           </li>
           <ul className="comment-compose">
             <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>

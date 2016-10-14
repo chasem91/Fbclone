@@ -25,6 +25,7 @@
   background-repeat: no-repeat;
   background-size: auto;
   background-position: -144px -35px;
+  margin-right: 6px;
 }
 
 .post-author-arrow {
@@ -64,7 +65,7 @@
   display: flex;
   padding: 6px 0;
   border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  // border-bottom: 1px solid lightgray;
   color: rgb(127, 127, 127);
   font-size: 13px;
   font-weight: bold;
@@ -80,6 +81,28 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
+}
+
+.post-liked-container {
+  display: flex;
+  flex-direction: row;
+  color: rgb(88, 144, 255);
+}
+
+.post-liked {
+  display: inline-block;
+  background-image: image-url('icons5.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 14px;
+  height: 14px;
+  background-position: -430px -250px;
+  margin: 0 6px -3px 0;
+}
+
+.post-like-user-link {
+  font-size: 12px;
+  color: rgb(54, 88, 153);
 }
 
 .post-comment {
@@ -110,17 +133,14 @@
   margin: 0 6px -3px 0;
 }
 
-.post-comments {
-}
-
 .post-likes {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding: 6px 0;
+  padding: 10px 0;
   font-size: 14px;
   color: rgb(53, 86, 149);
-  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
 }
 
 .comment-compose {
@@ -141,4 +161,8 @@
   color: rgb(144, 148, 156);
   border: 1px solid rgb(221, 223, 226);
   -webkit-appearance: none;
+}
+
+.comments-list {
+  border-top: 1px solid lightgray;
 }

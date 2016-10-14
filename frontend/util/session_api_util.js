@@ -1,4 +1,5 @@
 import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { hashHistory } from 'react-router';
 
 export const login = (user, success, error) => {
 	$.ajax({

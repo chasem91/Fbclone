@@ -7,6 +7,8 @@ import { receiveCurrentUser,
 
 import { login, signup, logout } from '../util/session_api_util';
 
+import { hashHistory } from 'react-router';
+
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => {
     dispatch(receiveCurrentUser(user));
@@ -20,7 +22,10 @@ export default ({getState, dispatch}) => next => action => {
       login(action.user, successCallback, errorCallback);
       return next(action);
     case LOGOUT:
-      logout(() => next(action));
+      logout(() => {
+        next(action);
+        hashHistory.push('/login');
+      });
       break;
     case SIGNUP:
       signup(action.user, successCallback, errorCallback);

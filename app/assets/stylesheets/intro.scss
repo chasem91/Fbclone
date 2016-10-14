@@ -21,10 +21,6 @@
   font-size: 14px;
 }
 
-.intro-details div {
-  margin: 4px 0;
-}
-
 .intro-icon {
   display: block;
   margin: 0 10px 0 4px;
@@ -34,4 +30,23 @@
   width: 24px;
   height: 24px;
   background-position: 0px -22px;
+}
+
+.intro-elements {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-element {
+  display: flex;
+  margin: 8px 0;
+  font-size: 12px;
+}
+
+.intro-element-category {
+  margin-right: 12px;
+}
+
+.intro-element-value {
+  color: rgb(53, 86, 149);
 }
