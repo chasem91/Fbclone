@@ -15,6 +15,10 @@ class User extends React.Component {
     this.props.getUser(parseInt(this.props.params.userId));
   }
 
+  shouldComponentUpdate(nextProps) {
+    return !!nextProps.currentUser;
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.user.id !== parseInt(newProps.params.userId)) {
       this.props.getUser(parseInt(newProps.params.userId));

@@ -10,6 +10,10 @@ export default class UserActionBar extends React.Component {
     this.props.requestFriend(this.props.currentUser.id, this.props.user.id);
   }
 
+  shouldComponentUpdate(nextProps) {
+    return !!nextProps.currentUser;
+  }
+
   addFriendButton(requestedFriends) {
     const userId = this.props.user.id;
     const hasBeenRequested = Object.keys(this.props.requestedFriends).includes(`${userId}`);
