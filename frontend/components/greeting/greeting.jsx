@@ -26,7 +26,9 @@ export default class Greeting extends React.Component {
         <div className="personal-greeting group">
           <div className="personal-greeting-elements">
             <div className="icon-and-search">
-              <div className="small-logo"></div>
+              <Link to="/" >
+                <div className="small-logo"></div>
+              </Link>
               <SearchBarContainer />
             </div>
             <div className="header-icons-and-logout">

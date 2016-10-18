@@ -38,6 +38,8 @@ gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 
 gem 'byebug'
+
+gem 'tzinfo-data'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
