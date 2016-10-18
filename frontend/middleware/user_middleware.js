@@ -44,7 +44,7 @@ export default ({getState, dispatch}) => next => action => {
       const fetchUsersSuccess = users => {
         dispatch(receiveUsers(users));
       };
-      fetchUsers(fetchUsersSuccess);
+      fetchUsers(action.string, fetchUsersSuccess);
       return next(action);
     case GET_FRIEND_REQUESTS:
       const fetchFriendRequestsSuccess = requests => {

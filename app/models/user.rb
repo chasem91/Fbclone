@@ -15,7 +15,6 @@
 #
 
 class User < ActiveRecord::Base
-
 	attr_reader :password
 
 	validates :email, :password_digest, :session_token, presence: true
@@ -24,6 +23,15 @@ class User < ActiveRecord::Base
 
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
+
+	scope :search, -> (string) {
+    select('(first_name || " " || last_name) as \'full_name\', *')
+    where(
+    'LOWER(email) like LOWER(?)
+    OR LOWER(first_name) like LOWER(?)
+    OR LOWER(last_name) like LOWER(?)
+    OR LOWER(first_name || \' \' || last_name) like LOWER(?)',
+    "%#{string}%", "%#{string}%","%#{string}%","%#{string}%") }
 
   has_many :timeline_posts,
     foreign_key: :profile_id,
@@ -50,6 +58,10 @@ class User < ActiveRecord::Base
   has_many :friends,
     through: :friendships,
     source: :friend
+
+	def name
+		"#{self.first_name} #{self.last_name}"
+	end
 
   def timeline_posts_with_comments
     self.timeline_posts.includes(:comments)

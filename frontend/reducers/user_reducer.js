@@ -1,5 +1,6 @@
 import {
   RECEIVE_USER,
+  RECEIVE_USERS,
   RECEIVE_FRIEND_REQUESTS,
   REMOVE_REQUEST,
   RECEIVE_MADE_REQUEST,
@@ -12,6 +13,7 @@ import merge from 'lodash/merge';
 
 const _initialState = Object.freeze(
   {
+    users: [],
     user: {
       id: "",
       first_name: "",
@@ -40,6 +42,10 @@ const UserReducer = (state = _initialState, action) => {
       return merge({}, state, {
         user: action.user
       });
+    case RECEIVE_USERS:
+      newState = state;
+      newState.users = action.users;
+      return merge({}, state, newState);
     case RECEIVE_FRIEND_REQUESTS:
       return merge({}, state, {
         friendRequests: action.friendRequests

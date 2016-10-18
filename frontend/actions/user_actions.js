@@ -22,8 +22,9 @@ export const getUser = id => ({
   id
 });
 
-export const getUsers = () => ({
+export const getUsers = string => ({
   type: GET_USERS,
+  string
 });
 
 export const receiveUser = user => ({

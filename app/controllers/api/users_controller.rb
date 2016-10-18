@@ -2,7 +2,7 @@ require 'byebug'
 
 class Api::UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = params[:search] == "" ? [] : User.search(params[:search])
     render "api/users/index"
   end
 

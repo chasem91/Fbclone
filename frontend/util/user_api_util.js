@@ -16,10 +16,11 @@ export const fetchUser = (id, success) => {
 	});
 };
 
-export const fetchUsers = (success) => {
+export const fetchUsers = (search, success) => {
 	$.ajax({
 		method: 'GET',
 		url: `/api/users`,
+    data: { search },
 		success,
     error: () => console.log('error fetching users')
 	});

@@ -24,7 +24,6 @@ const Root = ({ store }) => {
     }
   }
 
-  // <IndexRoute onEnter={_redirectIfLoggedIn}/>
   return (
     <Provider store={store}>
       <Router history={hashHistory}>

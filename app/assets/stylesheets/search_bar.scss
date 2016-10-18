@@ -39,3 +39,32 @@
 .search-bar-submit:hover {
   background: #eee;
 }
+
+.search-results-container {
+  position: absolute;
+  top: 24px;
+  width: 446px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: rgba(0, 0, 0, .15);
+  border-radius: 2px;
+  box-shadow: 0 4px 6px 2px rgba(0, 0, 0, .10);
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  font-weight: bold;
+  color: black;
+}
+
+.search-result img {
+  margin-left: 4px;
+}
+
+.search-result:hover {
+  background: rgb(236, 240, 247);
+}
