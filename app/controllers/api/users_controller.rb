@@ -7,12 +7,29 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:friends).find(params[:id])
-    friend_ids = @user.friends.map { |friend| friend.id }
-    friend_ids << @user.id
-    @newsfeed_posts = Post
-      .includes(:author, :user, { comments: [ { likes: [:liker] } ] }, { likes: [:liker] } )
+    if current_user.id == params[:id].to_i
+      @user = User.includes(
+        :friends,
+        { friend_requests: [:user, :friend] },
+        { requested_friends: [:user, :friend] }
+      ).find(params[:id])
+
+      friend_ids = @user.friends.map { |friend| friend.id }
+      friend_ids << @user.id
+
+      @newsfeed_posts = Post
+      .includes(:author, :user, { comments: [ { likes: [:liker] }, :author ] }, { likes: [:liker] } )
       .where(author_id: friend_ids).reverse
+    else
+
+      @user = User.includes(:friends).find(params[:id])
+      @newsfeed_posts = []
+    end
+
+    @timeline_posts = Post
+    .includes(:author, :user, { comments: [ { likes: [:liker] }, :author ] }, { likes: [:liker] } )
+    .where(user_id: @user.id).reverse
+
     render "api/users/show"
   end
 

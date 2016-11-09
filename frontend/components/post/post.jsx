@@ -23,14 +23,16 @@ export default class Post extends React.Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    return !!nextProps.currentUser;
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   return !!nextProps.currentUser;
+  // }
 
   componentWillMount() {
     if (this.props.path !== "/") {
       this.props.receivePost(this.props.postFromTimeline);
-      this.props.getComments(this.props.postFromTimeline.id);
+
+      // shouldn't need to do this... grab with user
+      // this.props.getComments(this.props.postFromTimeline.id);
     }
   }
 
@@ -127,7 +129,7 @@ export default class Post extends React.Component {
     for (const key in post.likes) {
       likers.push(post.likes[key].liker.id);
     }
-    if (likers.includes(this.props.currentUser.id)) {
+    if (this.props.currentUser && likers.includes(this.props.currentUser.id)) {
       return (
         <div className="post-liked-container">
           <div className="post-liked"></div>

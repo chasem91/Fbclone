@@ -6,6 +6,7 @@ export const GET_FRIEND_REQUESTS = "GET_FRIEND_REQUESTS";
 export const RECEIVE_FRIEND_REQUESTS = "RECEIVE_FRIEND_REQUESTS";
 export const ACCEPT_REQUEST = "ACCEPT_REQUEST";
 export const RECEIVE_FRIEND = "RECEIVE_FRIEND";
+export const RECEIVE_FRIENDS = "RECEIVE_FRIENDS";
 export const REMOVE_REQUEST = "REMOVE_REQUEST";
 export const REQUEST_FRIEND = "REQUEST_FRIEND";
 export const RECEIVE_MADE_REQUEST = "RECEIVE_MADE_REQUEST";
@@ -56,6 +57,11 @@ export const acceptRequest = (user_id, friend_id) => ({
 export const receiveFriend = friend => ({
   type: RECEIVE_FRIEND,
   friend
+});
+
+export const receiveFriends = friends => ({
+  type: RECEIVE_FRIENDS,
+  friends
 });
 
 export const removeRequest = friend => ({

@@ -7,15 +7,16 @@ export default class Timeline extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.getPosts(this.props.timelineUserId);
-  }
+  // componentDidMount() {
+  //   // shouldn't need to do this... grab with user
+  //   // this.props.getPosts(this.props.timelineUserId);
+  // }
 
-  componentWillReceiveProps(newProps) {
-    if (parseInt(this.props.timelineUserId) !== parseInt(newProps.timelineUserId)) {
-      this.props.getPosts(parseInt(newProps.timelineUserId));
-    }
-  }
+  // componentWillReceiveProps(newProps) {
+  //   if (parseInt(this.props.timelineUserId) !== parseInt(newProps.timelineUserId)) {
+  //     this.props.getPosts(parseInt(newProps.timelineUserId));
+  //   }
+  // }
 
   displayTimelinePosts(posts) {
     const timelinePosts = [];

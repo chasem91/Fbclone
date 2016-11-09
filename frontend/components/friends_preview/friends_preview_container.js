@@ -3,7 +3,7 @@ import FriendsPreview from './friends_preview';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  user: state.user.user
+  user: state.user.profile
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -45,13 +45,13 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     class_name: :FriendRequest
 
-  has_many :friend_request_details,
-    through: :friend_requests,
-    source: :user
-
-  has_many :requested_friend_details,
-    through: :requested_friends,
-    source: :friend
+  # has_many :friend_request_details,
+  #   through: :friend_requests,
+  #   source: :user
+	#
+  # has_many :requested_friend_details,
+  #   through: :requested_friends,
+  #   source: :friend
 
   has_many :friendships
 

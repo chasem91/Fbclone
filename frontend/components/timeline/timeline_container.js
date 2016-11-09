@@ -5,7 +5,7 @@ import { getPosts } from '../../actions/timeline_actions';
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    user: state.user.user,
+    user: state.user.profile,
     timeline: state.timeline
   };
 };

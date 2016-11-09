@@ -7,6 +7,10 @@ import {
   receiveLikeOnTimeline
 } from '../actions/user_actions';
 
+import {
+  receivePosts
+} from '../actions/timeline_actions';
+
 export const fetchUser = (id, success) => {
 	$.ajax({
 		method: 'GET',

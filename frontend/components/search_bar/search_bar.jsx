@@ -19,6 +19,7 @@ export default class SearchBar extends React.Component {
         <Link to={`/users/${user.id}`} key={user.id} className="search-result">
           <img src={window.homeUserImages.profilePicture} className="post-author-picture"/>
           <div>{`${user.first_name} ${user.last_name}`}</div>
+          <div>{user.email}</div>
         </Link>
       )
     )

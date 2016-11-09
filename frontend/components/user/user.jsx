@@ -15,9 +15,9 @@ class User extends React.Component {
     this.props.getUser(parseInt(this.props.params.userId));
   }
 
-  shouldComponentUpdate(nextProps) {
-    return (!!nextProps.currentUser);
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   return (!!nextProps.currentUser);
+  // }
 
   componentWillReceiveProps(newProps) {
     if (this.props.user.id !== parseInt(newProps.params.userId)) {
@@ -33,14 +33,14 @@ class User extends React.Component {
           <img src={window.homeUserImages.profileBanner} className="profile-header-image"></img>
           <img src={window.homeUserImages.profilePicture} className="profile-picture"></img>
           <h3 className="user-name">{user.first_name} {user.last_name}</h3>
-          <UserActionBar />
-          <UserHeaderNavContainer />
-          <UserReportContainer />
-          <TimelineContainer timelineUserId={this.props.params.userId} />
+					<UserActionBar />
+					<UserHeaderNavContainer />
+					<UserReportContainer />
         </div>
 			</div>
 		);
 	}
 }
+// <TimelineContainer timelineUserId={this.props.params.userId} />
 
 export default User;

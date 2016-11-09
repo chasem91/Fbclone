@@ -8,7 +8,11 @@ export default class FriendRequests extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getFriendRequests(this.props.currentUser.id);
+    if (Object.keys(this.props.friendRequests).keys.length === 0) {
+      if (Object.keys(this.props.currentUser.friend_requests).length > 0) {
+        this.props.receiveFriendRequests(this.props.currentUser.friend_requests);
+      }
+    }
   }
 
   handleFriendApproval (e) {
@@ -35,15 +39,15 @@ export default class FriendRequests extends React.Component {
         <li key={key} className="friend-request">
           <div className="friend-request-details">
             <img className="friend-request-thumb" src={window.homeUserImages.profilePicture}/>
-            <Link to={`/users/${request.requester_id}`} className="friend-request-link">
-              {request.requester_name}
+            <Link to={`/users/${request.requester.id}`} className="friend-request-link">
+              {request.requester.full_name}
             </Link>
           </div>
           <input
             type="submit"
             className="friend-request-approve"
             value="Approve"
-            id={key}
+            id={request.requester.id}
             onClick={this.handleFriendApproval}
             />
         </li>

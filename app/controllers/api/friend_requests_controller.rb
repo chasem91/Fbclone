@@ -18,7 +18,7 @@ class Api::FriendRequestsController < ApplicationController
       approved: 'false'
     )
     if request.save
-      @friend_request = FriendRequest.includes(:friend).where(
+      @friend_request = FriendRequest.includes(:user, :friend).where(
         "user_id = ? AND friend_id = ?", request.user_id, request.friend_id
       )[0]
       render 'api/friend_requests/show'

@@ -1,4 +1,3 @@
-json.set! @friend_request.friend.id do
-  json.full_name "#{@friend_request.friend.first_name} #{@friend_request.friend.last_name}"
-  json.id @friend_request.friend.id
+json.set! @friend_request.id do
+  json.partial! 'api/friend_requests/friend_request', friend_request: @friend_request
 end

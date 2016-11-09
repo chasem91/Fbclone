@@ -22,3 +22,5 @@ bundle.js.map
 /config/database.yml
 
 /.byebug_history
+
+/npm-debug.log

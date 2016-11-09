@@ -19,7 +19,9 @@ const TimelineReducer = (state = _initialState, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_POSTS:
-      return { posts: action.posts };
+      return { posts: {
+            posts: action.posts
+          } };
     case RECEIVE_POST_ON_TIMELINE:
       return merge({}, state, {
         posts: {

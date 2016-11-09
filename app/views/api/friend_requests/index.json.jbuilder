@@ -1,3 +1,6 @@
+require 'byebug'
+debugger
+
 json.friend_requests do
   @friend_requests.each do |request|
     json.set! request.user.id do

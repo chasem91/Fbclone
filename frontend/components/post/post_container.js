@@ -7,7 +7,7 @@ import { createLike } from '../../actions/user_actions';
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    user: state.user.user,
+    user: state.user.profile,
     postFromState: state.post,
     timelinePosts: state.timeline.posts.posts
   };
