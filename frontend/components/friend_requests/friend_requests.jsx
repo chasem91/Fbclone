@@ -7,12 +7,8 @@ export default class FriendRequests extends React.Component {
     this.handleFriendApproval = this.handleFriendApproval.bind(this);
   }
 
-  componentDidMount () {
-    if (Object.keys(this.props.friendRequests).keys.length === 0) {
-      if (Object.keys(this.props.currentUser.friend_requests).length > 0) {
-        this.props.receiveFriendRequests(this.props.currentUser.friend_requests);
-      }
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    return !!nextProps.currentUser;
   }
 
   handleFriendApproval (e) {
@@ -33,8 +29,8 @@ export default class FriendRequests extends React.Component {
 
   friendRequests() {
     const requests = [];
-    for (const key in this.props.friendRequests) {
-      const request = this.props.friendRequests[key];
+    for (const key in this.props.currentUser.friendRequests) {
+      const request = this.props.currentUser.friendRequests[key];
       requests.push(
         <li key={key} className="friend-request">
           <div className="friend-request-details">

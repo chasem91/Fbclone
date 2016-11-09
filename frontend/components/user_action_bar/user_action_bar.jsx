@@ -6,16 +6,12 @@ export default class UserActionBar extends React.Component {
     this.handleAddFriend = this.handleAddFriend.bind(this);
   }
 
-  handleAddFriend(e) {
-    this.props.requestFriend(this.props.currentUser.id, this.props.user.id);
+  shouldComponentUpdate(nextProps, nextState) {
+    return !!nextProps.currentUser;
   }
 
-  componentDidMount() {
-    // if (Object.keys(this.props.requestedFriends).keys.length === 0) {
-    //   if (Object.keys(this.props.currentUser.requested_friends).length > 0) {
-    //     this.props.receiveRequestedFriends(this.props.currentUser.requested_friends);
-    //   }
-    // }
+  handleAddFriend(e) {
+    this.props.requestFriend(this.props.currentUser.id, this.props.user.id);
   }
 
   addFriendButton(requestedFriends) {

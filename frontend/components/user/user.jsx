@@ -11,13 +11,13 @@ class User extends React.Component {
 		super(props);
 	}
 
-  componentDidMount() {
-    this.props.getUser(parseInt(this.props.params.userId));
-  }
+	shouldComponentUpdate(nextProps, nextState) {
+		return !!nextProps.currentUser;
+	}
 
-  // shouldComponentUpdate(nextProps) {
-  //   return (!!nextProps.currentUser);
-  // }
+	componentWillMount() {
+		this.props.getUser(parseInt(this.props.params.userId));
+	}
 
   componentWillReceiveProps(newProps) {
     if (this.props.user.id !== parseInt(newProps.params.userId)) {
@@ -36,11 +36,11 @@ class User extends React.Component {
 					<UserActionBar />
 					<UserHeaderNavContainer />
 					<UserReportContainer />
+					<TimelineContainer />
         </div>
 			</div>
 		);
 	}
 }
-// <TimelineContainer timelineUserId={this.props.params.userId} />
 
 export default User;

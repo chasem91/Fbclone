@@ -1,17 +1,12 @@
 import { connect } from 'react-redux';
 import NewPostForm from './new_post_form';
-import { createPost } from '../../../actions/timeline_actions';
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.session.currentUser,
-    user: state.user.profile
-  };
-};
+const mapStateToProps = state => ({
+
+});
 
 
 const mapDispatchToProps = dispatch => ({
-  createPost: (post, user_id) => dispatch(createPost(post, user_id))
 });
 
 

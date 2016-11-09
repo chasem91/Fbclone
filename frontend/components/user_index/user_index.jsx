@@ -7,10 +7,6 @@ class UserIndex extends React.Component {
 		super(props);
 	}
 
-	componentDidMount() {
-    this.props.getUsers();
-	}
-
 	render() {
     const users = this.props.users.map( user => {
       return (

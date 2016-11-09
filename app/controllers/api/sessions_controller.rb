@@ -8,9 +8,24 @@ class Api::SessionsController < ApplicationController
     )
     if @user
 			login(@user)
-      @newsfeed_posts = []
-      @timeline_posts = []
-      @user = User.includes(:friends).where(id: @user.id).first
+
+			@user = User.includes(
+			:friends,
+			{ friend_requests: [:user, :friend] },
+			{ requested_friends: [:user, :friend] }
+			).find(@user.id)
+
+			friend_ids = @user.friends.map { |friend| friend.id }
+      friend_ids << @user.id
+
+			@newsfeed_posts = Post
+			.includes(:author, :user, { comments: [ { likes: [:liker] }, :author ] }, { likes: [:liker] } )
+			.where(author_id: friend_ids).reverse
+
+			@timeline_posts = Post
+	    .includes(:author, :user, { comments: [ { likes: [:liker] }, :author ] }, { likes: [:liker] } )
+	    .where(user_id: @user.id).reverse
+
 			render "api/users/show"
 		else
 			render(
@@ -25,6 +40,7 @@ class Api::SessionsController < ApplicationController
 		if @user
 			logout
       @newsfeed_posts = []
+			@timeline_posts = []
 			render "api/users/show"
 		else
 			render(

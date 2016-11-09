@@ -6,10 +6,6 @@ export default class Notifications extends React.Component {
     super(props);
   }
 
-  componentDidMount () {
-
-  }
-
   render() {
     return (
       <div className="notifications">

@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
-import { getUser } from '../../actions/user_actions';
 import { login } from '../../actions/session_actions';
 import Newsfeed from './newsfeed';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser,
-  user: state.user.profile
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -14,15 +14,16 @@ export default class SearchBar extends React.Component {
   }
 
   renderResults() {
-    const userResults = this.props.user.users.map(
-      user => (
-        <Link to={`/users/${user.id}`} key={user.id} className="search-result">
-          <img src={window.homeUserImages.profilePicture} className="post-author-picture"/>
-          <div>{`${user.first_name} ${user.last_name}`}</div>
-          <div>{user.email}</div>
-        </Link>
-      )
-    )
+    // const userResults = this.props.user.users.map(
+    //   user => (
+    //     <Link to={`/users/${user.id}`} key={user.id} className="search-result">
+    //       <img src={window.homeUserImages.profilePicture} className="post-author-picture"/>
+    //       <div>{`${user.first_name} ${user.last_name}`}</div>
+    //       <div>{user.email}</div>
+    //     </Link>
+    //   )
+    // )
+    const userResults = [];
     if (userResults.length > 0) {
       return (
         <div className="search-results-container">
@@ -35,6 +36,7 @@ export default class SearchBar extends React.Component {
       );
     }
   }
+
   render() {
     return (
       <div className="search-bar group">

@@ -7,8 +7,6 @@ export default class NewPostForm extends React.Component {
     super(props);
     this.handlePostSubmit = this.handlePostSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.openModal = this.openModal.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
     this.currentPostText = "";
   }
 
@@ -42,25 +40,6 @@ export default class NewPostForm extends React.Component {
     e.currentTarget.className = "raised-new-post-form";
   }
 
-  // this.state = {
-  //   open: true
-  // };
-
-  // componentWillMount() {
-  //   Modal.setAppElement('body');
-  // }
-
-  // openModal () {
-  //   this.setState({open: true});
-  // }
-  //
-  // closeModal () {
-  //   this.setState({open: false});
-  // }
-  //
-  // onClick={this.handleClick}
-
-  // <button onClick={this.closeModal}>Close</button>
   render () {
     return (
       <div>
@@ -90,29 +69,3 @@ export default class NewPostForm extends React.Component {
     );
   }
 }
-
-// <div className="modal-container">
-//   <Modal isOpen={this.state.open} onRequestClose={this.closeModal} className="contained-modal">
-//     <div className="new-post-form">
-//       <div className="new-post-form-header">
-//         <ul className="new-post-form-tabs">
-//           <li><a>Status</a></li>
-//         </ul>
-//       </div>
-//       <form onSubmit={this.handlePostSubmit}>
-//         <div className="new-post-form-input">
-//           <img src={window.homeUserImages.profilePicture} className="poster-profile-thumb" />
-//           <textarea
-//             type="textarea"
-//             value={this.props.postText}
-//             onChange={this.handleChange}
-//             className="new-post-form-text-input">
-//           </textarea>
-//         </div>
-//         <div className="new-post-form-footer">
-//           <input className="new-post-submit" type='submit' value='Post'></input>
-//         </div>
-//       </form>
-//     </div>
-//   </Modal>
-// </div>

@@ -6,10 +6,6 @@ export default class FriendsPreview extends React.Component {
     super(props);
   }
 
-  shouldComponentUpdate(nextProps) {
-    return (!!nextProps.currentUser);
-  }
-
   thumbsList () {
     const friends = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     return friends.map( friend => (

@@ -7,21 +7,13 @@ export default class Timeline extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   // shouldn't need to do this... grab with user
-  //   // this.props.getPosts(this.props.timelineUserId);
-  // }
-
-  // componentWillReceiveProps(newProps) {
-  //   if (parseInt(this.props.timelineUserId) !== parseInt(newProps.timelineUserId)) {
-  //     this.props.getPosts(parseInt(newProps.timelineUserId));
-  //   }
-  // }
-
   displayTimelinePosts(posts) {
     const timelinePosts = [];
-    for(const key in posts) {
-      timelinePosts.push( <PostContainer key={posts[key].id} postFromTimeline={posts[key]} /> );
+    for(const key in this.props.user.timelinePosts) {
+      const post = this.props.user.timelinePosts[key];
+      timelinePosts.push(
+        <PostContainer key={post.id} postId={post.id} />
+      );
     }
     return timelinePosts.reverse();
   }
@@ -31,7 +23,7 @@ export default class Timeline extends React.Component {
       <div className="timeline group">
         <div className="timeline-pointer" />
         <NewPostFormContainer />
-        {this.displayTimelinePosts(this.props.timeline.posts.posts)}
+        {this.displayTimelinePosts()}
       </div>
     );
   }

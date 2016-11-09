@@ -5,10 +5,6 @@ export default class Intro extends React.Component {
     super(props);
   }
 
-  shouldComponentUpdate(nextProps) {
-    return !!nextProps.currentUser;
-  }
-
   render () {
     return (
       <div className="intro group">

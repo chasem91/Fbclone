@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { getUser } from '../../actions/user_actions';
 import User from './user';
+import { getUser } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  user: state.user.profile
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
-  getUser: id => dispatch(getUser(id)),
+  getUser: id => dispatch(getUser(id))
 });
 
 export default connect(

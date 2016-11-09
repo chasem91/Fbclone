@@ -8,20 +8,16 @@ export default class Newsfeed extends React.Component {
     super(props);
   }
 
-  componentDidMount () {
-    this.props.getUser(this.props.currentUser.id);
-  }
-
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps, nextState) {
     return !!nextProps.currentUser;
   }
 
   newsfeedPosts () {
-    let newsfeedPosts = this.props.user.newsfeed_posts || [];
+    let newsfeedPosts = this.props.currentUser.newsfeedPosts;
     const posts = [];
     for (const key in newsfeedPosts){
       let post = newsfeedPosts[key];
-      posts.push(<PostContainer key={post.id} path="/" post={post} />);
+      posts.push(<PostContainer key={post.id} postId={post.id} path="/" />);
     }
     return posts.reverse();
   }

@@ -9,6 +9,10 @@ export default class Post extends React.Component {
     this.createLike = this.createLike.bind(this);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return !!nextProps.currentUser;
+  }
+
   handleCreateComment(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -23,20 +27,10 @@ export default class Post extends React.Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps) {
-  //   return !!nextProps.currentUser;
-  // }
-
-  componentWillMount() {
-    if (this.props.path !== "/") {
-      this.props.receivePost(this.props.postFromTimeline);
-
-      // shouldn't need to do this... grab with user
-      // this.props.getComments(this.props.postFromTimeline.id);
-    }
-  }
-
   authorDisplay(post) {
+    if (post === undefined) {
+      debugger
+    }
     if (post.author.id === post.user.id) {
       return (
         <li className="post-author">
@@ -66,9 +60,11 @@ export default class Post extends React.Component {
     this.props.createLike(liker_id, likeable_id, likeable_type);
   }
 
-  likers(post, friends) {
+  likers(post) {
     const names = [];
     const likes = post.likes || {};
+    const friends = this.props.currentUser.friends || {};
+
     let i = 1;
     let remaining = 0;
     for(const key in likes) {
@@ -166,10 +162,11 @@ export default class Post extends React.Component {
   render() {
     let post;
     if (this.props.path === "/") {
-      post = this.props.post;
+      post = this.props.currentUser.newsfeedPosts[this.props.postId];
     } else {
-      post = this.props.postFromState.posts[this.props.postFromTimeline.id];
+      post = this.props.user.timelinePosts[this.props.postId];
     }
+
     return (
       <div className="post group">
         <ul className="post-details group">
@@ -188,7 +185,7 @@ export default class Post extends React.Component {
               </div>
             </div>
           </ul>
-          {this.likers(post, this.props.user.friends)}
+          {this.likers(post)}
           <li className="post-comments">
             {this.renderComments(post)}
           </li>
@@ -201,8 +198,3 @@ export default class Post extends React.Component {
     );
   }
 }
-
-// <div className="post-comment-container">
-//   <div className="post-comment"></div>
-//   <div className="post-comment-name">Comment</div>
-// </div>
