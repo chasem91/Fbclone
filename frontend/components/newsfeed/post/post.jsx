@@ -1,16 +1,17 @@
 import React from 'react';
-import Comment from '../comment/comment';
+import Comment from './comment/comment';
 import { Link } from 'react-router';
 
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.handleCreateComment = this.handleCreateComment.bind(this);
-    this.createLike = this.createLike.bind(this);
+    this.like = this.like.bind(this);
+    this.post = null;
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !!nextProps.currentUser;
+    return !!nextProps.currentUser && !!nextProps.user.timelinePosts[this.props.postId];
   }
 
   handleCreateComment(e) {
@@ -27,42 +28,74 @@ export default class Post extends React.Component {
     }
   }
 
-  authorDisplay(post) {
-    if (post === undefined) {
-      debugger
-    }
-    if (post.author.id === post.user.id) {
-      return (
-        <li className="post-author">
-          <Link to={`/users/${post.author.id}`}>{post.author.full_name}</Link>
-        </li>
-      );
-    } else {
-      return (
-        <li className="post-author">
-          <Link to={`/users/${post.author.id}`}>{post.author.full_name}</Link>
-          <div className="post-author-arrow" />
-          <Link to={`/users/${post.user.id}`}>{post.user.full_name}</Link>
-        </li>
-      );
-    }
-  }
-
-  createLike(e) {
+  like(e) {
     const liker_id = this.props.currentUser.id;
-    let likeable_id;
-    if (this.props.path === "/") {
-      likeable_id = this.props.post.id;
-    } else {
-      likeable_id = this.props.postFromTimeline.id;
-    }
+    const likeable_id = this.post.id;
     const likeable_type = "Post";
     this.props.createLike(liker_id, likeable_id, likeable_type);
   }
 
-  likers(post) {
+  render() {
+    let post;
+
+    if (this.props.path === "/") {
+      this.post = this.post || this.props.currentUser.newsfeedPosts[this.props.postId];
+    } else {
+      this.post = this.post || this.props.user.timelinePosts[this.props.postId];
+    }
+
+    return (
+      <div className="post group">
+        <ul className="post-details group">
+          <ul className="post-header">
+            <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
+            <ul>
+              {this.authorDisplay()}
+              <li className="post-date">{this.post.time_ago}</li>
+            </ul>
+          </ul>
+          <li className="post-content">{this.post.content}</li>
+          <ul className="post-actions">
+            <div className="post-action-buttons">
+              <div className="post-like-container">
+                {this.renderLike()}
+              </div>
+            </div>
+          </ul>
+          {this.likers()}
+          <li className="post-comments">
+            {this.renderComments()}
+          </li>
+          <ul className="comment-compose">
+            <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
+            <textarea className="comment-input" id={this.post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
+          </ul>
+        </ul>
+      </div>
+    );
+  }
+
+  authorDisplay() {
+    if (this.post.author.id === this.post.user.id) {
+      return (
+        <li className="post-author">
+          <Link to={`/users/${this.post.author.id}`}>{this.post.author.full_name}</Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="post-author">
+          <Link to={`/users/${this.post.author.id}`}>{this.post.author.full_name}</Link>
+          <div className="post-author-arrow" />
+          <Link to={`/users/${this.post.user.id}`}>{this.post.user.full_name}</Link>
+        </li>
+      );
+    }
+  }
+
+  likers() {
     const names = [];
-    const likes = post.likes || {};
+    const likes = this.post.likes || {};
     const friends = this.props.currentUser.friends || {};
 
     let i = 1;
@@ -120,10 +153,10 @@ export default class Post extends React.Component {
     );
   }
 
-  renderLike (post) {
+  renderLike () {
     const likers = [];
-    for (const key in post.likes) {
-      likers.push(post.likes[key].liker.id);
+    for (const key in this.post.likes) {
+      likers.push(this.post.likes[key].liker.id);
     }
     if (this.props.currentUser && likers.includes(this.props.currentUser.id)) {
       return (
@@ -134,7 +167,7 @@ export default class Post extends React.Component {
       );
     } else {
       return (
-        <div onClick={this.createLike} className="post-comment-container">
+        <div onClick={this.like} className="post-comment-container">
           <div className="post-like"></div>
           <div className="post-like-name">Like</div>
         </div>
@@ -142,10 +175,10 @@ export default class Post extends React.Component {
     }
   }
 
-  renderComments(post) {
+  renderComments() {
     const comments = [];
-    for (const key in post.comments) {
-      let comment = post.comments[key];
+    for (const key in this.post.comments) {
+      let comment = this.post.comments[key];
       comments.push(<li key={comment.id}><Comment comment={comment} /></li>);
     }
     if (comments.length === 0) {
@@ -157,44 +190,5 @@ export default class Post extends React.Component {
         </ul>
       );
     }
-  }
-
-  render() {
-    let post;
-    if (this.props.path === "/") {
-      post = this.props.currentUser.newsfeedPosts[this.props.postId];
-    } else {
-      post = this.props.user.timelinePosts[this.props.postId];
-    }
-
-    return (
-      <div className="post group">
-        <ul className="post-details group">
-          <ul className="post-header">
-            <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
-            <ul>
-              {this.authorDisplay(post)}
-              <li className="post-date">{post.time_ago}</li>
-            </ul>
-          </ul>
-          <li className="post-content">{post.content}</li>
-          <ul className="post-actions">
-            <div className="post-action-buttons">
-              <div className="post-like-container">
-                {this.renderLike(post)}
-              </div>
-            </div>
-          </ul>
-          {this.likers(post)}
-          <li className="post-comments">
-            {this.renderComments(post)}
-          </li>
-          <ul className="comment-compose">
-            <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
-            <textarea className="comment-input" id={post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
-          </ul>
-        </ul>
-      </div>
-    );
   }
 }

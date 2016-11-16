@@ -47,12 +47,13 @@
   font-size: 12px;
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 2px;
+
+  &:hover {
+    background-color: rgb(53, 80, 137);
+    border: 2px solid rgb(53, 80, 137);
+  }
 }
 
-.my-profile-link:hover {
-  background-color: rgb(53, 80, 137);
-  border: 2px solid rgb(53, 80, 137);
-}
 
 .friend-requests-container {
   display: flex;
@@ -98,12 +99,13 @@
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 2px;
   margin-right: 30px;
+
+  &:hover {
+    background-color: rgb(53, 80, 137);
+    border: 2px solid rgb(53, 80, 137);
+  }
 }
 
-.newsfeed-link:hover {
-  background-color: rgb(53, 80, 137);
-  border: 2px solid rgb(53, 80, 137);
-}
 
 .logout-button {
   padding: 5px 10px;
@@ -112,13 +114,14 @@
   font-size: 12px;
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 2px;
+  
+  &:hover {
+    background-color: rgb(53, 80, 137);
+    border: 2px solid rgb(53, 80, 137);
+    cursor: pointer;
+  }
 }
 
-.logout-button:hover {
-  background-color: rgb(53, 80, 137);
-  border: 2px solid rgb(53, 80, 137);
-  cursor: pointer;
-}
 
 .pipe {
   width: 1px;

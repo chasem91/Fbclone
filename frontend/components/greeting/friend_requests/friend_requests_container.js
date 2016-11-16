@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import Greeting from './greeting';
+import FriendRequests from './friend_requests';
+
+import { acceptRequest } from '../../../actions/user_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  acceptRequest: (userId, friendId) => dispatch(acceptRequest(userId, friendId))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(FriendRequests);

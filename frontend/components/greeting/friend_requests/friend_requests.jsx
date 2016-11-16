@@ -29,8 +29,8 @@ export default class FriendRequests extends React.Component {
 
   friendRequests() {
     const requests = [];
-    for (const key in this.props.currentUser.friendRequests) {
-      const request = this.props.currentUser.friendRequests[key];
+    for (const key in this.props.currentUser.receivedRequests) {
+      const request = this.props.currentUser.receivedRequests[key];
       requests.push(
         <li key={key} className="friend-request">
           <div className="friend-request-details">

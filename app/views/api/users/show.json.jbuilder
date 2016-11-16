@@ -10,6 +10,14 @@ json.friends do
   end
 end
 
+json.activeUsers do
+  @user.friends.each do |friend|
+    json.set! friend.id do
+      json.partial! 'api/users/user', user: friend
+    end
+  end
+end
+
 json.timelinePosts do
   @timeline_posts.each do |post|
     json.set! post.id do
@@ -18,15 +26,16 @@ json.timelinePosts do
   end
 end
 
-json.friendRequests do
+json.receivedRequests do
   @user.friend_requests.each do |request|
+    next if request.approved
     json.set! request.id do
       json.partial! 'api/friend_requests/friend_request', friend_request: request
     end
   end
 end
 
-json.requestedFriends do
+json.sentRequests do
   @user.requested_friends.each do |request|
     json.set! request.id do
       json.partial! 'api/friend_requests/friend_request', friend_request: request

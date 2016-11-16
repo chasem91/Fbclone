@@ -1,6 +1,6 @@
 import React from 'react';
-import PostContainer from '../post/post_container';
-import NewPostFormContainer from '../timeline/new_post_form/new_post_form_container';
+import PostContainer from './post/post_container';
+import NewPostFormContainer from './new_post_form/new_post_form_container';
 import { hashHistory } from 'react-router';
 
 export default class Newsfeed extends React.Component {

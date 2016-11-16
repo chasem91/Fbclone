@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import Greeting from './greeting';
+import ActiveUserDetail from './active_user_detail';
+import { receiveChatBox } from '../../../actions/user_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  receiveChatBox: userId => dispatch(receiveChatBox(userId))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(ActiveUserDetail);

@@ -21,7 +21,6 @@ class Api::UsersController < ApplicationController
       .includes(:author, :user, { comments: [ { likes: [:liker] }, :author ] }, { likes: [:liker] } )
       .where(author_id: friend_ids).reverse
     else
-
       @user = User.includes(:friends).find(params[:id])
       @newsfeed_posts = []
     end

@@ -4,6 +4,7 @@
   <title>FBClone</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <script src="//js.pusher.com/3.2/pusher.min.js"></script>
   <%= csrf_meta_tags %>
   <script type="text/javascript">
     window.signupImages = {
@@ -15,6 +16,19 @@
       profilePicture: "<%= image_url("seeds/max_profile.jpg") %>",
       profileBanner: "<%= image_url("seeds/beach_profile_banner.jpg") %>"
     }
+  </script>
+  <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('923b60e10128cda9e9ef', {
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+      alert(data.message);
+    });
   </script>
 </head>
 <body>

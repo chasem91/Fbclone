@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
-import Post from './post';
-
+import LiveChatSearch from './live_chat_search';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser,
-  user: state.user
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
+
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Post);
+)(LiveChatSearch);

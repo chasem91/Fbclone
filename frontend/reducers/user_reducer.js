@@ -1,5 +1,6 @@
 import {
   RECEIVE_USER,
+  RECEIVE_LIKE
 } from '../actions/user_actions';
 
 import merge from 'lodash/merge';
@@ -12,25 +13,33 @@ const _initialState = Object.freeze(
     birthday: "",
     gender: "",
     timelinePosts: {},
-    friends: {},
-    friendRequests: {},
-    requestedFriends: {},
-    newsfeedPosts: {}
+    friends: {}
   }
 );
 
 const UserReducer = (state = _initialState, action) => {
-  let newState;
+  let newState = merge({}, state);
   switch(action.type) {
 
     case RECEIVE_USER:
       newState = merge({}, state, action.user);
       newState.timelinePosts = action.user.timelinePosts || {};
       newState.friends = action.user.friends || {};
-      newState.friendRequests = action.user.friendRequests || {};
-      newState.requestedFriends = action.user.requestedFriends || {};
-      newState.newsfeedPosts = action.user.newsfeedPosts || {};
       return newState;
+
+
+    case RECEIVE_LIKE:
+      if (action.like[Object.keys(action.like)[0]].likeable.type === "Post") {
+        const post = newState.timelinePosts[ action.like[ parseInt(Object.keys(action.like)[0]) ].likeable.id ];
+
+        if (post) {
+          post.likes[parseInt(Object.keys(action.like)[0])] = action.like[ Object.keys(action.like)[0] ];
+        }
+
+        return newState;
+      }
+
+      return state;
 
     default:
       return state;

@@ -46,12 +46,13 @@
 
 .post-author {
   margin-bottom: 10px;
+
+  a {
+    font-weight: bold;
+    color: rgb(54, 88, 153);
+  }
 }
 
-.post-author a {
-  font-weight: bold;
-  color: rgb(54, 88, 153);
-}
 
 .post-date {
   font-size: 10px;
@@ -65,7 +66,6 @@
   display: flex;
   padding: 6px 0;
   border-top: 1px solid lightgray;
-  // border-bottom: 1px solid lightgray;
   color: rgb(127, 127, 127);
   font-size: 13px;
   font-weight: bold;

@@ -1,6 +1,6 @@
 import React from 'react';
-import PostContainer from '../post/post_container';
-import NewPostFormContainer from './new_post_form/new_post_form_container';
+import PostContainer from '../../newsfeed/post/post_container';
+import NewPostFormContainer from '../../newsfeed/new_post_form/new_post_form_container';
 
 export default class Timeline extends React.Component {
   constructor(props) {

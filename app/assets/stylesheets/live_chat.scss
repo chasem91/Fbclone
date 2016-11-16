@@ -1,0 +1,13 @@
+.live-chat-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: fixed;
+  background-color: rgb(233, 235, 238);
+  bottom: 0;
+  right: 0;
+  height: calc(100% - 43px);
+  width: 205px;
+  border-left: 1px solid rgb(204, 204, 204);
+  z-index: 1;
+}

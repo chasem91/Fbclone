@@ -1,0 +1,26 @@
+.active-user-detail {
+  display: flex;
+  align-items: center;
+  color: black;
+  height: 38px;
+  padding: 4px 0;
+
+  &:hover {
+    background-color: rgb(221, 223, 226);
+    cursor: pointer;
+  }
+}
+
+.active-user-detail-image {
+  height: 34px;
+  width: 34px;
+  margin: 0 6px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, .15);
+}
+
+.active-user-detail-name {
+  position: relative;
+  bottom: 2px;
+  font-size: 12px;
+}

@@ -3,6 +3,19 @@ export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_FRIEND = "RECEIVE_FRIEND";
+export const RECEIVE_SENT_REQUEST = "RECEIVE_SENT_REQUEST";
+export const REMOVE_REQUEST = "REMOVE_REQUEST";
+
+export const receiveFriend = friend => ({
+  type: RECEIVE_FRIEND,
+  friend
+});
+
+export const receiveMadeRequest = request => ({
+  type: RECEIVE_SENT_REQUEST,
+  request
+});
 
 export const signup = user => ({
   type: SIGNUP,
@@ -26,4 +39,9 @@ export const receiveCurrentUser = currentUser => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const removeRequest = friend => ({
+  type: REMOVE_REQUEST,
+  friend
 });

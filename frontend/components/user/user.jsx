@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import UserHeaderNavContainer from '../user_header_nav/user_header_nav_container';
-import UserActionBar from '../user_action_bar/user_action_bar_container';
-import TimelineContainer from '../timeline/timeline_container';
-import UserReportContainer from '../user_report/user_report_container';
+import UserHeaderNavContainer from './user_header_nav/user_header_nav_container';
+import UserActionBar from './user_action_bar/user_action_bar_container';
+import TimelineContainer from './timeline/timeline_container';
+import UserReportContainer from './user_report/user_report_container';
 import Photo from '../photo/photo';
 
 class User extends React.Component {

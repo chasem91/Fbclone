@@ -12,7 +12,7 @@
   border: none;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
-  height: 22px;
+  height: 24px;
   width: 400px;
 }
 
@@ -27,6 +27,10 @@
   height: 24px;
   width: 48px;
   background: #fff;
+
+  &:hover {
+    background: #eee;
+  }
 }
 
 .search-submit-icon {
@@ -36,9 +40,6 @@
   background-position: -18px 646px, center;
 }
 
-.search-bar-submit:hover {
-  background: #eee;
-}
 
 .search-results-container {
   position: absolute;
@@ -59,12 +60,12 @@
   height: 48px;
   font-weight: bold;
   color: black;
-}
 
-.search-result img {
-  margin-left: 4px;
-}
+  img {
+    margin-left: 4px;
+  }
 
-.search-result:hover {
-  background: rgb(236, 240, 247);
+  &:hover {
+    background: rgb(236, 240, 247);
+  }
 }

@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.store = store;
 
+  // const pusher = new Pusher("270713");
+  // const channel = pusher.subscribe('my-channel');
+  // channel.bind('my-event', data => {
+  //   alert('An event was triggered with message: ' + data.message);
+  // })
+
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

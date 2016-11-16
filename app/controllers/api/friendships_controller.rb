@@ -2,12 +2,11 @@ require 'byebug'
 
 class Api::FriendshipsController < ApplicationController
   def create
-    # debugger
-    friend_request = FriendRequest.find_by(
+    @friend_request = FriendRequest.find_by(
       user_id: params[:friend_id],
       friend_id: params[:user_id]
     )
-    if friend_request.update(approved: 'true')
+    if @friend_request.update(approved: 'true')
       friendship = Friendship.new(
         user_id: params[:user_id],
         friend_id: params[:friend_id]
@@ -19,14 +18,7 @@ class Api::FriendshipsController < ApplicationController
     end
     duplicate.save
     if friendship && friendship.save
-      # @friendship = Friendship
-      # .includes(:user, :friend)
-      # .where(
-      #   "user_id = ? AND friend_id = ?",
-      #   friendship.user_id, friendship.friend_id
-      # ).first
-      # render 'api/friendships/show'
-      render json: { id: friend_request.id }
+      render 'api/friend_requests/show'
     else
       if friendship
         render json: {

@@ -1,0 +1,9 @@
+.live-chat-boxes-container {
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  bottom: 0;
+  height: 0;
+  width: calc(100% - 208px);
+  z-index: 1;
+}

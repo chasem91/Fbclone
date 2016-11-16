@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SearchBarContainer from '../search_bar/search_bar_container';
-import NotificationsContainer from '../notifications/notifications_container';
-import FriendRequestsContainer from '../friend_requests/friend_requests_container';
+import SearchBarContainer from './search_bar/search_bar_container';
+import NotificationsContainer from './notifications/notifications_container';
+import FriendRequestsContainer from './friend_requests/friend_requests_container';
 
 export default class Greeting extends React.Component {
   constructor(props) {

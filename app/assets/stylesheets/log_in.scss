@@ -66,12 +66,12 @@
   background: rgb(66, 103, 178);
   border: 1px solid rgb(41, 72, 125);
   border-radius: 2px;
+  &:hover {
+    background: rgb(54, 88, 153);
+    cursor: pointer;
+  }
 }
 
-.session-submit:hover {
-  background: rgb(54, 88, 153);
-  cursor: pointer;
-}
 
 .login-input-label {
   color: white;

@@ -10,7 +10,7 @@ export default class SearchBar extends React.Component {
 
   handleSearchText(e) {
     e.preventDefault();
-    this.props.getUsers(e.currentTarget.value);
+    // this.props.getUsers(e.currentTarget.value);
   }
 
   renderResults() {

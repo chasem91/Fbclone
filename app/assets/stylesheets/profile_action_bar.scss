@@ -34,19 +34,20 @@
   display: flex;
   border: 1px solid rgba(40, 40, 40, .5);
   border-radius: 2px;
+
+  a:first-child {
+    border-right: 1px solid #ccc;
+  }
 }
 
+.user-action-bar {
+  a {
+    padding: 6px 14px;
+    background: rgb(246, 247, 249);
+    color: rgb(75, 79, 86);
 
-.side-actions a:first-child {
-  border-right: 1px solid #ccc;
-}
-
-.user-action-bar a {
-  padding: 6px 14px;
-  background: rgb(246, 247, 249);
-  color: rgb(75, 79, 86);
-}
-
-.user-action-bar a:hover {
-  background: rgb(233, 235, 238);
+    &:hover {
+      background: rgb(233, 235, 238);
+    }
+  }
 }
