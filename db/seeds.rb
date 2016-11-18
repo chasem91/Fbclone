@@ -16,7 +16,17 @@ User.create(
   gender: "male"
 )
 
-10.times do
+User.create(
+  email: "chasemartin91@gmail.com",
+  password_digest: BCrypt::Password.create("password"),
+  session_token: "kahg;fkjqpa;skjdfhg;",
+  first_name: "Chase",
+  last_name: "Martin",
+  birthday: "01-01-1991",
+  gender: "male"
+)
+
+9.times do
   user = User.create(
     email: Faker::Internet.free_email,
     password_digest: BCrypt::Password.create("password"),

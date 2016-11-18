@@ -14,11 +14,11 @@ export default class LiveChat extends React.Component {
 
   activeUsersList() {
     const userDetails = [];
-    const users = this.props.currentUser.activeUsers || {};
-    for(const key in users) {
-      const user = users[key];
+    const conversations = this.props.currentUser.conversations || {};
+    for(const key in conversations) {
+      const convo = conversations[key];
       userDetails.push(
-        <ActiveUserDetailContainer userId={user.id} key={user.id} />
+        <ActiveUserDetailContainer conversationId={convo.id} key={convo.id} />
       );
     }
     return userDetails;

@@ -9,6 +9,12 @@ export const REMOVE_REQUEST = "REMOVE_REQUEST";
 export const RECEIVE_CHAT_BOX = "RECEIVE_CHAT_BOX";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
+export const REMOVE_CHAT_BOX = "REMOVE_CHAT_BOX";
+
+export const removeChatBox = id => ({
+  type: REMOVE_CHAT_BOX,
+  id
+});
 
 export const receiveConversation = conversation => ({
   type: RECEIVE_CONVERSATION,

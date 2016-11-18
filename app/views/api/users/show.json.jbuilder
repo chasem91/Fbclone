@@ -13,11 +13,11 @@ json.friends do
   end
 end
 
-json.activeUsers({})
-json.activeUsers do
-  @user.friends.each do |friend|
-    json.set! friend.id do
-      json.partial! 'api/users/user', user: friend
+json.conversations({})
+json.conversations do
+  @user.conversations.each do |conversation|
+    json.set! conversation.id do
+      json.partial! 'api/conversations/conversation', conversation: conversation
     end
   end
 end

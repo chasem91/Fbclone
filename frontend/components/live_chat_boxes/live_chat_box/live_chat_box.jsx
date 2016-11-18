@@ -4,9 +4,10 @@ import { Link } from 'react-router';
 export default class LiveChatBoxes extends React.Component {
   constructor(props) {
     super(props);
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleExpand = this.handleExpand.bind(this);
+    this.handleCollapse = this.handleCollapse.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleCloseChatBox = this.handleCloseChatBox.bind(this);
     this.conversation = null;
   }
 
@@ -14,16 +15,17 @@ export default class LiveChatBoxes extends React.Component {
     return !!nextProps.currentUser
   }
 
-  componentDidMount() {
-    this.props.getConversation(this.props.currentUser.id, this.user.id);
-  }
-
-  handleOpen() {
+  handleExpand() {
     return;
   }
 
-  handleClose() {
+  handleCollapse() {
     return;
+  }
+
+  handleCloseChatBox(e) {
+    $(e.target).parent().parent().addClass('closing-chat-box');
+    setTimeout(() => this.props.removeChatBox(this.conversation.id), 190);
   }
 
   handleKeyPress(e) {
@@ -39,16 +41,16 @@ export default class LiveChatBoxes extends React.Component {
   }
 
   render() {
-    this.user = this.user || this.props.currentUser.conversations[this.props.userId]
+    this.conversation = this.conversation || this.props.currentUser.conversations[this.props.userId]
     if (true) {
       return (
         <div className="live-chat-box-container-opened" onClick={this.handleClose}>
           <div className="live-chat-box-header">
-            <Link to={`/users/${this.user.id}`}>{`${this.user.first_name} ${this.user.last_name}`}</Link>
-            <div className="chat-box-x-icon"></div>
+            {this.renderChatBoxHeader()}
+            <div className="chat-box-x-icon" onClick={this.handleCloseChatBox}></div>
           </div>
           <div className="chat-box-conversation">
-            {this.conversation()}
+            {this.renderConversation()}
           </div>
           <input
             placeholder="Type a message..."
@@ -59,17 +61,33 @@ export default class LiveChatBoxes extends React.Component {
       );
     } else {
       return (
-        <div className="live-chat-box-container-closed" onClick={this.handleOpen}>
+        <div className="live-chat-box-container-closed" onClick={this.handleExpand}>
         </div>
       );
     }
   }
 
-  conversation() {
+  renderChatBoxHeader() {
+    const usersToDisplay = []
+    const users = this.conversation.users
+    for(const key in users) {
+      const user = users[key]
+      if (user.id !== this.props.currentUser.id) {
+        usersToDisplay.push(
+          <Link to={`/users/${user.id}`} key={user.id}>
+            {`${user.first_name} ${user.last_name}`}
+          </Link>
+        );
+      }
+    }
+    return usersToDisplay;
+  }
+
+  renderConversation() {
     const messages = [];
-    const conversation = this.props.currentUser.chatBoxes[this.user.id].conversation || {};
-    for(const key in conversation) {
-      const message = conversation[key];
+    const convo = this.props.currentUser.conversations[this.conversation.id].messages || {};
+    for(const key in convo) {
+      const message = convo[key];
       if (message.author_id === this.props.currentUser.id) {
         messages.push(
           <div key={message.id} className="authored-chat-message">

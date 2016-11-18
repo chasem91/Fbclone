@@ -6,7 +6,9 @@ import {
   REMOVE_REQUEST,
   RECEIVE_SENT_REQUEST,
   RECEIVE_CHAT_BOX,
-  RECEIVE_MESSAGE
+  RECEIVE_MESSAGE,
+  REMOVE_CHAT_BOX,
+  RECEIVE_CONVERSATION
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -21,12 +23,18 @@ const SessionReducer = (state = _nullUser, action) => {
 
   switch(action.type) {
 
+    case RECEIVE_CONVERSATION:
+      const convoIndex = Object.keys(action.conversation)[0];
+      newState.currentUser.conversations[convoIndex] = action.conversation[convoIndex];
+      return newState;
+
+    case REMOVE_CHAT_BOX:
+      delete newState.currentUser.chatBoxes[action.id];
+      return newState;
+
     case RECEIVE_MESSAGE:
-      // newState.currentUser.chatBoxes[action.message[Object.keys(action.message)[0]].user_id] = action;
-      const message = action.message[Object.keys(action.message)[0]];
-      const chatBox = newState.currentUser.chatBoxes[message.user_id];
-      chatBox.conversation = chatBox.conversation || {};
-      chatBox.conversation[message.id] = message;
+      const message = action.message;
+      newState.currentUser.conversations[message.conversation_id].messages[message.id] = message;
       return newState;
 
     case RECEIVE_CHAT_BOX:

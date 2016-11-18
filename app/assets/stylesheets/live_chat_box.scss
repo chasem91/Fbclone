@@ -96,3 +96,19 @@
     height: 34px;
   }
 }
+
+.closing-chat-box {
+  animation-duration: .2s;
+  animation-timing-function: linear;
+  animation-name: hideChatBox;
+}
+
+@keyframes hideChatBox {
+  from {
+    bottom: 334px;
+  }
+
+  to {
+    bottom: -334px;
+  }
+}

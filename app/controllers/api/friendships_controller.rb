@@ -6,7 +6,7 @@ class Api::FriendshipsController < ApplicationController
       user_id: params[:friend_id],
       friend_id: params[:user_id]
     )
-    
+
     if @friend_request.update(approved: 'true')
       friendship = Friendship.new(
         user_id: params[:user_id],
@@ -20,9 +20,19 @@ class Api::FriendshipsController < ApplicationController
     end
 
     if friendship && friendship.save && duplicate.save
-      render 'api/friend_requests/show'
-    else
-      if friendship
+      convo = Conversation.create()
+      user_convo = UserConversation.new(
+        user_id: params[:user_id],
+        conversation_id: convo.id
+      )
+      friend_convo = UserConversation.new(
+        user_id: params[:friend_id],
+        conversation_id: convo.id
+      )
+      if user_convo.save && friend_convo.save
+        @conversation = Conversation.includes({ messages: [ :user ] }).find(convo.id)
+        render 'api/friend_requests/show'
+      elsif friendship
         render json: {
           errors: friendship.errors.full_messages,
           status: 422

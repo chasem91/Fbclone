@@ -24,7 +24,7 @@ import {
   postFriendRequest,
   postLike,
   postMessage,
-  fetchConversation
+  fetchConversation,
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
@@ -39,7 +39,7 @@ export default ({getState, dispatch}) => next => action => {
 
     case SEND_MESSAGE:
       const postMessageSuccess = message => {
-        dispatch(receiveMessage(message));
+        dispatch(receiveMessage(message[Object.keys(message)[0]]));
       }
       postMessage(action.message, postMessageSuccess);
       return next(action);
@@ -63,6 +63,7 @@ export default ({getState, dispatch}) => next => action => {
       const acceptFriendSuccess = request => {
         dispatch(receiveFriend(request[Object.keys(request)[0]].requester));
         dispatch(removeRequest(request));
+        dispatch(receiveConversation(request.conversation));
       };
       acceptFriend(action.userId, action.friendId, acceptFriendSuccess);
       return next(action);

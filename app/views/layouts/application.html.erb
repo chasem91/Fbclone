@@ -17,19 +17,6 @@
       profileBanner: "<%= image_url("seeds/beach_profile_banner.jpg") %>"
     }
   </script>
-  <script type="text/javascript">
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('923b60e10128cda9e9ef', {
-      encrypted: true
-    });
-
-    var channel = pusher.subscribe('test_channel');
-    channel.bind('my_event', function(data) {
-      alert(data.message);
-    });
-  </script>
 </head>
 <body>
 

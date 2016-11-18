@@ -11,14 +11,20 @@ class Api::UsersController < ApplicationController
       @user = User.includes(
         :friends,
         { friend_requests: [:user, :friend] },
-        { requested_friends: [:user, :friend] }
+        { requested_friends: [:user, :friend] },
+        { conversations: [ { messages: [ :user ] }, :users ] }
       ).find(params[:id])
 
       friend_ids = @user.friends.map { |friend| friend.id }
       friend_ids << @user.id
 
       @newsfeed_posts = Post
-      .includes(:author, :user, { comments: [ { likes: [:liker] }, :author ] }, { likes: [:liker] } )
+      .includes(
+        :author,
+        :user,
+        { comments: [ { likes: [ :liker ] }, :author ] },
+        { likes: [:liker] }
+      )
       .where(author_id: friend_ids).reverse
     else
       @user = User.includes(:friends).find(params[:id])
