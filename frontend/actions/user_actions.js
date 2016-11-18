@@ -5,12 +5,13 @@ export const REQUEST_FRIEND = "REQUEST_FRIEND";
 export const CREATE_LIKE = "CREATE_LIKE";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const SEND_MESSAGE = "SEND_MESSAGE";
-export const RECEIVE_CHAT_BOX = "RECEIVE_CHAT_BOX";
+export const GET_CONVERSATION = "GET_CONVERSATION";
 
-export const receiveChatBox = userId => ({
-  type: RECEIVE_CHAT_BOX,
-  userId
-})
+export const getConversation = (user_id, participant_id) => ({
+  type: GET_CONVERSATION,
+  user_id,
+  participant_id
+});
 
 export const getUser = id => ({
   type: GET_USER,

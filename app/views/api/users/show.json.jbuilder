@@ -2,6 +2,9 @@ require 'byebug'
 
 json.partial! 'api/users/user', user: @user
 
+json.chatBoxes({})
+
+json.friends({})
 json.friends do
   @user.friends.each do |friend|
     json.set! friend.id do
@@ -10,6 +13,7 @@ json.friends do
   end
 end
 
+json.activeUsers({})
 json.activeUsers do
   @user.friends.each do |friend|
     json.set! friend.id do
@@ -18,6 +22,7 @@ json.activeUsers do
   end
 end
 
+json.timelinePosts({})
 json.timelinePosts do
   @timeline_posts.each do |post|
     json.set! post.id do
@@ -26,6 +31,7 @@ json.timelinePosts do
   end
 end
 
+json.receivedRequests({})
 json.receivedRequests do
   @user.friend_requests.each do |request|
     next if request.approved
@@ -35,6 +41,7 @@ json.receivedRequests do
   end
 end
 
+json.sentRequests({})
 json.sentRequests do
   @user.requested_friends.each do |request|
     json.set! request.id do
@@ -43,6 +50,7 @@ json.sentRequests do
   end
 end
 
+json.newsfeedPosts({})
 json.newsfeedPosts do
   @newsfeed_posts.each do |post|
     json.set! post.id do

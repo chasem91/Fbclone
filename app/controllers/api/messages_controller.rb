@@ -3,7 +3,17 @@ require 'byebug'
 
 class Api::MessagesController < ApplicationController
   def create
-    # debugger
-    Pusher.trigger('test_channel', 'my_event', {:message => params[:message]})
+    @message = Message.new(message_params)
+    if @message.save
+      Pusher.trigger('test_channel', 'my_event', {:message => @message.content})
+      render "api/messages/show"
+    else
+      render json: @message.errors.full_messages, status: 422
+    end
+  end
+
+  private
+  def message_params
+    params.require(:message).permit(:user_id, :conversation_id, :content)
   end
 end

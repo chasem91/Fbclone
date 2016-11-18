@@ -1,13 +1,10 @@
 # == Schema Information
 #
-# Table name: messages
+# Table name: conversations
 #
-#  id              :integer          not null, primary key
-#  content         :string           not null
-#  user_id         :integer          not null
-#  conversation_id :integer          not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

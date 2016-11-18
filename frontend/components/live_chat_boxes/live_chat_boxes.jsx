@@ -12,16 +12,13 @@ export default class LiveChatBoxes extends React.Component {
   }
 
   chatBoxes() {
-    // const boxes = []
-    // const activeBoxes = this.props.currentUser.activeConversations;
-    // for(const key in activeBoxes) {
-    //   const box = activeBoxes[key]
-    //   boxes.push(<LiveChatBoxContainer key={box.id} />)
-    // }
-    return [
-      <LiveChatBoxContainer key={1} />,
-      <LiveChatBoxContainer key={2} />
-    ];
+    const boxes = []
+    const chatBoxes = this.props.currentUser.chatBoxes;
+    for(const key in chatBoxes) {
+      const box = chatBoxes[key]
+      boxes.push(<LiveChatBoxContainer userId={box.id} key={box.id} />)
+    }
+    return boxes;
   }
 
   render() {

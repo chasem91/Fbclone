@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     OR LOWER(first_name || \' \' || last_name) like LOWER(?)',
     "%#{string}%", "%#{string}%","%#{string}%","%#{string}%") }
 
+	has_many :messages
+	has_many :user_conversations
+	has_many :conversations, through: :user_conversations
+
   has_many :timeline_posts,
     foreign_key: :profile_id,
     class_name: :Post

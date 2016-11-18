@@ -6,13 +6,16 @@ import {
   REQUEST_FRIEND,
   CREATE_LIKE,
   receiveLike,
-  SEND_MESSAGE
+  SEND_MESSAGE,
+  GET_CONVERSATION
 } from '../actions/user_actions';
 
 import {
   receiveFriend,
   removeRequest,
   receiveMadeRequest,
+  receiveMessage,
+  receiveConversation
 } from '../actions/session_actions';
 
 import {
@@ -20,15 +23,23 @@ import {
   acceptFriend,
   postFriendRequest,
   postLike,
-  postMessage
+  postMessage,
+  fetchConversation
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
   switch(action.type){
 
+    case GET_CONVERSATION:
+      const fetchConversationSuccess = conversation => {
+        dispatch(receiveConversation(conversation));
+      }
+      fetchConversation(action.user_id, action.participant_id, fetchConversationSuccess);
+      return next(action);
+
     case SEND_MESSAGE:
       const postMessageSuccess = message => {
-        console.log(message);
+        dispatch(receiveMessage(message));
       }
       postMessage(action.message, postMessageSuccess);
       return next(action);

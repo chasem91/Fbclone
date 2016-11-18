@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ActiveUserDetail from './active_user_detail';
-import { receiveChatBox } from '../../../actions/user_actions';
+import { receiveChatBox } from '../../../actions/session_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser

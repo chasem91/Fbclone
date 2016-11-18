@@ -6,6 +6,24 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RECEIVE_FRIEND = "RECEIVE_FRIEND";
 export const RECEIVE_SENT_REQUEST = "RECEIVE_SENT_REQUEST";
 export const REMOVE_REQUEST = "REMOVE_REQUEST";
+export const RECEIVE_CHAT_BOX = "RECEIVE_CHAT_BOX";
+export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
+export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
+
+export const receiveConversation = conversation => ({
+  type: RECEIVE_CONVERSATION,
+  conversation
+});
+
+export const receiveMessage = message => ({
+  type: RECEIVE_MESSAGE,
+  message
+});
+
+export const receiveChatBox = userId => ({
+  type: RECEIVE_CHAT_BOX,
+  userId
+});
 
 export const receiveFriend = friend => ({
   type: RECEIVE_FRIEND,

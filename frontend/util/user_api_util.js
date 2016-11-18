@@ -3,6 +3,16 @@ import {
   receiveMadeRequest
 } from '../actions/user_actions';
 
+export const fetchConversation = (user_id, participant_id, success) => {
+  $.ajax({
+    method: 'GET',
+    url: '/api/conversations',
+    data: { user_id, participant_id },
+    success,
+    error: () => console.log('error fetching conversation')
+  });
+};
+
 export const postMessage = (message, success) => {
   $.ajax({
     method: 'POST',
@@ -10,8 +20,8 @@ export const postMessage = (message, success) => {
     data: { message },
     success,
     error: () => console.log('error posting message')
-  })
-}
+  });
+};
 
 export const fetchUser = (id, success) => {
 	$.ajax({

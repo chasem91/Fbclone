@@ -4,7 +4,9 @@ import {
   RECEIVE_ERRORS,
   RECEIVE_FRIEND,
   REMOVE_REQUEST,
-  RECEIVE_SENT_REQUEST
+  RECEIVE_SENT_REQUEST,
+  RECEIVE_CHAT_BOX,
+  RECEIVE_MESSAGE
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -15,9 +17,24 @@ const _nullUser = Object.freeze({
 
 const SessionReducer = (state = _nullUser, action) => {
 
-  let newState;
+  let newState = merge({}, state);
 
   switch(action.type) {
+
+    case RECEIVE_MESSAGE:
+      // newState.currentUser.chatBoxes[action.message[Object.keys(action.message)[0]].user_id] = action;
+      const message = action.message[Object.keys(action.message)[0]];
+      const chatBox = newState.currentUser.chatBoxes[message.user_id];
+      chatBox.conversation = chatBox.conversation || {};
+      chatBox.conversation[message.id] = message;
+      return newState;
+
+    case RECEIVE_CHAT_BOX:
+      return merge({}, state, {
+        currentUser: {
+          chatBoxes: action.userId
+        }
+      });
 
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
@@ -35,7 +52,6 @@ const SessionReducer = (state = _nullUser, action) => {
       });
 
     case REMOVE_REQUEST:
-      newState = merge({}, state);
       delete newState.currentUser.receivedRequests[Object.keys(action.friend)[0]];
       return newState;
 

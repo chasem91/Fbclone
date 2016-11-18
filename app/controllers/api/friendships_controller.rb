@@ -6,18 +6,20 @@ class Api::FriendshipsController < ApplicationController
       user_id: params[:friend_id],
       friend_id: params[:user_id]
     )
+    
     if @friend_request.update(approved: 'true')
       friendship = Friendship.new(
         user_id: params[:user_id],
         friend_id: params[:friend_id]
       )
+
       duplicate = Friendship.new(
         user_id: params[:friend_id],
         friend_id: params[:user_id]
       )
     end
-    duplicate.save
-    if friendship && friendship.save
+
+    if friendship && friendship.save && duplicate.save
       render 'api/friend_requests/show'
     else
       if friendship

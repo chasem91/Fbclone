@@ -1,9 +1,8 @@
 # == Schema Information
 #
-# Table name: messages
+# Table name: user_conversations
 #
 #  id              :integer          not null, primary key
-#  content         :string           not null
 #  user_id         :integer          not null
 #  conversation_id :integer          not null
 #  created_at      :datetime         not null
@@ -12,7 +11,7 @@
 
 require 'test_helper'
 
-class MessageTest < ActiveSupport::TestCase
+class UserConversationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

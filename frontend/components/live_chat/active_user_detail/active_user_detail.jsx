@@ -8,7 +8,9 @@ export default class ActiveUserDetail extends React.Component {
   }
 
   handleClick() {
-    this.props.receiveChatBox(this.user.id);
+    const user = {};
+    user[this.user.id] = { id: this.user.id };
+    this.props.receiveChatBox(user);
   }
 
   render() {

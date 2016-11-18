@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :show, :destroy]
     resources :photos, only: [:index, :show, :create, :destroy]
     resources :messages, only: [:create]
+    resource :conversations, only: [:create, :show]
     resource :session, only: [:create, :destroy, :show]
   end
 
