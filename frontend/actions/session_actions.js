@@ -10,6 +10,12 @@ export const RECEIVE_CHAT_BOX = "RECEIVE_CHAT_BOX";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const REMOVE_CHAT_BOX = "REMOVE_CHAT_BOX";
+export const RECEIVE_CURRENT_SECTION = "RECEIVE_CURRENT_SECTION";
+
+export const receiveCurrentSection = section => ({
+  type: RECEIVE_CURRENT_SECTION,
+  section
+});
 
 export const removeChatBox = id => ({
   type: REMOVE_CHAT_BOX,

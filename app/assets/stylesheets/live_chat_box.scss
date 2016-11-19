@@ -89,6 +89,33 @@
         max-width: 179px;
       }
     }
+
+    .chat-message {
+      display: flex;
+      padding: 6px;
+
+      .chat-message-thumb {
+        height: 30px;
+        width: 30px;
+      }
+
+      .chat-message-content {
+        background-color: rgb(241, 240, 240) ;
+        color: rgb(113, 116, 121);
+
+        text-align: right;
+
+        border-radius: 12px;
+        font-size: 12px;
+
+        padding-bottom: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 5px;
+
+        max-width: 179px;
+      }
+    }
   }
 
   .chat-box-message-input {

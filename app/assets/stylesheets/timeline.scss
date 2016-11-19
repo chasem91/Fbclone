@@ -1,20 +1,10 @@
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .timeline {
-  position: absolute;
-  top: 362px;
-  left: 344px;
   display: flex;
   flex-direction: column;
   width: 510px;
-}
-
-.timeline-pointer {
-  width: 11px;
-  height: 11px;
-  background: rgb(233, 235, 238);
-  position: absolute;
-  transform: rotateZ(45deg);
-  top: -15px;
-  left: -88px;
-  border-top: 1px solid rgb(211, 214, 219);
-  border-left: 1px solid rgb(211, 214, 219);
 }

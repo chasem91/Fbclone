@@ -8,9 +8,8 @@ class Api::MessagesController < ApplicationController
       Pusher.trigger(
         "#{params[:message][:conversation_id]}",
         'my_event',
-        {message: @message}
+        {message: JSON.parse((render "api/messages/show").first)}
       )
-      render "api/messages/show"
     else
       render json: @message.errors.full_messages, status: 422
     end

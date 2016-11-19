@@ -15,7 +15,8 @@ import {
   removeRequest,
   receiveMadeRequest,
   receiveMessage,
-  receiveConversation
+  receiveConversation,
+  receiveCurrentSection
 } from '../actions/session_actions';
 
 import {
@@ -39,7 +40,7 @@ export default ({getState, dispatch}) => next => action => {
 
     case SEND_MESSAGE:
       const postMessageSuccess = message => {
-        dispatch(receiveMessage(message[Object.keys(message)[0]]));
+        dispatch(receiveMessage(message));
       }
       postMessage(action.message, postMessageSuccess);
       return next(action);
@@ -54,6 +55,7 @@ export default ({getState, dispatch}) => next => action => {
 
     case GET_USER:
       const fetchUserSuccess = user => {
+        dispatch(receiveCurrentSection(0));
         dispatch(receiveUser(user));
       };
       fetchUser(action.id, fetchUserSuccess);

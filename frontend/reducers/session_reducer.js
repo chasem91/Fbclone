@@ -8,7 +8,8 @@ import {
   RECEIVE_CHAT_BOX,
   RECEIVE_MESSAGE,
   REMOVE_CHAT_BOX,
-  RECEIVE_CONVERSATION
+  RECEIVE_CONVERSATION,
+  RECEIVE_CURRENT_SECTION
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -22,6 +23,10 @@ const SessionReducer = (state = _nullUser, action) => {
   let newState = merge({}, state);
 
   switch(action.type) {
+
+    case RECEIVE_CURRENT_SECTION:
+      newState.currentUser.currentSection = action.section;
+      return newState;
 
     case RECEIVE_CONVERSATION:
       const convoIndex = Object.keys(action.conversation)[0];

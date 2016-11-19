@@ -93,32 +93,50 @@ export default class Post extends React.Component {
     }
   }
 
+  displayLikerName(like) {
+    // if (like.liker.id === this.props.currentUser.id) {
+    //   return "You";
+    // } else {
+      return like.liker.full_name;
+    // }
+  }
+
   likers() {
     const names = [];
     const likes = this.post.likes || {};
     const friends = this.props.currentUser.friends || {};
+    const length = Object.keys(likes).length;
 
     let i = 1;
     let remaining = 0;
     for(const key in likes) {
       const like = likes[key];
       if (Object.keys(friends).includes(`${like.liker.id}`) || this.props.currentUser.id === like.liker.id) {
-        if (i === Object.keys(likes).length) {
+        if (length === 1 || (i === length - 1)) {
           names.push(
             <Link
               className="post-like-user-link"
               key={like.id}
               to={`/users/${like.liker.id}`}>
-              {like.liker.full_name}
+              {this.displayLikerName(like)}
             </Link>
           );
-        } else {
+        } else if (i === length) {
           names.push(
             <Link
               className="post-like-user-link"
               key={like.id}
               to={`/users/${like.liker.id}`}>
-              {like.liker.full_name}, &nbsp;
+              &nbsp;{`and ${this.displayLikerName(like)}`}
+            </Link>
+          );
+       } else {
+          names.push(
+            <Link
+              className="post-like-user-link"
+              key={like.id}
+              to={`/users/${like.liker.id}`}>
+              {`${this.displayLikerName(like)},`}&nbsp;
             </Link>
           );
         }
@@ -127,13 +145,13 @@ export default class Post extends React.Component {
       }
       i++;
     }
-    if (Object.keys(likes).length === 0) {
+    if (length === 0) {
       return (<div></div>);
     } else if (names.length === 0){
       return (
         <li className="post-likes">
           <div className="liker-names-icon" />
-          <div>{Object.keys(likes).length}</div>
+          <div>{length}</div>
         </li>
       );
     } else if (remaining === 0) {
@@ -148,7 +166,7 @@ export default class Post extends React.Component {
       <li className="post-likes">
         <div className="liker-names-icon" />
         {names}
-        <div>&nbsp; and {remaining} others</div>
+        <div>{` and ${remaining} others`}</div>
       </li>
     );
   }

@@ -12,7 +12,8 @@ class Api::SessionsController < ApplicationController
 			@user = User.includes(
 			:friends,
 			{ friend_requests: [:user, :friend] },
-			{ requested_friends: [:user, :friend] }
+			{ requested_friends: [:user, :friend] },
+      { conversations: [ { messages: [ :user ] }, :users ] }
 			).find(@user.id)
 
 			friend_ids = @user.friends.map { |friend| friend.id }

@@ -1,14 +1,12 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
 import UserHeaderNavContainer from './user_header_nav/user_header_nav_container';
 import UserActionBar from './user_action_bar/user_action_bar_container';
-import TimelineContainer from './timeline/timeline_container';
-import UserReportContainer from './user_report/user_report_container';
-import Photo from '../photo/photo';
 
 class User extends React.Component {
 	constructor(props) {
 		super(props);
+		this.id = parseInt(this.props.params.userId);
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -16,17 +14,30 @@ class User extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.getUser(parseInt(this.props.params.userId));
+		if (this.props.currentUser.id === this.id) {
+			this.props.receiveUser(this.props.currentUser);
+		} else {
+			this.props.getUser(this.id);
+		}
 	}
 
   componentWillReceiveProps(newProps) {
-    if (this.props.user.id !== parseInt(newProps.params.userId)) {
-      this.props.getUser(parseInt(newProps.params.userId));
-    }
+		const id = parseInt(newProps.params.userId);
+		const user = this.props.user;
+		const currentUser = this.props.currentUser;
+
+		if (user.id !== id) {
+			if (currentUser.id === id) {
+				this.props.receiveUser(currentUser);
+				this.props.receiveCurrentSection(0);
+			} else {
+				this.props.getUser(id);
+			}
+		}
   }
 
 	render() {
-    const user = this.props.user;
+		const user = this.props.user;
 		return (
 			<div className="home-user group">
         <div className="home-user-main">
@@ -35,8 +46,7 @@ class User extends React.Component {
           <h3 className="user-name">{user.first_name} {user.last_name}</h3>
 					<UserActionBar />
 					<UserHeaderNavContainer />
-					<UserReportContainer />
-					<TimelineContainer />
+					{this.props.children}
         </div>
 			</div>
 		);

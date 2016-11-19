@@ -6,6 +6,10 @@ import UserContainer from './user/user_container';
 import UserIndexContainer from './user_index/user_index_container';
 import NewsfeedContainer from './newsfeed/newsfeed_container';
 import SessionContainer from './session/session_container';
+import TimelineContainer from './user/timeline/timeline_container';
+import AboutContainer from './user/about/about_container';
+import FriendsContainer from './user/friends/friends_container';
+import PhotosContainer from './user/photos/photos_container';
 
 
 const Root = ({ store }) => {
@@ -30,7 +34,12 @@ const Root = ({ store }) => {
         <Route path="/login" component={SessionContainer} onEnter={_redirectIfLoggedIn}/>
         <Route path="/" component={App}>
           <IndexRoute component={NewsfeedContainer} onEnter={_ensureLoggedIn}/>
-          <Route path="/users/:userId" component={UserContainer} onEnter={_ensureLoggedIn}/>
+          <Route path="/users/:userId" component={UserContainer} onEnter={_ensureLoggedIn} >
+            <IndexRoute component={TimelineContainer} />
+            <Route path="/users/:userId/about" component={AboutContainer} />
+            <Route path="/users/:userId/friends" component={FriendsContainer} />
+            <Route path="/users/:userId/photos" component={PhotosContainer} />
+          </Route>
         </Route>
       </Router>
     </Provider>

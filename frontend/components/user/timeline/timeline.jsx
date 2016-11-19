@@ -1,10 +1,15 @@
 import React from 'react';
 import PostContainer from '../../newsfeed/post/post_container';
 import NewPostFormContainer from '../../newsfeed/new_post_form/new_post_form_container';
+import UserReportContainer from './user_report/user_report_container';
 
 export default class Timeline extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.receiveCurrentSection(0);
   }
 
   displayTimelinePosts(posts) {
@@ -20,10 +25,12 @@ export default class Timeline extends React.Component {
 
   render() {
     return (
-      <div className="timeline group">
-        <div className="timeline-pointer" />
-        <NewPostFormContainer />
-        {this.displayTimelinePosts()}
+      <div className = "timeline-container">
+        <UserReportContainer />
+        <div className="timeline group">
+          <NewPostFormContainer />
+          {this.displayTimelinePosts()}
+        </div>
       </div>
     );
   }

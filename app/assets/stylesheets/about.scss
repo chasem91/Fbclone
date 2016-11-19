@@ -1,0 +1,31 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid rgb(211, 214, 219);
+  border-radius: 3px;
+
+  .about-box-header {
+    height: 58px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(246, 247, 249);
+    border-bottom: 1px solid rgb(211, 214, 219);
+  }
+
+  .about-box-contents {
+    height: 342px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+
+    .about-box-nav {
+      height: 100%;
+      width: 244px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgb(204, 204, 204);
+    }
+
+  }
+}

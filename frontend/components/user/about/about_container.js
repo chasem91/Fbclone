@@ -1,18 +1,15 @@
 import { connect } from 'react-redux';
-import Timeline from './timeline';
-import { receiveCurrentSection } from '../../../actions/session_actions';
+import About from './about';
 
 const mapStateToProps = state => ({
+  currentUser: state.session.currentUser,
   user: state.user
 });
 
-
 const mapDispatchToProps = dispatch => ({
-  receiveCurrentSection: section => dispatch(receiveCurrentSection(section))
 });
-
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Timeline);
+)(About);

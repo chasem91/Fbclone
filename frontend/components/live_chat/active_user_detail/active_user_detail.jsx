@@ -21,12 +21,13 @@ export default class ActiveUserDetail extends React.Component {
 
     const channel = pusher.subscribe(`${this.convo.id}`);
     channel.bind('my_event', data => {
-      const message = {
-        id: data.message.id,
-        user_id: data.message.user_id,
-        conversation_id: data.message.conversation_id,
-        content: data.message.content
-      };
+      const message = data.message;
+      // {
+      //   id: data.message.id,
+      //   user: data.message.user,
+      //   conversation_id: data.message.conversation_id,
+      //   content: data.message.content
+      // };
       this.props.receiveMessage(message);
     });
   }

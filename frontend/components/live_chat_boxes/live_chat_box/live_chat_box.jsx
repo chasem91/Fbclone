@@ -88,7 +88,7 @@ export default class LiveChatBoxes extends React.Component {
     const convo = this.props.currentUser.conversations[this.conversation.id].messages || {};
     for(const key in convo) {
       const message = convo[key];
-      if (message.author_id === this.props.currentUser.id) {
+      if (message.user.id === this.props.currentUser.id) {
         messages.push(
           <div key={message.id} className="authored-chat-message">
             <div className="authored-chat-message-content">
@@ -99,6 +99,9 @@ export default class LiveChatBoxes extends React.Component {
       } else {
         messages.push(
           <div key={message.id} className="chat-message">
+            <Link to={`/users/${message.user.id}`} >
+              <img className="chat-message-thumb" src={window.homeUserImages.profilePicture}></img>
+            </Link>
             <div className="chat-message-content">
               {message.content}
             </div>
