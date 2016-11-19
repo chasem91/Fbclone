@@ -55,7 +55,7 @@ export default ({getState, dispatch}) => next => action => {
 
     case GET_USER:
       const fetchUserSuccess = user => {
-        dispatch(receiveCurrentSection(0));
+        // dispatch(receiveCurrentSection(0));
         dispatch(receiveUser(user));
       };
       fetchUser(action.id, fetchUserSuccess);

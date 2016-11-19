@@ -1,43 +1,196 @@
 require 'byebug'
 
+user = locals[:user]
+timeline_posts = locals[:timeline_posts]
+newsfeed_posts = locals[:newsfeed_posts]
+
 json.extract! user, :id, :first_name, :last_name, :gender
 json.birthday user.birthday.strftime('%b %d, %Y')
 
+json.currentSection(0)
+
+json.chatBoxes({})
+
+json.friends({})
 json.friends do
   user.friends.each do |friend|
     json.set! friend.id do
-      json.extract! user, :id, :first_name, :last_name, :birthday, :gender
+      json.extract! friend, :id, :first_name, :last_name, :gender
+      json.birthday friend.birthday.strftime('%b %d, %Y')
     end
   end
 end
 
-json.friend_requests do
-  user.friend_requests.each do |friend_request|
-    json.set! friend_request.id do
-      json.id friend_request.id
-      json.requester do
-        json.full_name "#{friend_request.user.first_name} #{friend_request.user.last_name}"
-        json.id friend_request.user.id
+json.conversations({})
+json.conversations do
+  user.conversations.each do |conversation|
+    json.set! conversation.id do
+      json.extract! conversation, :id
+
+      json.users({})
+      json.users do
+        conversation.users.each do |user|
+          json.set! user.id do
+            json.extract! user, :id, :first_name, :last_name, :gender
+            json.birthday user.birthday.strftime('%b %d, %Y')
+          end
+        end
       end
-      json.requested do
-        json.full_name "#{friend_request.friend.first_name} #{friend_request.friend.last_name}"
-        json.id friend_request.friend.id
+
+      json.messages({})
+      json.messages do
+        conversation.messages.each do |message|
+          json.set! message.id do
+            json.extract! message, :id, :created_at, :content, :conversation_id
+
+            json.user({})
+            json.user do
+              json.extract! user, :id, :first_name, :last_name, :gender
+              json.birthday user.birthday.strftime('%b %d, %Y')
+            end
+          end
+        end
       end
     end
   end
 end
 
-json.requested_friends do
-  user.requested_friends.each do |friend_request|
-    json.set! friend_request.id do
-      json.id friend_request.id
-      json.requester do
-        json.full_name "#{friend_request.user.first_name} #{friend_request.user.last_name}"
-        json.id friend_request.user.id
+json.timelinePosts({})
+json.timelinePosts do
+  timeline_posts.each do |post|
+    json.set! post.id do
+      json.extract! post, :id, :content
+      json.time_ago "#{time_ago_in_words(post.created_at)} ago"
+
+      json.author do
+        json.full_name "#{post.author.first_name} #{post.author.last_name}"
+        json.id post.author.id
       end
+
+      json.user do
+        json.full_name "#{post.user.first_name} #{post.user.last_name}"
+        json.id post.user.id
+      end
+
+      json.comment({})
+      json.comments do
+        post.comments.each do |comment|
+          json.set! comment.id do
+            json.extract! comment, :content, :id
+            json.time_ago "#{time_ago_in_words(comment.created_at)} ago"
+            json.author do
+              json.full_name "#{comment.author.first_name} #{comment.author.last_name}"
+              json.id comment.author.id
+            end
+          end
+        end
+      end
+
+      json.likes({})
+      json.likes do
+        post.likes.each do |like|
+          json.set! like.id do
+            json.id like.id
+            json.likeable do
+              json.id like.likeable_id
+              json.type like.likeable_type
+            end
+            json.liker do
+              json.id like.liker.id
+              json.full_name "#{like.liker.first_name} #{like.liker.last_name}"
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
+json.receivedRequests({})
+json.receivedRequests do
+  user.friend_requests.each do |request|
+    next if request.approved
+    json.set! request.id do
+      json.id request.id
+
+      json.requester do
+        json.full_name "#{request.user.first_name} #{request.user.last_name}"
+        json.id request.user.id
+      end
+
       json.requested do
-        json.full_name "#{friend_request.friend.first_name} #{friend_request.friend.last_name}"
-        json.id friend_request.friend.id
+        json.full_name "#{request.friend.first_name} #{request.friend.last_name}"
+        json.id request.friend.id
+      end
+    end
+  end
+end
+
+json.sentRequests({})
+json.sentRequests do
+  user.requested_friends.each do |request|
+    json.set! request.id do
+      json.id request.id
+
+      json.requester do
+        json.full_name "#{request.user.first_name} #{request.user.last_name}"
+        json.id request.user.id
+      end
+
+      json.requested do
+        json.full_name "#{request.friend.first_name} #{request.friend.last_name}"
+        json.id request.friend.id
+      end
+    end
+  end
+end
+
+json.newsfeedPosts({})
+json.newsfeedPosts do
+  newsfeed_posts.each do |post|
+    json.set! post.id do
+      json.extract! post, :id, :content
+      json.time_ago "#{time_ago_in_words(post.created_at)} ago"
+
+      json.author do
+        json.full_name "#{post.author.first_name} #{post.author.last_name}"
+        json.id post.author.id
+      end
+
+      json.user do
+        json.full_name "#{post.user.first_name} #{post.user.last_name}"
+        json.id post.user.id
+      end
+
+      json.comment({})
+      json.comments do
+        post.comments.each do |comment|
+          json.set! comment.id do
+            json.extract! comment, :content, :id
+            json.time_ago "#{time_ago_in_words(comment.created_at)} ago"
+            json.author do
+              json.full_name "#{comment.author.first_name} #{comment.author.last_name}"
+              json.id comment.author.id
+            end
+          end
+        end
+      end
+
+      json.likes({})
+      json.likes do
+        post.likes.each do |like|
+          json.set! like.id do
+            json.id like.id
+            json.likeable do
+              json.id like.likeable_id
+              json.type like.likeable_type
+            end
+            json.liker do
+              json.id like.liker.id
+              json.full_name "#{like.liker.first_name} #{like.liker.last_name}"
+            end
+          end
+        end
       end
     end
   end

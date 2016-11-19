@@ -29,7 +29,7 @@ class User extends React.Component {
 		if (user.id !== id) {
 			if (currentUser.id === id) {
 				this.props.receiveUser(currentUser);
-				this.props.receiveCurrentSection(0);
+				// this.props.receiveCurrentSection(0);
 			} else {
 				this.props.getUser(id);
 			}
