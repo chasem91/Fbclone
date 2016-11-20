@@ -4,6 +4,10 @@
   position: fixed;
   bottom: 0;
   height: 0;
-  width: calc(100% - 208px);
+  right: 214px;
   z-index: 1;
+}
+
+.shifted-chat-boxes {
+  right: 302px;
 }

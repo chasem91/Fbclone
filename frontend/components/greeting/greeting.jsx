@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import SearchBarContainer from './search_bar/search_bar_container';
 import NotificationsContainer from './notifications/notifications_container';
 import FriendRequestsContainer from './friend_requests/friend_requests_container';
+import MessagesContainer from './messages/messages_container';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -31,6 +32,17 @@ export default class Greeting extends React.Component {
     child.className = child.className === hidden ? shown : hidden;
   }
 
+  toggleMessages (e) {
+    const target = e.currentTarget;
+    const child = e.currentTarget.children[0];
+    const clicked = "messages-icon-clicked";
+    const unclicked = "messages-icon";
+    const hidden = "hidden";
+    const shown = "messages-container";
+    target.className = target.className === clicked ? unclicked : clicked;
+    child.className = child.className === hidden ? shown : hidden;
+  }
+
   personalGreeting () {
     return (
       <div>
@@ -55,6 +67,13 @@ export default class Greeting extends React.Component {
                 <div className="friend-requests-icon" onClick={this.toggleFriendRequests}>
                   <div className="hidden">
                     <FriendRequestsContainer />
+                  </div>
+                </div>
+              </div>
+              <div className="messages-icon-and-container">
+                <div className="messages-icon" onClick={this.toggleMessages}>
+                  <div className="hidden">
+                    <MessagesContainer />
                   </div>
                 </div>
               </div>

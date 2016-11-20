@@ -1,4 +1,4 @@
-.notifications {
+.messages {
   width: 430px;
   background: #fff;
   border: 1px solid rgba(100, 100, 100, .4);
@@ -10,12 +10,12 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
 
-.notification-thumb {
+.messages-thumb {
   height: 50px;
   width: 50px;
 }
 
-.notification {
+.message {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,26 +23,26 @@
   border-top: 1px solid rgb(233, 235, 238);
 }
 
-.no-notifications {
+.no-messages {
   display: flex;
   align-items: center;
   color: black;
   border-top: 1px solid rgb(233, 235, 238);
 }
 
-.notification-details {
+.messages-details {
   display: flex;
   align-items: center;
 }
 
-.notification-link {
+.messages-link {
   margin-left: 10px;
   font-size: 12px;
   font-weight: bold;
   color: rgb(66, 103, 178);
 }
 
-.notification-approve {
+.messages-approve {
   height: 24px;
   width: 60px;
   background: rgb(66, 103, 178);
@@ -52,14 +52,14 @@
   margin: 0 8px;
 }
 
-.notifications-header {
+.messages-header {
   padding: 6px 12px;
   font-size: 12px;
   font-weight: bold;
   color: black;
 }
 
-.notifications-pointer {
+.messages-pointer {
   background: #fff;
   position: absolute;
   top: -6px;

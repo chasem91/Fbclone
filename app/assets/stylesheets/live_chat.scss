@@ -1,6 +1,7 @@
 .live-chat-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: column;
   position: fixed;
   background-color: rgb(233, 235, 238);
@@ -10,4 +11,48 @@
   width: 205px;
   border-left: 1px solid rgb(204, 204, 204);
   z-index: 1;
+}
+
+.compact-chat {
+  right: 14px;
+  height: 345px;
+  width: 275px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+
+.live-chat-compact-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: calc(100% + 2px);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: rgb(64, 128, 255);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .compact-chat-header-text {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+}
+
+.hidden-chat-header {
+  display: none;
+}
+
+.live-chat-active-users-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
 }

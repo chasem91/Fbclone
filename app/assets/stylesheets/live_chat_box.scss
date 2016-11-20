@@ -1,3 +1,10 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
 .live-chat-box-container-closed {
   position: relative;
   bottom: 28px;
@@ -32,7 +39,7 @@
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     height: 26px;
     background-color: rgb(64, 128, 255);
     border-left: 1px solid rgb(64, 128, 255);
@@ -121,6 +128,11 @@
   .chat-box-message-input {
     border-top: 1px solid rgb(230, 230, 230);
     height: 34px;
+    font-size: 12px;
+
+    @include placeholder {
+      color: rgb(223, 224, 227);
+    }
   }
 }
 

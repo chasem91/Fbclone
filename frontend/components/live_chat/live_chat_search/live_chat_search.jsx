@@ -8,7 +8,8 @@ export default class LiveChatSearch extends React.Component {
   render() {
     return (
       <div className="live-chat-search-container">
-        <input placeholder="search" ></input>
+        <div className="chat-search-icon" />
+        <input placeholder="Search" ></input>
       </div>
     );
   }

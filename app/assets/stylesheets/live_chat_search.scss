@@ -1,6 +1,23 @@
 .live-chat-search-container {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   color: gray;
   height: 30px;
+  width: 100%;
   background-color: white;
+}
+
+.chat-search-border {
+  border-top: 1px solid rgb(218, 223, 234);
+}
+
+.chat-search-icon {
+  background-image: image-url('icons7.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 16px;
+  width: 16px;
+  margin: 0 4px;
+  background-position: -19px -153px;
 }
