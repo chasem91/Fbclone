@@ -58,7 +58,14 @@
 .friend-requests-container {
   display: flex;
   position: relative;
-  top: 68px;
+  top: 69px;
+  left: 373px;
+}
+
+.notifications-container {
+  display: flex;
+  position: relative;
+  top: 69px;
   left: 373px;
 }
 
@@ -92,6 +99,15 @@
   background-position: 0px 534px, center;
 }
 
+.notifications-icon-clicked {
+  width: 25px;
+  height: 26px;
+  color: #fff;
+  background-image: image-url('header_icons.png');
+  background-position: 0px -239px, center;
+  cursor: pointer;
+}
+
 .newsfeed-link {
   padding: 5px 10px;
   color: white;
@@ -114,7 +130,7 @@
   font-size: 12px;
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 2px;
-  
+
   &:hover {
     background-color: rgb(53, 80, 137);
     border: 2px solid rgb(53, 80, 137);

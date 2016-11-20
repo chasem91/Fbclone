@@ -6,10 +6,21 @@ export default class Notifications extends React.Component {
     super(props);
   }
 
+  notifications() {
+    return null;
+  }
+
   render() {
     return (
       <div className="notifications">
-        notifications
+        <div className="notifications-header">
+          Notifications
+        </div>
+        <div className="notifications-pointer">
+        </div>
+        <ul className="notifications-list">
+          {this.notifications()}
+        </ul>
       </div>
     );
   }

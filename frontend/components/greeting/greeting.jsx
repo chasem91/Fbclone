@@ -20,6 +20,17 @@ export default class Greeting extends React.Component {
     child.className = child.className === hidden ? shown : hidden;
   }
 
+  toggleNotifications (e) {
+    const target = e.currentTarget;
+    const child = e.currentTarget.children[0];
+    const clicked = "notifications-icon-clicked";
+    const unclicked = "notifications-icon";
+    const hidden = "hidden";
+    const shown = "notifications-container";
+    target.className = target.className === clicked ? unclicked : clicked;
+    child.className = child.className === hidden ? shown : hidden;
+  }
+
   personalGreeting () {
     return (
       <div>
@@ -48,8 +59,10 @@ export default class Greeting extends React.Component {
                 </div>
               </div>
               <div className="notifications-icon-and-container">
-                <div className="notifications-icon" />
-                <div className="notifications-container">
+                <div className="notifications-icon" onClick={this.toggleNotifications}>
+                  <div className="hidden">
+                    <NotificationsContainer />
+                  </div>
                 </div>
               </div>
               <div onClick={this.props.logout} className="logout-button">Log Out</div>

@@ -59,7 +59,6 @@ const SessionReducer = (state = _nullUser, action) => {
       return newState;
 
     case RECEIVE_CONVERSATION:
-      debugger
       const convoIndex = Object.keys(action.conversation)[0];
       newState.currentUser.conversations[convoIndex] = action.conversation[convoIndex];
       return newState;
