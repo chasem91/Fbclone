@@ -3,9 +3,20 @@ export const RECEIVE_USER = "RECEIVE_USER";
 export const ACCEPT_REQUEST = "ACCEPT_REQUEST";
 export const REQUEST_FRIEND = "REQUEST_FRIEND";
 export const CREATE_LIKE = "CREATE_LIKE";
-export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const SEND_MESSAGE = "SEND_MESSAGE";
 export const GET_CONVERSATION = "GET_CONVERSATION";
+export const CREATE_COMMENT = "CREATE_COMMENT";
+export const CREATE_POST = "CREATE_POST";
+
+export const createPost = post => ({
+  type: CREATE_POST,
+  post
+})
+
+export const createComment = comment => ({
+  type: CREATE_COMMENT,
+  comment
+})
 
 export const getConversation = (user_id, participant_id) => ({
   type: GET_CONVERSATION,
@@ -40,11 +51,6 @@ export const createLike = (liker_id, likeable_id, likeable_type) => ({
   liker_id,
   likeable_id,
   likeable_type
-});
-
-export const receiveLike = like => ({
-  type: RECEIVE_LIKE,
-  like
 });
 
 export const sendMessage = message => ({

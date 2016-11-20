@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::CommentsController < ApplicationController
 
   def index

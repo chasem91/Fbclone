@@ -13,7 +13,7 @@ json.user do
   json.id post.user.id
 end
 
-json.comment({})
+json.comments({})
 json.comments do
   post.comments.each do |comment|
     json.set! comment.id do

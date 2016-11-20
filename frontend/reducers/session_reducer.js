@@ -9,7 +9,10 @@ import {
   RECEIVE_MESSAGE,
   REMOVE_CHAT_BOX,
   RECEIVE_CONVERSATION,
-  RECEIVE_CURRENT_SECTION
+  RECEIVE_CURRENT_SECTION,
+  RECEIVE_LIKE,
+  RECEIVE_COMMENT,
+  RECEIVE_POST
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -24,11 +27,39 @@ const SessionReducer = (state = _nullUser, action) => {
 
   switch(action.type) {
 
+    case RECEIVE_POST:
+      const newPost = action.post[ Object.keys(action.post)[0] ];
+      newState.currentUser.newsfeedPosts[ newPost.id ] = newPost;
+      return newState;
+
+    case RECEIVE_COMMENT:
+      const comment = action.comment[ Object.keys(action.comment)[0] ];
+      const post = newState.currentUser.newsfeedPosts[ comment.post_id ];
+      if (post) {
+        newState.currentUser.newsfeedPosts[ comment.post_id ].comments[comment.id] = comment;
+        return newState;
+      } else {
+        return state;
+      }
+
+    case RECEIVE_LIKE:
+      const like = action.like[ Object.keys(action.like)[0] ];
+      if (like.likeable.type === "Post") {
+        const post = newState.currentUser.newsfeedPosts[ like.likeable.id ];
+        if (post) {
+          newState.currentUser.newsfeedPosts[ like.likeable.id ].likes[like.id] = like;
+        }
+        return newState;
+      } else {
+        return state;
+      }
+
     case RECEIVE_CURRENT_SECTION:
       newState.currentUser.currentSection = action.section;
       return newState;
 
     case RECEIVE_CONVERSATION:
+      debugger
       const convoIndex = Object.keys(action.conversation)[0];
       newState.currentUser.conversations[convoIndex] = action.conversation[convoIndex];
       return newState;

@@ -11,6 +11,24 @@ export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const REMOVE_CHAT_BOX = "REMOVE_CHAT_BOX";
 export const RECEIVE_CURRENT_SECTION = "RECEIVE_CURRENT_SECTION";
+export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
+export const RECEIVE_LIKE = "RECEIVE_LIKE";
+export const RECEIVE_POST = "RECEIVE_POST";
+
+export const receivePost = post => ({
+  type: RECEIVE_POST,
+  post
+})
+
+export const receiveLike = like => ({
+  type: RECEIVE_LIKE,
+  like
+});
+
+export const receiveComment = comment => ({
+  type: RECEIVE_COMMENT,
+  comment
+});
 
 export const receiveCurrentSection = section => ({
   type: RECEIVE_CURRENT_SECTION,

@@ -12,9 +12,15 @@ export default class NewPostForm extends React.Component {
 
   handlePostSubmit (e) {
     e.preventDefault();
+    let user_id
+    if (this.props.path === "/") {
+      user_id = this.props.currentUser.id;
+    } else {
+      user_id = this.props.user.id;
+    }
     const post = {
       content: this.currentPostText,
-      user_id: this.props.user.id,
+      user_id,
       author_id: this.props.currentUser.id
     };
     this.props.createPost(post);

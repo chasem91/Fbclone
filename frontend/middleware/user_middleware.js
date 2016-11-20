@@ -5,9 +5,10 @@ import {
   acceptRequest,
   REQUEST_FRIEND,
   CREATE_LIKE,
-  receiveLike,
   SEND_MESSAGE,
-  GET_CONVERSATION
+  GET_CONVERSATION,
+  CREATE_COMMENT,
+  CREATE_POST
 } from '../actions/user_actions';
 
 import {
@@ -16,7 +17,10 @@ import {
   receiveMadeRequest,
   receiveMessage,
   receiveConversation,
-  receiveCurrentSection
+  receiveLike,
+  receiveCurrentSection,
+  receiveComment,
+  receivePost
 } from '../actions/session_actions';
 
 import {
@@ -26,10 +30,26 @@ import {
   postLike,
   postMessage,
   fetchConversation,
+  postComment,
+  postPost
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
   switch(action.type){
+
+    case CREATE_POST:
+      const postPostSuccess = post => {
+        dispatch(receivePost(post));
+      }
+      postPost(action.post, postPostSuccess);
+      return next(action);
+
+    case CREATE_COMMENT:
+      const postCommentSuccess = comment => {
+        dispatch(receiveComment(comment));
+      }
+      postComment(action.comment, postCommentSuccess);
+      return next(action);
 
     case GET_CONVERSATION:
       const fetchConversationSuccess = conversation => {

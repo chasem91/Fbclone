@@ -1,7 +1,29 @@
 import {
   receiveUser,
-  receiveMadeRequest
+  receiveMadeRequest,
+  receiveLike,
+  receivePost
 } from '../actions/user_actions';
+
+export const postPost = (post, success) => {
+  $.ajax({
+    method: 'POST',
+    url: '/api/posts',
+    data: { post },
+    success,
+    error: () => console.log('error posting post')
+  });
+};
+
+export const postComment = (comment, success) => {
+  $.ajax({
+    method: 'POST',
+    url: '/api/comments',
+    data: { comment },
+    success,
+    error: () => console.log('error posting comment')
+  });
+};
 
 export const fetchConversation = (user_id, participant_id, success) => {
   $.ajax({
@@ -56,7 +78,6 @@ export const postFriendRequest = (user_id, friend_id, success) => {
 };
 
 export const postLike = (liker_id, likeable_id, likeable_type, success) => {
-	debugger
   $.ajax({
     method: 'POST',
     url: `/api/likes`,

@@ -26,7 +26,7 @@ export default class Newsfeed extends React.Component {
     return (
       <div className="newsfeed-container">
         <div className="newsfeed group">
-          <NewPostFormContainer />
+          <NewPostFormContainer path="/" />
           { this.newsfeedPosts() }
         </div>
       </div>

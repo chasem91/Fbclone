@@ -11,7 +11,12 @@ export default class Post extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !!nextProps.currentUser && !!nextProps.user.timelinePosts[this.props.postId];
+    this.post = null;
+    return !!nextProps.currentUser &&
+      (
+        !!nextProps.user.timelinePosts[this.props.postId] ||
+        !!nextProps.currentUser.newsfeedPosts[this.props.postId]
+      );
   }
 
   handleCreateComment(e) {
@@ -23,7 +28,7 @@ export default class Post extends React.Component {
         post_id: e.currentTarget.id,
         content
       };
-      this.props.createComment({ comment }, comment.post_id);
+      this.props.createComment(comment, comment.post_id);
       e.currentTarget.value = "";
     }
   }
@@ -36,46 +41,49 @@ export default class Post extends React.Component {
   }
 
   render() {
-    let post;
-
     if (this.props.path === "/") {
-      this.post = this.post || this.props.currentUser.newsfeedPosts[this.props.postId];
+      this.post = this.props.currentUser.newsfeedPosts[this.props.postId];
     } else {
-      this.post = this.post || this.props.user.timelinePosts[this.props.postId];
+      this.post = this.props.user.timelinePosts[this.props.postId];
     }
-
-    return (
-      <div className="post group">
-        <ul className="post-details group">
-          <ul className="post-header">
-            <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
-            <ul>
-              {this.authorDisplay()}
-              <li className="post-date">{this.post.time_ago}</li>
+    if (this.post) {
+      return (
+        <div className="post group">
+          <ul className="post-details group">
+            <ul className="post-header">
+              <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
+              <ul>
+                {this.authorDisplay()}
+                <li className="post-date">{this.post.time_ago}</li>
+              </ul>
+            </ul>
+            <li className="post-content">{this.post.content}</li>
+            <ul className="post-actions">
+              <div className="post-action-buttons">
+                <div className="post-like-container">
+                  {this.renderLike()}
+                </div>
+              </div>
+            </ul>
+            {this.likers()}
+            <li className="post-comments">
+              {this.renderComments()}
+            </li>
+            <ul className="comment-compose">
+              <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
+              <textarea className="comment-input" id={this.post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
             </ul>
           </ul>
-          <li className="post-content">{this.post.content}</li>
-          <ul className="post-actions">
-            <div className="post-action-buttons">
-              <div className="post-like-container">
-                {this.renderLike()}
-              </div>
-            </div>
-          </ul>
-          {this.likers()}
-          <li className="post-comments">
-            {this.renderComments()}
-          </li>
-          <ul className="comment-compose">
-            <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
-            <textarea className="comment-input" id={this.post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
-          </ul>
-        </ul>
-      </div>
-    );
+        </div>
+      );
+    } else {
+      return null;
+    }
+
   }
 
   authorDisplay() {
+    console.log(this.post);
     if (this.post.author.id === this.post.user.id) {
       return (
         <li className="post-author">
