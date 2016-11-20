@@ -8,6 +8,44 @@ import MessagesContainer from './messages/messages_container';
 export default class Greeting extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleMessages = this.toggleMessages.bind(this);
+    this.toggleFriendRequests = this.toggleFriendRequests.bind(this);
+    this.toggleNotifications = this.toggleNotifications.bind(this);
+  }
+
+  toggleAll() {
+    const $friendRequests = $('.friend-requests-container');
+    if ($friendRequests.length) {
+      $friendRequests.removeClass('friend-requests-container');
+      $friendRequests.addClass('hidden');
+    }
+    const $friendRequestsIcon = $('.friend-requests-icon-clicked');
+    if ($friendRequestsIcon.length) {
+      $friendRequestsIcon.removeClass('friend-requests-icon-clicked');
+      $friendRequestsIcon.addClass('friend-requests-icon');
+    }
+
+    const $messages = $('.messages-container');
+    if ($messages.length) {
+      $messages.removeClass('messages-container');
+      $messages.addClass('hidden');
+    }
+    const $messagesIcon = $('.messages-icon-clicked');
+    if ($messagesIcon.length) {
+      $messagesIcon.removeClass('messages-icon-clicked');
+      $messagesIcon.addClass('messages-icon');
+    }
+
+    const $notifications = $('.notifications-container');
+    if ($notifications.length) {
+      $notifications.removeClass('notifications-container');
+      $notifications.addClass('hidden');
+    }
+    const $notificationsIcon = $('.notifications-icon-clicked');
+    if ($notificationsIcon.length) {
+      $notificationsIcon.removeClass('notifications-icon-clicked');
+      $notificationsIcon.addClass('notifications-icon');
+    }
   }
 
   toggleFriendRequests (e) {
@@ -17,8 +55,11 @@ export default class Greeting extends React.Component {
     const unclicked = "friend-requests-icon";
     const hidden = "hidden";
     const shown = "friend-requests-container";
-    target.className = target.className === clicked ? unclicked : clicked;
-    child.className = child.className === hidden ? shown : hidden;
+    const newTargetClassName = target.className === clicked ? unclicked : clicked;
+    const newChildClassName = child.className === hidden ? shown : hidden;
+    this.toggleAll();
+    target.className = newTargetClassName;
+    child.className = newChildClassName;
   }
 
   toggleNotifications (e) {
@@ -28,8 +69,11 @@ export default class Greeting extends React.Component {
     const unclicked = "notifications-icon";
     const hidden = "hidden";
     const shown = "notifications-container";
-    target.className = target.className === clicked ? unclicked : clicked;
-    child.className = child.className === hidden ? shown : hidden;
+    const newTargetClassName = target.className === clicked ? unclicked : clicked;
+    const newChildClassName = child.className === hidden ? shown : hidden;
+    this.toggleAll();
+    target.className = newTargetClassName;
+    child.className = newChildClassName;
   }
 
   toggleMessages (e) {
@@ -39,8 +83,11 @@ export default class Greeting extends React.Component {
     const unclicked = "messages-icon";
     const hidden = "hidden";
     const shown = "messages-container";
-    target.className = target.className === clicked ? unclicked : clicked;
-    child.className = child.className === hidden ? shown : hidden;
+    const newTargetClassName = target.className === clicked ? unclicked : clicked;
+    const newChildClassName = child.className === hidden ? shown : hidden;
+    this.toggleAll();
+    target.className = newTargetClassName;
+    child.className = newChildClassName;
   }
 
   personalGreeting () {

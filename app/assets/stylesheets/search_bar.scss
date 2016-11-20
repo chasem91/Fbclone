@@ -7,13 +7,14 @@
   display: inline-block;
   font-family: helvetica, arial, sans-serif;
   color: black;
-  font-size: 16px;
+  font-size: 14px;
   -webkit-appearance: none;
   border: none;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   height: 24px;
   width: 400px;
+  padding-left: 8px;
 }
 
 .search-bar-submit {
