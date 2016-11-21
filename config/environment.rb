@@ -1,4 +1,4 @@
-require 'faster_require'
+# require 'faster_require'
 
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
