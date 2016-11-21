@@ -83,7 +83,6 @@ export default class Post extends React.Component {
   }
 
   authorDisplay() {
-    console.log(this.post);
     if (this.post.author.id === this.post.user.id) {
       return (
         <li className="post-author">

@@ -13,7 +13,7 @@ export default class ActiveUserDetail extends React.Component {
 
   componentWillMount() {
     // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+    // Pusher.logToConsole = true;
 
     const pusher = new Pusher('923b60e10128cda9e9ef', {
       encrypted: true
@@ -22,12 +22,6 @@ export default class ActiveUserDetail extends React.Component {
     const channel = pusher.subscribe(`${this.convo.id}`);
     channel.bind('my_event', data => {
       const message = data.message;
-      // {
-      //   id: data.message.id,
-      //   user: data.message.user,
-      //   conversation_id: data.message.conversation_id,
-      //   content: data.message.content
-      // };
       this.props.receiveMessage(message);
     });
   }
