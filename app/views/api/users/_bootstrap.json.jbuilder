@@ -7,6 +7,8 @@ newsfeed_posts = locals[:newsfeed_posts]
 json.extract! user, :id, :first_name, :last_name, :gender
 json.birthday user.birthday.strftime('%b %d, %Y')
 
+json.users([])
+
 json.currentSection(0)
 
 json.chatBoxes({})
@@ -45,8 +47,8 @@ json.conversations do
 
             json.user({})
             json.user do
-              json.extract! user, :id, :first_name, :last_name, :gender
-              json.birthday user.birthday.strftime('%b %d, %Y')
+              json.extract! message.user, :id, :first_name, :last_name, :gender
+              json.birthday message.user.birthday.strftime('%b %d, %Y')
             end
           end
         end

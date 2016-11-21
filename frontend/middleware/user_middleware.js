@@ -8,7 +8,8 @@ import {
   SEND_MESSAGE,
   GET_CONVERSATION,
   CREATE_COMMENT,
-  CREATE_POST
+  CREATE_POST,
+  GET_USERS
 } from '../actions/user_actions';
 
 import {
@@ -20,7 +21,8 @@ import {
   receiveLike,
   receiveCurrentSection,
   receiveComment,
-  receivePost
+  receivePost,
+  receiveUsers
 } from '../actions/session_actions';
 
 import {
@@ -31,11 +33,19 @@ import {
   postMessage,
   fetchConversation,
   postComment,
-  postPost
+  postPost,
+  fetchUsers
 } from '../util/user_api_util';
 
 export default ({getState, dispatch}) => next => action => {
   switch(action.type){
+
+    case GET_USERS:
+      const fetchUsersSuccess = users => {
+        dispatch(receiveUsers(users));
+      }
+      fetchUsers(action.string, fetchUsersSuccess);
+      return next(action);
 
     case CREATE_POST:
       const postPostSuccess = post => {

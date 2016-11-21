@@ -7,6 +7,12 @@ export const SEND_MESSAGE = "SEND_MESSAGE";
 export const GET_CONVERSATION = "GET_CONVERSATION";
 export const CREATE_COMMENT = "CREATE_COMMENT";
 export const CREATE_POST = "CREATE_POST";
+export const GET_USERS = "GET_USERS";
+
+export const getUsers = string => ({
+  type: GET_USERS,
+  string
+});
 
 export const createPost = post => ({
   type: CREATE_POST,

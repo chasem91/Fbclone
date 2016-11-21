@@ -5,6 +5,20 @@ import {
   receivePost
 } from '../actions/user_actions';
 
+import {
+  receiveUsers
+} from '../actions/session_actions';
+
+export const fetchUsers = (search, success) => {
+	$.ajax({
+		method: 'GET',
+		url: `/api/users`,
+    data: { search },
+		success,
+    error: () => console.log('error fetching users')
+	});
+};
+
 export const postPost = (post, success) => {
   $.ajax({
     method: 'POST',

@@ -12,7 +12,8 @@ import {
   RECEIVE_CURRENT_SECTION,
   RECEIVE_LIKE,
   RECEIVE_COMMENT,
-  RECEIVE_POST
+  RECEIVE_POST,
+  RECEIVE_USERS
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -26,6 +27,10 @@ const SessionReducer = (state = _nullUser, action) => {
   let newState = merge({}, state);
 
   switch(action.type) {
+
+    case RECEIVE_USERS:
+      newState.currentUser.users = action.users
+      return newState;
 
     case RECEIVE_POST:
       const newPost = action.post[ Object.keys(action.post)[0] ];

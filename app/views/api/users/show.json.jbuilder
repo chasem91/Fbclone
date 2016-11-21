@@ -2,6 +2,8 @@ require 'byebug'
 
 json.partial! 'api/users/user', user: @user
 
+json.users([])
+
 json.currentSection(0)
 
 json.chatBoxes({})

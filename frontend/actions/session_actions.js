@@ -14,11 +14,17 @@ export const RECEIVE_CURRENT_SECTION = "RECEIVE_CURRENT_SECTION";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const RECEIVE_POST = "RECEIVE_POST";
+export const RECEIVE_USERS = "RECEIVE_USERS";
+
+export const receiveUsers = users => ({
+  type: RECEIVE_USERS,
+  users
+});
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
   post
-})
+});
 
 export const receiveLike = like => ({
   type: RECEIVE_LIKE,

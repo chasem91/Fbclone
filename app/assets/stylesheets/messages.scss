@@ -10,17 +10,39 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
 
-.messages-thumb {
+.message-detail-name-and-content {
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message-thumb {
   height: 50px;
   width: 50px;
 }
 
+.message-content {
+  color: rgb(140, 141, 141);
+}
+
+.message-created-at {
+  color: rgb(140, 141, 141);
+  font-size: 10px;
+}
+
 .message {
   display: flex;
+  height: 50px;
   align-items: center;
   justify-content: space-between;
   padding: 6px 12px;
   border-top: 1px solid rgb(233, 235, 238);
+
+  &:hover {
+    background-color: rgb(246, 247, 249);
+  }
 }
 
 .no-messages {
@@ -30,26 +52,16 @@
   border-top: 1px solid rgb(233, 235, 238);
 }
 
-.messages-details {
+.message-details {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
-.messages-link {
-  margin-left: 10px;
+.message-link {
   font-size: 12px;
   font-weight: bold;
-  color: rgb(66, 103, 178);
-}
-
-.messages-approve {
-  height: 24px;
-  width: 60px;
-  background: rgb(66, 103, 178);
-  border: none;
-  border-radius: 3px;
-  color: #fff;
-  margin: 0 8px;
+  color: rgb(77, 80, 87);
 }
 
 .messages-header {
