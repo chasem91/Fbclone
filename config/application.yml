@@ -1,0 +1,9 @@
+development:
+  s3_bucket: "fbclone-dev"
+
+production:
+  s3_bucket: "fbclone-pro"
+
+s3_region: "us-east-1"
+s3_access_key_id: "AKIAICNJMCEESWROAEBQ"
+s3_secret_access_key: "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"
