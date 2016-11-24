@@ -7,6 +7,7 @@ class User extends React.Component {
 	constructor(props) {
 		super(props);
 		this.id = parseInt(this.props.params.userId);
+		this.updateProfilePic = this.updateProfilePic.bind(this);
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -29,12 +30,43 @@ class User extends React.Component {
 		if (user.id !== id) {
 			if (currentUser.id === id) {
 				this.props.receiveUser(currentUser);
-				// this.props.receiveCurrentSection(0);
 			} else {
 				this.props.getUser(id);
 			}
+		} else if (newProps.currentUser && currentUser.id === id) {
+			if (currentUser.profilePicture !== newProps.currentUser.profilePicture) {
+				this.props.receiveUser(newProps.currentUser);
+			}
 		}
   }
+
+	updateProfilePic(e) {
+		const file = e.currentTarget.files[0];
+		const reader = new FileReader();
+
+		if (file) {
+			reader.readAsDataURL(file);
+		}
+
+		const formData = new FormData();
+		formData.append("photo[image]", file);
+		formData.append("photo[user_id]", this.props.currentUser.id);
+		this.props.setProfilePicture(formData);
+	}
+
+	renderProfilePictureUpload() {
+		if (this.props.user.id === this.props.currentUser.id) {
+			return (
+				<div>
+					<label className="profile-image-drop">
+						<input type="file" className="profile-pic-input" onChange={this.updateProfilePic} />
+					</label>
+				</div>
+			);
+		} else {
+			return null;
+		}
+	}
 
 	render() {
 		const user = this.props.user;
@@ -42,7 +74,8 @@ class User extends React.Component {
 			<div className="home-user group">
         <div className="home-user-main">
           <img src={window.homeUserImages.profileBanner} className="profile-header-image"></img>
-          <img src={window.homeUserImages.profilePicture} className="profile-picture"></img>
+					<img src={this.props.user.profilePicture} className="profile-picture" />
+					{this.renderProfilePictureUpload()}
           <h3 className="user-name">{user.first_name} {user.last_name}</h3>
 					<UserActionBar />
 					<UserHeaderNavContainer />

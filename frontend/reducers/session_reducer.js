@@ -1,5 +1,6 @@
 import {
   RECEIVE_CURRENT_USER,
+  RECEIVE_UPDATED_CURRENT_USER,
   LOGOUT,
   RECEIVE_ERRORS,
   RECEIVE_FRIEND,
@@ -13,7 +14,8 @@ import {
   RECEIVE_LIKE,
   RECEIVE_COMMENT,
   RECEIVE_POST,
-  RECEIVE_USERS
+  RECEIVE_USERS,
+  RECEIVE_PROFILE_PICTURE
 } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -89,6 +91,10 @@ const SessionReducer = (state = _nullUser, action) => {
       return merge({}, _nullUser, {
         currentUser
       });
+
+    case RECEIVE_UPDATED_CURRENT_USER:
+      newState.currentUser.profilePicture = action.currentUser.profilePicture;
+      return newState;
 
     case RECEIVE_FRIEND:
       const newFriend = {}

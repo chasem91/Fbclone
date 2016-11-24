@@ -2,6 +2,7 @@ export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+export const RECEIVE_UPDATED_CURRENT_USER = "RECEIVE_UPDATED_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RECEIVE_FRIEND = "RECEIVE_FRIEND";
 export const RECEIVE_SENT_REQUEST = "RECEIVE_SENT_REQUEST";
@@ -15,6 +16,31 @@ export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_USERS = "RECEIVE_USERS";
+export const SET_PROFILE_PICTURE = "SET_PROFILE_PICTURE";
+export const RECEIVE_PROFILE_PICTURE = "RECEIVE_PROFILE_PICTURE";
+export const CREATE_PHOTO = "CREATE_PHOTO";
+export const SET_PROFILE_PICTURE_ID = "SET_PROFILE_PICTURE_ID";
+
+export const setProfilePictureID = (id, userId) => ({
+  type: SET_PROFILE_PICTURE_ID,
+  id,
+  userId
+});
+
+export const createPhoto = photo => ({
+  type: CREATE_PHOTO,
+  photo
+});
+
+export const receiveProfilePicture = url => ({
+  type: RECEIVE_PROFILE_PICTURE,
+  url
+});
+
+export const setProfilePicture = photo => ({
+  type: SET_PROFILE_PICTURE,
+  photo
+});
 
 export const receiveUsers = users => ({
   type: RECEIVE_USERS,
@@ -87,6 +113,11 @@ export const logout = () => ({
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
+  currentUser
+});
+
+export const receiveUpdatedCurrentUser = currentUser => ({
+  type: RECEIVE_UPDATED_CURRENT_USER,
   currentUser
 });
 

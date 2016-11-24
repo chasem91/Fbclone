@@ -9,6 +9,10 @@ export default class NewPostForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.currentPostText = "";
   }
+  
+  shouldComponentUpdate(nextProps, nextState) {
+    return !!nextProps.currentUser;
+  }
 
   handlePostSubmit (e) {
     e.preventDefault();
@@ -58,7 +62,7 @@ export default class NewPostForm extends React.Component {
           </div>
           <form onSubmit={this.handlePostSubmit}>
             <div className="new-post-form-input">
-              <img src={window.homeUserImages.profilePicture} className="poster-profile-thumb" />
+              <img src={this.props.currentUser.profilePicture} className="poster-profile-thumb" />
               <textarea
                 type="textarea"
                 value={this.props.postText}

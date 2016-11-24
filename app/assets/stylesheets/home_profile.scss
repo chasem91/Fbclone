@@ -36,3 +36,24 @@
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: #fff;
 }
+
+.profile-image-drop {
+  position: absolute;
+  margin: 5px;
+  top: 168px;
+  left: 18px;
+  height: 162px;
+  width: 162px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+.profile-pic-input {
+  opacity: 0;
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+}

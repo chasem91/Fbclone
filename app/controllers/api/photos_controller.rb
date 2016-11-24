@@ -22,10 +22,7 @@ class Api::PhotosController < ApplicationController
 	end
 
 	private
-
 	def photo_params
-		params.require(:photo).permit(
-      :url
-    )
+		params.require(:photo).permit(:image, :user_id)
 	end
 end

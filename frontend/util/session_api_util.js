@@ -1,5 +1,27 @@
-import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { receiveCurrentUser, receiveErrors, setProfilePictureID, receivePhotoURL } from '../actions/session_actions';
 import { hashHistory } from 'react-router';
+
+export const postPhoto = (photo, success) => {
+	$.ajax({
+		method: 'POST',
+		url: `/api/photos`,
+		data: photo,
+		contentType: false,
+		processData: false,
+		success,
+		error: xhr => console.log(xhr.responseJSON)
+	})
+}
+
+export const updateCurrentUser = (user, userId, success) => {
+	$.ajax({
+		method: 'PATCH',
+		url: `/api/users/${userId}`,
+		data: { user },
+		success,
+		error: xhr => console.log(xhr.responseJSON)
+	})
+}
 
 export const login = (user, success, error) => {
 	$.ajax({

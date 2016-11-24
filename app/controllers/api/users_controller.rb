@@ -50,6 +50,17 @@ class Api::UsersController < ApplicationController
 		end
 	end
 
+  def update
+    @user = User.find(params[:id])
+    session_token = @user.session_token;
+    if @user.update(user_params)
+      @user.update(session_token: session_token)
+      render "api/users/update"
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
+
 	private
 
 	def user_params
@@ -59,7 +70,8 @@ class Api::UsersController < ApplicationController
       :last_name,
       :birthday,
       :gender,
-      :email
+      :email,
+      :profile_picture_id
     )
 	end
 end

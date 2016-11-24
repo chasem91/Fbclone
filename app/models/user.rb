@@ -2,16 +2,17 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  first_name      :string           not null
-#  last_name       :string           not null
-#  birthday        :date
-#  gender          :string
+#  id                 :integer          not null, primary key
+#  email              :string           not null
+#  password_digest    :string           not null
+#  session_token      :string           not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  first_name         :string           not null
+#  last_name          :string           not null
+#  birthday           :date
+#  gender             :string
+#  profile_picture_id :integer
 #
 
 class User < ActiveRecord::Base
@@ -49,19 +50,17 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     class_name: :FriendRequest
 
-  # has_many :friend_request_details,
-  #   through: :friend_requests,
-  #   source: :user
-	#
-  # has_many :requested_friend_details,
-  #   through: :requested_friends,
-  #   source: :friend
-
   has_many :friendships
 
   has_many :friends,
     through: :friendships,
     source: :friend
+
+	has_many :photos
+
+	belongs_to :profile_picture,
+		foreign_key: :profile_picture_id,
+		class_name: :Photo
 
 	def name
 		"#{self.first_name} #{self.last_name}"

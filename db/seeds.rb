@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+photo = Photo.create()
+
 User.create(
   email: "guest@email.com",
   password_digest: BCrypt::Password.create("password"),
@@ -13,7 +15,8 @@ User.create(
   first_name: "Guest",
   last_name: "User",
   birthday: "01-01-1990",
-  gender: "male"
+  gender: "male",
+  profile_picture_id: photo.id
 )
 
 User.create(
@@ -23,7 +26,8 @@ User.create(
   first_name: "Chase",
   last_name: "Martin",
   birthday: "01-01-1991",
-  gender: "male"
+  gender: "male",
+  profile_picture_id: photo.id
 )
 
 9.times do
@@ -34,7 +38,8 @@ User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     birthday: Faker::Date.between(50.years.ago, Date.today),
-    gender: "female"
+    gender: "female",
+    profile_picture_id: photo.id
   )
 end
 

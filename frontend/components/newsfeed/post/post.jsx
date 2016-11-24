@@ -1,5 +1,5 @@
 import React from 'react';
-import Comment from './comment/comment';
+import CommentContainer from './comment/comment_container';
 import { Link } from 'react-router';
 
 export default class Post extends React.Component {
@@ -51,7 +51,7 @@ export default class Post extends React.Component {
         <div className="post group">
           <ul className="post-details group">
             <ul className="post-header">
-              <li><img className="post-author-picture" src={window.homeUserImages.profilePicture}></img></li>
+              {this.authorProfilePicDisplay()}
               <ul>
                 {this.authorDisplay()}
                 <li className="post-date">{this.post.time_ago}</li>
@@ -70,7 +70,7 @@ export default class Post extends React.Component {
               {this.renderComments()}
             </li>
             <ul className="comment-compose">
-              <li><img className="comment-compose-author-picture" src={window.homeUserImages.profilePicture}></img></li>
+              <li><img className="comment-compose-author-picture" src={this.props.currentUser.profilePicture}></img></li>
               <textarea className="comment-input" id={this.post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
             </ul>
           </ul>
@@ -80,6 +80,18 @@ export default class Post extends React.Component {
       return null;
     }
 
+  }
+
+  authorProfilePicDisplay() {
+    if (this.post.author.id === this.props.currentUser.id) {
+      return (
+        <li><img className="post-author-picture" src={this.props.currentUser.profilePicture}></img></li>
+      );
+    } else {
+      return (
+        <li><img className="post-author-picture" src={this.post.author.profilePicture}></img></li>
+      )
+    }
   }
 
   authorDisplay() {
@@ -204,7 +216,7 @@ export default class Post extends React.Component {
     const comments = [];
     for (const key in this.post.comments) {
       let comment = this.post.comments[key];
-      comments.push(<li key={comment.id}><Comment comment={comment} /></li>);
+      comments.push(<li key={comment.id}><CommentContainer comment={comment} /></li>);
     }
     if (comments.length === 0) {
       return (<div></div>);
