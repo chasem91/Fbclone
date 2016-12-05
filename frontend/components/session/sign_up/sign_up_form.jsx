@@ -15,6 +15,8 @@ class SignUp extends React.Component {
       birthYear: "",
       first_name: "",
       last_name: "",
+			profile_picture_id: 1,
+			banner_picture_id: 9
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}

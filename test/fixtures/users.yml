@@ -13,6 +13,7 @@
 #  birthday           :date
 #  gender             :string
 #  profile_picture_id :integer
+#  banner_picture_id  :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

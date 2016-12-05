@@ -13,6 +13,7 @@
 #  birthday           :date
 #  gender             :string
 #  profile_picture_id :integer
+#  banner_picture_id  :integer
 #
 
 class User < ActiveRecord::Base
