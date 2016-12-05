@@ -44,7 +44,7 @@ User.create(
     birthday: Faker::Date.between(50.years.ago, Date.today),
     gender: "female",
     profile_picture_id: i,
-    banner_picture_id: (26 % (i + 8))
+    banner_picture_id: ((i + 8) % 26) + 1)
   )
 end
 
