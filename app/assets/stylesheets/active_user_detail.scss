@@ -5,9 +5,13 @@
   height: 38px;
   width: 100%;
   padding: 4px 0;
+  cursor: pointer;
 
   &:hover {
     background-color: rgb(221, 223, 226);
+  }
+
+  & * {
     cursor: pointer;
   }
 }

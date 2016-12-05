@@ -1,5 +1,5 @@
-import { receiveCurrentUser, receiveErrors, setProfilePictureID, receivePhotoURL } from '../actions/session_actions';
-import { hashHistory } from 'react-router';
+import { receiveCurrentUser, receiveErrors, setProfilePictureID, receivePhotoURL } from '../actions/session_actions'
+import { hashHistory } from 'react-router'
 
 export const postPhoto = (photo, success) => {
 	$.ajax({
@@ -30,8 +30,8 @@ export const login = (user, success, error) => {
 		data: { user },
 		success,
 		error
-	});
-};
+	})
+}
 
 export const signup = (user, success, error) => {
 	$.ajax({
@@ -40,8 +40,8 @@ export const signup = (user, success, error) => {
 		data: user,
 		success,
 		error
-	});
-};
+	})
+}
 
 export const logout = success => {
 	$.ajax({
@@ -49,7 +49,7 @@ export const logout = success => {
 		url: '/api/session',
 		success,
 		error: () => {
-		  console.log("Logout error in SessionApiUtil#logout");
+		  console.log("Logout error in SessionApiUtil#logout")
 		}
-	});
-};
+	})
+}

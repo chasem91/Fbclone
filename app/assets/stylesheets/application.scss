@@ -59,6 +59,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-size: 100%;
 	font-family: inherit;
 	vertical-align: baseline;
+	cursor: default;
 }
 
 body {
@@ -77,14 +78,15 @@ ul {
 
 a {
   cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
-// input:focus,
-// select:focus,
-// textarea:focus,
-// button:focus {
-//   outline: none;
-// }
+a * {
+	cursor: pointer;
+}
 
 textarea {
   resize: none;

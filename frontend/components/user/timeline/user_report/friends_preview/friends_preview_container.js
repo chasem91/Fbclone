@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import FriendsPreview from './friends_preview';
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

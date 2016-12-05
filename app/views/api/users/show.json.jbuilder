@@ -2,7 +2,18 @@ require 'byebug'
 
 json.partial! 'api/users/user', user: @user
 
-json.profilePicture(asset_path(@user.profile_picture.image.url))
+json.photos({})
+json.photos do
+  @user.photos.each do |photo|
+    json.set! photo.id do
+      json.partial! 'api/photos/photo', photo: photo
+    end
+  end
+end
+
+json.profilePicture(asset_path(@user.profile_picture.image.url(:profile_picture)))
+
+json.bannerPicture(asset_path(@user.banner_picture.image.url(:banner)))
 
 json.users([])
 

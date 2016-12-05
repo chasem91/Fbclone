@@ -1,93 +1,93 @@
-import React from 'react';
-import { Link } from 'react-router';
-import SearchBarContainer from './search_bar/search_bar_container';
-import NotificationsContainer from './notifications/notifications_container';
-import FriendRequestsContainer from './friend_requests/friend_requests_container';
-import MessagesContainer from './messages/messages_container';
+import React from 'react'
+import { Link } from 'react-router'
+import SearchBarContainer from './search_bar/search_bar_container'
+import NotificationsContainer from './notifications/notifications_container'
+import FriendRequestsContainer from './friend_requests/friend_requests_container'
+import MessagesContainer from './messages/messages_container'
 
 export default class Greeting extends React.Component {
   constructor(props) {
-    super(props);
-    this.toggleMessages = this.toggleMessages.bind(this);
-    this.toggleFriendRequests = this.toggleFriendRequests.bind(this);
-    this.toggleNotifications = this.toggleNotifications.bind(this);
+    super(props)
+    this.toggleMessages = this.toggleMessages.bind(this)
+    this.toggleFriendRequests = this.toggleFriendRequests.bind(this)
+    this.toggleNotifications = this.toggleNotifications.bind(this)
   }
 
   toggleAll() {
-    const $friendRequests = $('.friend-requests-container');
+    const $friendRequests = $('.friend-requests-container')
     if ($friendRequests.length) {
-      $friendRequests.removeClass('friend-requests-container');
-      $friendRequests.addClass('hidden');
+      $friendRequests.removeClass('friend-requests-container')
+      $friendRequests.addClass('hidden')
     }
-    const $friendRequestsIcon = $('.friend-requests-icon-clicked');
+    const $friendRequestsIcon = $('.friend-requests-icon-clicked')
     if ($friendRequestsIcon.length) {
-      $friendRequestsIcon.removeClass('friend-requests-icon-clicked');
-      $friendRequestsIcon.addClass('friend-requests-icon');
+      $friendRequestsIcon.removeClass('friend-requests-icon-clicked')
+      $friendRequestsIcon.addClass('friend-requests-icon')
     }
 
-    const $messages = $('.messages-container');
+    const $messages = $('.messages-container')
     if ($messages.length) {
-      $messages.removeClass('messages-container');
-      $messages.addClass('hidden');
+      $messages.removeClass('messages-container')
+      $messages.addClass('hidden')
     }
-    const $messagesIcon = $('.messages-icon-clicked');
+    const $messagesIcon = $('.messages-icon-clicked')
     if ($messagesIcon.length) {
-      $messagesIcon.removeClass('messages-icon-clicked');
-      $messagesIcon.addClass('messages-icon');
+      $messagesIcon.removeClass('messages-icon-clicked')
+      $messagesIcon.addClass('messages-icon')
     }
 
-    const $notifications = $('.notifications-container');
+    const $notifications = $('.notifications-container')
     if ($notifications.length) {
-      $notifications.removeClass('notifications-container');
-      $notifications.addClass('hidden');
+      $notifications.removeClass('notifications-container')
+      $notifications.addClass('hidden')
     }
-    const $notificationsIcon = $('.notifications-icon-clicked');
+    const $notificationsIcon = $('.notifications-icon-clicked')
     if ($notificationsIcon.length) {
-      $notificationsIcon.removeClass('notifications-icon-clicked');
-      $notificationsIcon.addClass('notifications-icon');
+      $notificationsIcon.removeClass('notifications-icon-clicked')
+      $notificationsIcon.addClass('notifications-icon')
     }
   }
 
   toggleFriendRequests (e) {
-    const target = e.currentTarget;
-    const child = e.currentTarget.children[0];
-    const clicked = "friend-requests-icon-clicked";
-    const unclicked = "friend-requests-icon";
-    const hidden = "hidden";
-    const shown = "friend-requests-container";
-    const newTargetClassName = target.className === clicked ? unclicked : clicked;
-    const newChildClassName = child.className === hidden ? shown : hidden;
-    this.toggleAll();
-    target.className = newTargetClassName;
-    child.className = newChildClassName;
+    const target = e.currentTarget
+    const child = e.currentTarget.children[0]
+    const clicked = "friend-requests-icon-clicked"
+    const unclicked = "friend-requests-icon"
+    const hidden = "hidden"
+    const shown = "friend-requests-container"
+    const newTargetClassName = target.className === clicked ? unclicked : clicked
+    const newChildClassName = child.className === hidden ? shown : hidden
+    this.toggleAll()
+    target.className = newTargetClassName
+    child.className = newChildClassName
   }
 
   toggleNotifications (e) {
-    const target = e.currentTarget;
-    const child = e.currentTarget.children[0];
-    const clicked = "notifications-icon-clicked";
-    const unclicked = "notifications-icon";
-    const hidden = "hidden";
-    const shown = "notifications-container";
-    const newTargetClassName = target.className === clicked ? unclicked : clicked;
-    const newChildClassName = child.className === hidden ? shown : hidden;
-    this.toggleAll();
-    target.className = newTargetClassName;
-    child.className = newChildClassName;
+    const target = e.currentTarget
+    const child = e.currentTarget.children[0]
+    const clicked = "notifications-icon-clicked"
+    const unclicked = "notifications-icon"
+    const hidden = "hidden"
+    const shown = "notifications-container"
+    const newTargetClassName = target.className === clicked ? unclicked : clicked
+    const newChildClassName = child.className === hidden ? shown : hidden
+    this.toggleAll()
+    target.className = newTargetClassName
+    child.className = newChildClassName
   }
 
   toggleMessages (e) {
-    const target = e.currentTarget;
-    const child = e.currentTarget.children[0];
-    const clicked = "messages-icon-clicked";
-    const unclicked = "messages-icon";
-    const hidden = "hidden";
-    const shown = "messages-container";
-    const newTargetClassName = target.className === clicked ? unclicked : clicked;
-    const newChildClassName = child.className === hidden ? shown : hidden;
-    this.toggleAll();
-    target.className = newTargetClassName;
-    child.className = newChildClassName;
+    const target = e.currentTarget
+    const child = e.currentTarget.children[0]
+    const clicked = "messages-icon-clicked"
+    const unclicked = "messages-icon"
+    const hidden = "hidden"
+    const shown = "messages-container"
+    const newTargetClassName = target.className === clicked ? unclicked : clicked
+    const newChildClassName = child.className === hidden ? shown : hidden
+    this.toggleAll()
+    target.className = newTargetClassName
+    child.className = newChildClassName
   }
 
   personalGreeting () {
@@ -103,7 +103,7 @@ export default class Greeting extends React.Component {
             </div>
             <div className="header-icons-and-logout">
               <Link to={`/users/${this.props.currentUser.id}`} className="my-profile-link">
-                <img className="my-profile-link-thumb" src={window.homeUserImages.profilePicture}></img>
+                <img className="my-profile-link-thumb" src={this.props.currentUser.profilePicture}></img>
                 <div className="my-profile-link-name">
                   {this.props.currentUser.first_name}
                 </div>
@@ -137,14 +137,14 @@ export default class Greeting extends React.Component {
         </div>
         <div className="header-bar-fix"/>
       </div>
-    );
+    )
   }
 
   render () {
     if (this.props.currentUser) {
-      return this.personalGreeting();
+      return this.personalGreeting()
     } else {
-      return (<div></div>);
+      return (<div></div>)
     }
   }
 }

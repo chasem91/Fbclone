@@ -13,6 +13,11 @@
   z-index: 1;
 }
 
+.minimized-compact-chat {
+  position: fixed;
+  bottom: -315px;
+}
+
 .compact-chat {
   right: 14px;
   height: 345px;
@@ -26,21 +31,19 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 36px;
   width: calc(100% + 2px);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   background-color: rgb(64, 128, 255);
-
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   .compact-chat-header-text {
     color: rgb(255, 255, 255);
     font-weight: bold;
     font-size: 12px;
     margin-left: 12px;
+    cursor: pointer;
   }
 
 }

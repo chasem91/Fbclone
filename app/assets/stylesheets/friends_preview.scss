@@ -19,7 +19,7 @@
 .friends-preview-thumbs {
   display: flex;
   flex-flow: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin: 5px;
 }

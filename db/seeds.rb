@@ -6,7 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-photo = Photo.create()
+(1..26).each do |i|
+  Photo.create(image: File.new("app/assets/images/seeds/#{i}.jpg"), user_id: i)
+end
 
 User.create(
   email: "guest@email.com",
@@ -16,7 +18,8 @@ User.create(
   last_name: "User",
   birthday: "01-01-1990",
   gender: "male",
-  profile_picture_id: photo.id
+  profile_picture_id: 9,
+  banner_picture_id: 1
 )
 
 User.create(
@@ -27,10 +30,11 @@ User.create(
   last_name: "Martin",
   birthday: "01-01-1991",
   gender: "male",
-  profile_picture_id: photo.id
+  profile_picture_id: 2,
+  banner_picture_id: 22
 )
 
-9.times do
+(3..26).each do |i|
   user = User.create(
     email: Faker::Internet.free_email,
     password_digest: BCrypt::Password.create("password"),
@@ -39,31 +43,32 @@ User.create(
     last_name: Faker::Name.last_name,
     birthday: Faker::Date.between(50.years.ago, Date.today),
     gender: "female",
-    profile_picture_id: photo.id
+    profile_picture_id: i,
+    banner_picture_id: (26 % (i + 8))
   )
 end
 
-(1..10).each do |i|
+(1..26).each do |i|
   3.times do
     Post.create(
-      author_id: rand(1..10),
+      author_id: rand(1..26),
       user_id: i,
       content: Faker::Hipster.sentence
     )
   end
 end
 
-(1..30).each do |i|
+(1..78).each do |i|
   8.times do
     Comment.create(
-      author_id: rand(1..10),
+      author_id: rand(1..26),
       post_id: i,
       content: Faker::Hipster.sentence
     )
   end
 end
 
-(2..8).each do |i|
+(3..26).each do |i|
   FriendRequest.create(
     user_id: i,
     friend_id: 1,

@@ -50,29 +50,40 @@ export default class Post extends React.Component {
       return (
         <div className="post group">
           <ul className="post-details group">
-            <ul className="post-header">
-              {this.authorProfilePicDisplay()}
-              <ul>
-                {this.authorDisplay()}
-                <li className="post-date">{this.post.time_ago}</li>
-              </ul>
-            </ul>
-            <li className="post-content">{this.post.content}</li>
-            <ul className="post-actions">
-              <div className="post-action-buttons">
-                <div className="post-like-container">
-                  {this.renderLike()}
-                </div>
+
+            <section className="top-post-section">
+              <div className="top-post-section-contents">
+                <ul className="post-header">
+                  {this.authorProfilePicDisplay()}
+                  <ul>
+                    {this.authorDisplay()}
+                    <li className="post-date">{this.post.time_ago}</li>
+                  </ul>
+                </ul>
+                <li className="post-content">{this.post.content}</li>
+                <ul className="post-actions">
+                  <div className="post-action-buttons">
+                    <div className="post-like-container">
+                      {this.renderLike()}
+                    </div>
+                  </div>
+                </ul>
               </div>
-            </ul>
-            {this.likers()}
-            <li className="post-comments">
-              {this.renderComments()}
-            </li>
-            <ul className="comment-compose">
-              <li><img className="comment-compose-author-picture" src={this.props.currentUser.profilePicture}></img></li>
-              <textarea className="comment-input" id={this.post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
-            </ul>
+            </section>
+
+            <section className="bottom-post-section">
+              <div className="bottom-post-section-contents">
+                {this.likers()}
+                <li className="post-comments">
+                  {this.renderComments()}
+                </li>
+                <ul className="comment-compose">
+                  <li><img className="comment-compose-author-picture" src={this.props.currentUser.profilePicture}></img></li>
+                  <textarea className="comment-input" id={this.post.id} onKeyPress={this.handleCreateComment} placeholder="Write a comment..."></textarea>
+                </ul>
+              </div>
+            </section>
+
           </ul>
         </div>
       );
@@ -89,7 +100,9 @@ export default class Post extends React.Component {
       );
     } else {
       return (
-        <li><img className="post-author-picture" src={this.post.author.profilePicture}></img></li>
+        <Link to={`/users/${this.post.author.id}`} >
+          <img className="post-author-picture" src={this.post.author.profilePicture}></img>
+        </Link>
       )
     }
   }
@@ -141,12 +154,13 @@ export default class Post extends React.Component {
             </Link>
           );
         } else if (i === length) {
+          names.push(<div key={0} className="post-like-user-link">&nbsp;and&nbsp;</div>)
           names.push(
             <Link
               className="post-like-user-link"
               key={like.id}
               to={`/users/${like.liker.id}`}>
-              &nbsp;{`and ${this.displayLikerName(like)}`}
+              {this.displayLikerName(like)}
             </Link>
           );
        } else {
@@ -204,7 +218,7 @@ export default class Post extends React.Component {
       );
     } else {
       return (
-        <div onClick={this.like} className="post-comment-container">
+        <div onClick={this.like} className="post-not-liked-container">
           <div className="post-like"></div>
           <div className="post-like-name">Like</div>
         </div>

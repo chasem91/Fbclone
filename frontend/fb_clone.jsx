@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Root from './components/root';
-import configureStore from './store/store';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Root from './components/root'
+import configureStore from './store/store'
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  let store;
+  let store
   if (window.currentUser) {
-    const initialState = {session: {currentUser: window.currentUser}};
-    store = configureStore(initialState);
+    const initialState = {session: {currentUser: window.currentUser}}
+    store = configureStore(initialState)
   } else {
-    store = configureStore();
+    store = configureStore()
   }
 
-  window.store = store;
+  window.store = store
 
-  const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store}/>, root);
-});
+  const root = document.getElementById('root')
+  ReactDOM.render(<Root store={store}/>, root)
+})

@@ -17,6 +17,10 @@
 
 .comment-content {
   font-size: 14px;
+
+  .comment-content-text {
+    word-break: break-word;
+  }
 }
 
 .comment-actions {

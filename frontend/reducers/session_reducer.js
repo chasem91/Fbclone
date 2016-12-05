@@ -76,6 +76,7 @@ const SessionReducer = (state = _nullUser, action) => {
 
     case RECEIVE_MESSAGE:
       const message = action.message;
+      debugger
       newState.currentUser.conversations[message.conversation_id].messages[message.id] = message;
       return newState;
 
@@ -94,6 +95,7 @@ const SessionReducer = (state = _nullUser, action) => {
 
     case RECEIVE_UPDATED_CURRENT_USER:
       newState.currentUser.profilePicture = action.currentUser.profilePicture;
+      newState.currentUser.bannerPicture = action.currentUser.bannerPicture;
       return newState;
 
     case RECEIVE_FRIEND:

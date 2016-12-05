@@ -1,4 +1,7 @@
 .live-chat-box-container-closed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   bottom: 28px;
   border-left: 1px solid rgb(221, 223, 226);
@@ -10,6 +13,41 @@
   height: 27px;
   width: 160px;
   margin: 0 6px;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(55, 59, 66);
+  cursor: pointer;
+
+  & * {
+    cursor: pointer;
+  }
+
+  .chat-box-closed-name {
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+    height: 100%;
+    width: 100%;
+
+    &:hover + .chat-box-closed-x-icon {
+      opacity: .7;
+    }
+  }
+
+  .chat-box-closed-x-icon {
+    background-image: image-url('icons6.png');
+    background-size: auto;
+    height: 26px;
+    width: 22px;
+    background-repeat: no-repeat;
+    background-position: -1px -220px;
+    opacity: 0;
+    margin-right: 2px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   &:hover {
     cursor: pointer;
@@ -34,23 +72,36 @@
     font-weight: bold;
     font-size: 12px;
     height: 26px;
+    width: 100%;
     background-color: rgb(64, 128, 255);
-    border-left: 1px solid rgb(64, 128, 255);
-    border-right: 1px solid rgb(64, 128, 255);
-    border-top: 1px solid rgb(64, 128, 255);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 
-    &:hover {
+    & * {
       cursor: pointer;
     }
 
     a {
       color: white;
+      white-space: nowrap;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .chat-box-header-names {
+      position: absolute;
       margin-left: 10px;
     }
 
+    .chat-box-header-click-area {
+      width: 100%;
+      height: 100%;
+    }
+
     .chat-box-x-icon {
+      position: absolute;
+      left: 237px;
       background-image: image-url('icons6.png');
       background-size: auto;
       height: 26px;
@@ -66,13 +117,18 @@
     flex-direction: column;
     background-color: white;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     .authored-chat-message {
       display: flex;
       justify-content: flex-end;
       padding: 6px;
+      min-height: 30px;
 
       .authored-chat-message-content {
+        display: flex;
+
         background-color: rgb(64, 128, 255) ;
         color: rgb(255, 255, 255);
 
@@ -93,13 +149,17 @@
     .chat-message {
       display: flex;
       padding: 6px;
+      min-height: 30px;
 
       .chat-message-thumb {
         height: 30px;
         width: 30px;
+        border: 1px solid rgba(0, 0, 0, .15);
       }
 
       .chat-message-content {
+        display: flex;
+
         background-color: rgb(241, 240, 240) ;
         color: rgb(113, 116, 121);
 

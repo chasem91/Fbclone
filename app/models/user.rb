@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
 		foreign_key: :profile_picture_id,
 		class_name: :Photo
 
+	belongs_to :banner_picture,
+		foreign_key: :banner_picture_id,
+		class_name: :Photo
+
 	def name
 		"#{self.first_name} #{self.last_name}"
 	end

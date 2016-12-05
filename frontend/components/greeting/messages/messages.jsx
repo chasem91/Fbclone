@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import { Link } from 'react-router'
 
 export default class Messages extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -12,39 +12,45 @@ export default class Messages extends React.Component {
   }
 
   handleClick(e) {
-    debugger
+    const id = e.currentTarget.id
+    const conversation = {}
+    conversation[id] = {
+      id,
+      open: true
+    }
+    this.props.receiveChatBox(conversation)
   }
 
   messages() {
-    const messages = [];
+    const messages = []
     for (const key in this.props.currentUser.conversations) {
-      const convoMessages = this.props.currentUser.conversations[key].messages;
-      const message = convoMessages[Object.keys(convoMessages)[0]];
+      const convoMessages = this.props.currentUser.conversations[key].messages
+      const message = convoMessages[Object.keys(convoMessages)[0]]
       if (message) {
         messages.push(
-          <li key={key} className="message" onClick={this.handleClick}>
+          <li key={key} className="message" id={key} onClick={this.handleClick}>
             <div className="message-details">
-              <img className="message-thumb" src={window.homeUserImages.profilePicture}/>
+              <img className="message-thumb" src={message.user.profilePicture}/>
               <div className="message-detail-name-and-content">
-                <Link to={`/users/${message.user.id}`} className="message-link">
+                <div className="message-link">
                   {`${message.user.first_name} ${message.user.last_name}`}
-                </Link>
+                </div>
                 <div className="message-content">{message.content}</div>
                 <div className="message-created-at">{message.created_at}</div>
               </div>
             </div>
           </li>
-        );
+        )
       }
     }
     if (messages.length > 0) {
-      return messages;
+      return messages
     } else {
       return (
         <div className="no-messages">
           No new messages
         </div>
-      );
+      )
     }
   }
 
@@ -60,6 +66,6 @@ export default class Messages extends React.Component {
           {this.messages()}
         </ul>
       </div>
-    );
+    )
   }
 }

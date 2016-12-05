@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import { Link } from 'react-router'
 
 export default class SearchBar extends React.Component {
 
   constructor (props) {
-    super(props);
-    this.handleSearchText = this.handleSearchText.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.results = [0];
+    super(props)
+    this.handleSearchText = this.handleSearchText.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.results = [0]
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -15,57 +15,57 @@ export default class SearchBar extends React.Component {
   }
 
   handleSearchText(e) {
-    e.preventDefault();
-    this.props.getUsers(e.currentTarget.value);
+    e.preventDefault()
+    this.props.getUsers(e.currentTarget.value)
   }
 
   handleKeyDown(e) {
     if (e.key === "ArrowUp") {
       let $result = $(`.search-result-${this.results[0]}`)
-      $result.removeClass('selected');
-      this.results.unshift(this.results.pop());
+      $result.removeClass('selected')
+      this.results.unshift(this.results.pop())
       $result = $(`.search-result-${this.results[0]}`)
-      $result.addClass('selected');
+      $result.addClass('selected')
     } else if (e.key === "ArrowDown") {
       let $result = $(`.search-result-${this.results[0]}`)
-      $result.removeClass('selected');
-      this.results.push(this.results.shift());
+      $result.removeClass('selected')
+      this.results.push(this.results.shift())
       $result = $(`.search-result-${this.results[0]}`)
-      $result.addClass('selected');
+      $result.addClass('selected')
     } else if (e.key === "Enter") {
-      const $selected = $('.selected')[0];
-      $selected.click();
-      const $input = $('.search-bar-input')[0];
-      $input.value = $selected.children[1].textContent;
+      const $selected = $('.selected')[0]
+      $selected.click()
+      const $input = $('.search-bar-input')[0]
+      $input.value = $selected.children[1].textContent
 
-      this.props.receiveUsers([]);
+      this.props.receiveUsers([])
     }
   }
 
   renderResults() {
-    this.results = [0];
+    this.results = [0]
     const userResults = this.props.currentUser.users.map(
       user => {
-        this.results.push(user.id);
+        this.results.push(user.id)
         return (
           <Link to={`/users/${user.id}`} key={user.id} className={`search-result search-result-${user.id}`}>
-            <img src={window.homeUserImages.profilePicture} className="post-author-picture"/>
+            <img src={user.profilePicture} className="post-author-picture"/>
             <div className="name">{`${user.first_name} ${user.last_name}`}</div>
             <div>{user.email}</div>
           </Link>
-        );
+        )
       }
-    ) || [];
+    ) || []
     if (userResults.length > 0) {
       return (
         <div className="search-results-container">
           {userResults}
         </div>
-      );
+      )
     } else {
       return (
         <div className="hidden" />
-      );
+      )
     }
   }
 

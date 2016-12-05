@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery.slimscroll.min
+//= require jquery.autosize
 //= require_tree .

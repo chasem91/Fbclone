@@ -71,7 +71,8 @@ class Api::UsersController < ApplicationController
       :birthday,
       :gender,
       :email,
-      :profile_picture_id
+      :profile_picture_id,
+      :banner_picture_id
     )
 	end
 end

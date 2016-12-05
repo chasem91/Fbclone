@@ -44,7 +44,6 @@
   left: 18px;
   height: 162px;
   width: 162px;
-  border-radius: 4px;
 
   &:hover {
     background-color: rgba(0, 0, 0, .2);
@@ -55,5 +54,26 @@
   opacity: 0;
   background-color: blue;
   height: 100%;
+  width: 100%;
+}
+
+.banner-image-drop {
+  position: absolute;
+  // margin: 5px;
+  // top: 168px;
+  // left: 18px;
+  top: 0;
+  height: 316px;
+  width: 100%;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+.banner-pic-input {
+  opacity: 0;
+  background-color: blue;
+  height: 316px;
   width: 100%;
 }

@@ -3,11 +3,11 @@ import {
   receiveMadeRequest,
   receiveLike,
   receivePost
-} from '../actions/user_actions';
+} from '../actions/user_actions'
 
 import {
   receiveUsers
-} from '../actions/session_actions';
+} from '../actions/session_actions'
 
 export const fetchUsers = (search, success) => {
 	$.ajax({
@@ -16,8 +16,8 @@ export const fetchUsers = (search, success) => {
     data: { search },
 		success,
     error: () => console.log('error fetching users')
-	});
-};
+	})
+}
 
 export const postPost = (post, success) => {
   $.ajax({
@@ -26,8 +26,8 @@ export const postPost = (post, success) => {
     data: { post },
     success,
     error: () => console.log('error posting post')
-  });
-};
+  })
+}
 
 export const postComment = (comment, success) => {
   $.ajax({
@@ -36,8 +36,8 @@ export const postComment = (comment, success) => {
     data: { comment },
     success,
     error: () => console.log('error posting comment')
-  });
-};
+  })
+}
 
 export const fetchConversation = (user_id, participant_id, success) => {
   $.ajax({
@@ -46,8 +46,8 @@ export const fetchConversation = (user_id, participant_id, success) => {
     data: { user_id, participant_id },
     success,
     error: () => console.log('error fetching conversation')
-  });
-};
+  })
+}
 
 export const postMessage = (message, success) => {
   $.ajax({
@@ -56,8 +56,8 @@ export const postMessage = (message, success) => {
     data: { message },
     success,
     error: () => console.log('error posting message')
-  });
-};
+  })
+}
 
 export const fetchUser = (id, success) => {
 	$.ajax({
@@ -65,8 +65,8 @@ export const fetchUser = (id, success) => {
 		url: `/api/users/${id}`,
 		success,
     error: () => console.log('error fetching user')
-	});
-};
+	})
+}
 
 export const acceptFriend = (userId, friendId, success) => {
   $.ajax({
@@ -78,8 +78,8 @@ export const acceptFriend = (userId, friendId, success) => {
     },
     success,
     error: () => console.log('error accepting friend')
-  });
-};
+  })
+}
 
 export const postFriendRequest = (user_id, friend_id, success) => {
   $.ajax({
@@ -88,8 +88,8 @@ export const postFriendRequest = (user_id, friend_id, success) => {
     data: { user_id, friend_id },
     success,
     error: () => console.log('error requesting friend')
-  });
-};
+  })
+}
 
 export const postLike = (liker_id, likeable_id, likeable_type, success) => {
   $.ajax({
@@ -98,5 +98,5 @@ export const postLike = (liker_id, likeable_id, likeable_type, success) => {
     data: { like: { liker_id, likeable_id, likeable_type } },
     success,
     error: () => console.log('error posting like')
-  });
-};
+  })
+}

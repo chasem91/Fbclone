@@ -2,7 +2,6 @@ require 'byebug'
 
 class Api::ConversationsController < ApplicationController
   def show
-    debugger
     @conversation = Conversation.find_by()
   end
 
