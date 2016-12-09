@@ -2,33 +2,33 @@
 [fbclone]: http:fbclone.site
 
 
-###### User Profile Layout
+### User Profile Layout
 Profile picture, banner image, profile navigation, intro, photos, friends and timeline.
 
 ![](docs/screenshots/user.PNG)
 
-###### Guest Login
+### Guest Login
 Allows user to login with guest account and immediately view newsfeed and create comments, posts and likes.
 
 ![](docs/gifs/1.gif)
 
-###### Features Overview
+### Features Overview
 Search, profiles, image uploading, live chat, posting, commenting, liking and  friending.
 
 ![](docs/screenshots/overview.PNG)
 
 
-###### Account Creation
+### Account Creation
 Provide name, unique email, password(minimum 6 characters), birthday and gender for account credentials and profile info.
 
 ![](docs/gifs/2.gif)
 
-###### Login
+### Login
 User authentication using BCrypt ruby gem with password salting and digests.
 
 ![](docs/gifs/3.gif)
 
-###### Newsfeed
+### Newsfeed
 Displays all friends' and current user's post. Uses ActiveRecord's #include to prefetch all all associated post data in one query.
 ```ruby
 class Api::UsersController < ApplicationController
@@ -52,12 +52,12 @@ end
 
 ![](docs/screenshots/newsfeed.PNG)
 
-###### Chat Boxes
+### Chat Boxes
 Expandable and collapsible chat boxes. Open chat box and by clicking on a user in the 'live chat' sidebar.
 
 ![](docs/gifs/4.gif)
 
-###### Search
+### Search
 Uses a custom 'search' scope defined on the User model to search by first name, last name or email with regular expressions.
 ```ruby
 class User < ActiveRecord::Base
@@ -74,17 +74,17 @@ end
 
 ![](docs/screenshots/search.PNG)
 
-###### Accepting Friend Requests
+### Accepting Friend Requests
 Accept request in 'friend requests' dropdown or directly on user profile and the change will be reflected in both places in real time
 
 ![](docs/gifs/6.gif)
 
-###### Making Friend Requests
+### Making Friend Requests
 Click 'Add Friend' on a user's profile and they will see your request in their 'friend requests' dropdown.
 
 ![](docs/gifs/7.gif)
 
-###### Image Uploading
+### Image Uploading
 Drag and drop an image file on your own profile picture or background to set a new profile picture or background using ImageMagick for auto-formatting and the Paperclip ruby gem to upload to and store in AWS's S3.
 
 ```ruby
@@ -98,7 +98,7 @@ end
 
 ![](docs/gifs/8.gif)
 
-###### Bootstrapping Current User
+### Bootstrapping Current User
 If a user is signed in, ```window.currentUser``` is set to the result of a jbuilder partial which returns all user related data. This prevents screen flickering from Ajax requests after a page reload.
 ```html+erb
 <script id="bootstrap-current-user" type="text/javascript">
@@ -121,7 +121,7 @@ If a user is signed in, ```window.currentUser``` is set to the result of a jbuil
 
 ![](docs/gifs/9.gif)
 
-###### Real-time Feedback
+### Real-time Feedback
 One example of real-time feedback is the instant addition of a user in the live chat sidebar upon accepting their request.
 
 ![](docs/gifs/10.gif)
