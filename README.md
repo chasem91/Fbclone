@@ -2,24 +2,34 @@
 [fbclone]: http:fbclone.site
 
 
+### Description
+Fbclone is a social networking platform inspired by Facebook. It implements SPA architecture with a React/Redux frontend and AJAX requests to a JSON API supporting by Rails. User authentication is provided with the BCrypt ruby gem to store salted and hashed passwords. ActiveRecord queries are minimized by fetching all user related data at login with a single query. The live chat feature uses bi-directional functionality via WebSockets with the help of Pusher.
+
+### Features Overview
+- [ ] User Authentication
+- [ ] Profiles
+- [ ] Friending
+- [ ] Live Chat
+- [ ] Posting
+- [ ] Commenting
+- [ ] Liking
+- [ ] Image Uploading
+- [ ] Search
+
+![](docs/screenshots/overview.PNG)
+
 ### User Profile Layout
 Profile picture, banner image, profile navigation, intro, photos, friends and timeline.
 
 ![](docs/screenshots/user.PNG)
 
 ### Guest Login
-Allows user to login with guest account and immediately view newsfeed and create comments, posts and likes.
+Allows user to login with guest account to immediately view newsfeed and create comments, posts and likes.
 
 ![](docs/gifs/1.gif)
 
-### Features Overview
-Search, profiles, image uploading, live chat, posting, commenting, liking and  friending.
-
-![](docs/screenshots/overview.PNG)
-
-
 ### Account Creation
-Provide name, unique email, password(minimum 6 characters), birthday and gender for account credentials and profile info.
+Provide name, unique email, password(minimum 6 characters), birthday and gender for account credentials and profile info.
 
 ![](docs/gifs/2.gif)
 
@@ -29,7 +39,7 @@ User authentication using BCrypt ruby gem with password salting and digests.
 ![](docs/gifs/3.gif)
 
 ### Newsfeed
-Displays all friends' and current user's post. Uses ActiveRecord's #include to prefetch all all associated post data in one query.
+Displays all friends' and current user's post. Uses ActiveRecord's ```#include``` method to prefetch all associated post data in one query.
 ```ruby
 class Api::UsersController < ApplicationController
   def show
@@ -85,7 +95,7 @@ Click 'Add Friend' on a user's profile and they will see your request in their '
 ![](docs/gifs/7.gif)
 
 ### Image Uploading
-Drag and drop an image file on your own profile picture or background to set a new profile picture or background using ImageMagick for auto-formatting and the Paperclip ruby gem to upload to and store in AWS's S3.
+Drag and drop an image file on your own profile picture or background to set a new profile picture or background using ImageMagick for auto-formatting and the Paperclip ruby gem to upload to and store in AWS's S3 service.
 
 ```ruby
 class Photo < ActiveRecord::Base
