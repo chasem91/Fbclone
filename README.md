@@ -139,9 +139,11 @@ One example of real-time feedback is the instant addition of a user in the live 
 
 ### Upcoming Features
 - [ ] Extended live features(see other users' activity in real-time)
+- [ ] Infinite scroll
 - [ ] Provide link preview if link included in post
 - [ ] Notifications
-- [ ] Comment replies
-- [ ] Comment likes
-- [ ] Posting pictures
+- [ ] Designated search page
+- [ ] Comment replies and likes
+- [ ] 'About', 'Friends', 'Photos' and 'More' profile sections
+- [ ] Posting pictures and videos
 - [ ] Privacy settings
