@@ -48,6 +48,7 @@
 }
 
 .login-input {
+  font-size: 13px;
   width: 146px;
   height: 20px;
   border: 1px solid black;
@@ -63,6 +64,7 @@
   color: white;
   height: 26px;
   width: 50px;
+  font-size: 12px;
   background: rgb(66, 103, 178);
   border: 1px solid rgb(41, 72, 125);
   border-radius: 2px;
@@ -71,7 +73,6 @@
     cursor: pointer;
   }
 }
-
 
 .login-input-label {
   color: white;
