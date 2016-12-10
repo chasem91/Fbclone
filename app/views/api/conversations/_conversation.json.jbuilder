@@ -1,5 +1,3 @@
-require 'byebug'
-
 json.extract! conversation, :id
 
 json.users({})

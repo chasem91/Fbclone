@@ -1,4 +1,3 @@
-require 'byebug'
 json.extract! comment, :content, :id, :post_id
 json.time_ago "#{time_ago_in_words(comment.created_at)} ago"
 json.author do

@@ -1,5 +1,3 @@
-require 'byebug'
-
 json.id friend_request.id
 
 json.requester do

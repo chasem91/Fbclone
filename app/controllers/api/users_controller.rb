@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::UsersController < ApplicationController
   def index
     @users = params[:search] == "" ? [] : User.search(params[:search])

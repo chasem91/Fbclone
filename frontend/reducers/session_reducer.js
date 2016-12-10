@@ -76,7 +76,6 @@ const SessionReducer = (state = _nullUser, action) => {
 
     case RECEIVE_MESSAGE:
       const message = action.message;
-      debugger
       newState.currentUser.conversations[message.conversation_id].messages[message.id] = message;
       return newState;
 

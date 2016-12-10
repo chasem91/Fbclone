@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::FriendshipsController < ApplicationController
   def create
     @friend_request = FriendRequest.find_by(

@@ -1,5 +1,3 @@
-require 'byebug'
-
 json.extract! post, :id, :content
 json.time_ago "#{time_ago_in_words(post.created_at)} ago"
 

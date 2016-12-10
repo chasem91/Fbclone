@@ -1,5 +1,3 @@
-require 'byebug'
-
 # == Schema Information
 #
 # Table name: photos

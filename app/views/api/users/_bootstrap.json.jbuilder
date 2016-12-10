@@ -1,5 +1,3 @@
-require 'byebug'
-
 user = locals[:user]
 timeline_posts = locals[:timeline_posts]
 newsfeed_posts = locals[:newsfeed_posts]

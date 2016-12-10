@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find_by()

@@ -50,13 +50,11 @@ export default class NewPostForm extends React.Component {
   }
 
   hideTransparentLayer () {
-    console.log("hi");
     $('#trans').toggleClass('hidden')
     $('#post-form').toggleClass('raised-new-post-form')
   }
 
   showTransparentLayer () {
-    console.log("ho");
     $('#trans').toggleClass('hidden')
     $('#post-form').toggleClass('raised-new-post-form')
   }

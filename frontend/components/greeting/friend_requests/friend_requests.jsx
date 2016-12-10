@@ -23,7 +23,6 @@ export default class FriendRequests extends React.Component {
         $scroll.css({'height': '41px'})
       }
     } else if (requests > maxRequests) {
-      console.log("max scroll")
       $list.slimScroll({
         height: `${maxRequests * 63}px`,
         size: '8px',
@@ -39,7 +38,6 @@ export default class FriendRequests extends React.Component {
         disableFadeOut: false
       })
     } else {
-      console.log("no scroll")
       $list.slimScroll({
         height: `${requests * 63}px`,
         color: 'rgba(0, 0, 0, 0)'

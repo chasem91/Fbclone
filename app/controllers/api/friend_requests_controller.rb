@@ -1,5 +1,3 @@
-require 'byebug';
-
 class Api::FriendRequestsController < ApplicationController
   def index
     @friend_requests = FriendRequest.includes(:user)

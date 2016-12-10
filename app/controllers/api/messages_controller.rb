@@ -1,5 +1,4 @@
 require 'pusher'
-require 'byebug'
 
 class Api::MessagesController < ApplicationController
   def create

@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::PostsController < ApplicationController
 
   def index

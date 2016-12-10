@@ -1,5 +1,3 @@
-require 'byebug'
-
 class StaticPagesController < ApplicationController
   def root
     if current_user
