@@ -5,6 +5,10 @@
 ### Description
 Fbclone is a social networking platform inspired by Facebook. It implements SPA architecture with a React/Redux frontend and Ajax requests to a JSON API supported by Rails. User authentication is provided with the BCrypt ruby gem to store salted and hashed passwords. ActiveRecord queries are minimized by fetching all user-related data upon login with single query. The live chat feature uses bi-directional functionality via WebSockets with the help of Pusher.
 
+### Technologies Used
+
+Ruby, Rails 4.x, PostgreSQL, React, Redux, JavaScript ES6, Node, Webpack, Babel, jQuery, Bourbon(Sass library), HTML5, Pusher, AWS, ImageMagick, Paperclip and BCrypt
+
 ### Features Overview
 - [ ] User Authentication
 - [ ] Profiles
