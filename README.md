@@ -89,7 +89,7 @@ end
 ![](docs/screenshots/search.PNG)
 
 ### Accepting Friend Requests
-Accept request in 'friend requests' dropdown or directly on user profile and the change will be reflected in both places in real time
+Accept request in 'friend requests' dropdown or directly on user profile and the change will be reflected in both places in real time.
 
 ![](docs/gifs/6.gif)
 
