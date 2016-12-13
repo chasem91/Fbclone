@@ -11,7 +11,7 @@
     "npm": "3.3.12"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "webpack": "node_modules/.bin/webpack --watch",
     "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
@@ -31,12 +31,17 @@
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-modal": "^1.5.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "babel-jest": "^17.0.2",
+    "jest": "^17.0.3",
+    "react-test-renderer": "^15.4.1"
   }
 }

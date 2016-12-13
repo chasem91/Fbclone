@@ -5,7 +5,7 @@ module.exports = {
   entry: "./frontend/fb_clone.jsx",
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
-    filename: "bundle.js"
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
