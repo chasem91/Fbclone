@@ -23,6 +23,16 @@ class Post < ActiveRecord::Base
 
   has_many :likes, as: :likeable
 
+  def self.include_everything
+    Post.includes(
+      { author: [ :profile_picture ] }, 
+      { user: [ :profile_picture ] },
+      { comments: [ { likes: [:liker] },
+      { author: [ :profile_picture ] } ] },
+      { likes: [:liker] }
+    )
+  end
+
   def comments_with_author
     self.comments.includes(:author)
   end

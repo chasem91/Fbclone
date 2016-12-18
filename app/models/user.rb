@@ -66,6 +66,18 @@ class User < ActiveRecord::Base
 		foreign_key: :banner_picture_id,
 		class_name: :Photo
 
+	def self.include_everything
+		User.includes(
+			:photos,
+			{ friends: [ :profile_picture ] },
+			{ friend_requests: [ { user: [ :profile_picture ] }, { friend: [ :profile_picture ] } ] },
+			{ requested_friends: [ { user: [ :profile_picture ] }, { friend: [ :profile_picture ] } ] },
+			{ conversations: [ { messages: [ { user: [ :profile_picture ] } ] }, { users: [ :profile_picture ] } ] },
+			:profile_picture,
+			:banner_picture
+		)
+	end
+
 	def name
 		"#{self.first_name} #{self.last_name}"
 	end
