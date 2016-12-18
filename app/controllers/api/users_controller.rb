@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    if current_user.id == params[:id].to_i
+    if current_user && current_user.id == params[:id].to_i
       @user = User.includes(
         :friends,
         { friend_requests: [:user, :friend] },

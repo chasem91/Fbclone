@@ -43,9 +43,7 @@ FactoryGirl.define do
   end
 
   factory :photo do
-    image_file_name 'file_name'
-    image_content_type 'content_type'
-    image_file_size 1000
+    image File.new("app/assets/images/seeds/0.jpg")
     user_id 1
   end
 

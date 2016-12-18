@@ -15,23 +15,13 @@
 require 'test_helper'
 
 class PhotoTest < ActiveSupport::TestCase
-  test "should not validate photo without image file name" do
-    photo = build(:photo, image_file_name: nil)
-    assert_not photo.valid?
-  end
-
-  test "should not validate photo without image content type" do
-    photo = build(:photo, image_content_type: nil)
-    assert_not photo.valid?
-  end
-
-  test "should not validate photo without image file size" do
-    photo = build(:photo, image_file_size: nil)
-    assert_not photo.valid?
-  end
-
   test "should not validate photo without user id" do
     photo = build(:photo, user_id: nil)
     assert_not photo.valid?
+  end
+
+  test "should validate photo with params expected to be valid" do
+    photo = build(:photo)
+    assert photo.valid?, "did not validate photo with params expected to be valid"
   end
 end
