@@ -15,7 +15,7 @@
 class Photo < ActiveRecord::Base
   validates :user_id, presence: true
   has_attached_file :image, default_url: "seeds/0_:style.jpg", validate_media_type: false,
-    styles: { profile_picture: "300x300#", banner:"854x316#"}
+    styles: {tiny: "32x32#", thumb: "42x42#", profile_picture: "300x300#", banner:"854x316#"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   belongs_to :user
 end
