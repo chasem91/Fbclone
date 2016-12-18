@@ -42,10 +42,6 @@ class User < ActiveRecord::Base
 	has_many :user_conversations
 	has_many :conversations, through: :user_conversations
 
-  has_many :timeline_posts,
-    foreign_key: :profile_id,
-    class_name: :Post
-
   has_many :friend_requests,
     foreign_key: :friend_id,
     class_name: :FriendRequest
