@@ -8,10 +8,11 @@ class Api::SessionsController < ApplicationController
 			login(@user)
 
 			@user = User.includes(
-				:friends,
-				{ friend_requests: [:user, :friend] },
-				{ requested_friends: [:user, :friend] },
-	      { conversations: [ { messages: [ { user: [ :profile_picture ] }  ] }, { users: [ :profile_picture ] } ] },
+				:photos,
+				{ friends: [ :profile_picture ] },
+				{ friend_requests: [ { user: [ :profile_picture ] }, { friend: [ :profile_picture ] } ] },
+				{ requested_friends: [ { user: [ :profile_picture ] }, { friend: [ :profile_picture ] } ] },
+				{ conversations: [ { messages: [ { user: [ :profile_picture ] } ] }, { users: [ :profile_picture ] } ] },
 				:profile_picture,
 				:banner_picture
 			).find(@user.id)
@@ -20,12 +21,12 @@ class Api::SessionsController < ApplicationController
       friend_ids << @user.id
 
 			@newsfeed_posts = Post
-			.includes({ author: [ :profile_picture ] }, :user, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
+			.includes( { author: [ :profile_picture ] }, { user: [ :profile_picture ] }, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
 			.where(author_id: friend_ids).reverse
 
 			@timeline_posts = Post
-	    .includes({ author: [ :profile_picture ] }, :user, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
-	    .where(user_id: @user.id).reverse
+      .includes( { author: [ :profile_picture ] }, { user: [ :profile_picture ] }, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
+      .where(user_id: @user.id).reverse
 
 			render "api/users/show"
 		else

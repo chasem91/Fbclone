@@ -1,33 +1,31 @@
 class Api::UsersController < ApplicationController
   def index
-    @users = params[:search] == "" ? [] : User.search(params[:search])
+    @users = params[:search] == "" ? [] : User.includes(:profile_picture).search(params[:search])
     render "api/users/index"
   end
 
   def show
-    if current_user && current_user.id == params[:id].to_i
-      @user = User.includes(
-        :friends,
-        { friend_requests: [:user, :friend] },
-        { requested_friends: [:user, :friend] },
-        { conversations: [ { messages: [ { user: [ :profile_picture ] }  ] }, { users: [ :profile_picture ] } ] },
-        :profile_picture,
-        :banner_picture
-      ).find(params[:id])
+    @user = User.includes(
+    :photos,
+    { friends: [ :profile_picture ] },
+    { friend_requests: [ { user: [ :profile_picture ] }, { friend: [ :profile_picture ] } ] },
+    { requested_friends: [ { user: [ :profile_picture ] }, { friend: [ :profile_picture ] } ] },
+    { conversations: [ { messages: [ { user: [ :profile_picture ] } ] }, { users: [ :profile_picture ] } ] },
+    :profile_picture,
+    :banner_picture
+    ).find(params[:id])
 
+    if current_user && current_user.id == params[:id].to_i
       friend_ids = @user.friends.map { |friend| friend.id }
       friend_ids << @user.id
-
       @newsfeed_posts = Post
-			.includes({ author: [ :profile_picture ] }, :user, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
+			.includes( { author: [ :profile_picture ] }, { user: [ :profile_picture ] }, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
 			.where(author_id: friend_ids).reverse
     else
-      @user = User.includes(:friends).find(params[:id])
       @newsfeed_posts = []
     end
-
     @timeline_posts = Post
-    .includes({ author: [ :profile_picture ] }, :user, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
+    .includes( { author: [ :profile_picture ] }, { user: [ :profile_picture ] }, { comments: [ { likes: [:liker] }, { author: [ :profile_picture ] } ] }, { likes: [:liker] } )
     .where(user_id: @user.id).reverse
 
     render "api/users/show"
