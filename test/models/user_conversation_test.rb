@@ -12,7 +12,24 @@
 require 'test_helper'
 
 class UserConversationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def user_conversation_params
+    {
+      user_id: 1,
+      conversation_id: 1
+    }
+  end
+
+  test "should not validate user conversation without user id" do
+    params = user_conversation_params
+    params[:user_id] = nil
+    user_conversation = UserConversation.new(params)
+    assert_not user_conversation.valid?
+  end
+
+  test "should not validate user conversation without conversation_id" do
+    params = user_conversation_params
+    params[:conversation_id] = nil
+    user_conversation = UserConversation.new(params)
+    assert_not user_conversation.valid?
+  end
 end

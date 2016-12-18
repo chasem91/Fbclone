@@ -12,7 +12,24 @@
 require 'test_helper'
 
 class FriendshipTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def friendship_params
+    {
+      user_id: 1,
+      friend_id: 1
+    }
+  end
+
+  test "should not validate friendship without user_id" do
+    params = friendship_params
+    params[:user_id] = nil
+    friendship = Friendship.new(params)
+    assert_not friendship.valid?
+  end
+
+  test "should not validate friendship without friend_id" do
+    params = friendship_params
+    params[:friend_id] = nil
+    friendship = Friendship.new(params)
+    assert_not friendship.valid?
+  end
 end

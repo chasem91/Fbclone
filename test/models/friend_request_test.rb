@@ -13,7 +13,32 @@
 require 'test_helper'
 
 class FriendRequestTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def friend_request_params
+    {
+      user_id: 1,
+      friend_id: 1,
+      approved: false
+    }
+  end
+
+  test "should not validate friend request without user_id" do
+    params = friend_request_params
+    params[:user_id] = nil
+    friend_request = FriendRequest.new(params)
+    assert_not friend_request.valid?
+  end
+
+  test "should not validate friend request without friend_id" do
+    params = friend_request_params
+    params[:friend_id] = nil
+    friend_request = FriendRequest.new(params)
+    assert_not friend_request.valid?
+  end
+
+  test "should not validate friend request without approved status" do
+    params = friend_request_params
+    params[:approved] = nil
+    friend_request = FriendRequest.new(params)
+    assert_not friend_request.valid?
+  end
 end

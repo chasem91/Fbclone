@@ -11,7 +11,7 @@
 #
 
 class Comment < ActiveRecord::Base
-  validates :author_id, :post_id, :content, null: false
+  validates :author_id, :post_id, :content, presence: true
 
   belongs_to :post
 

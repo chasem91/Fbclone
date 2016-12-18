@@ -11,7 +11,7 @@
 #
 
 class Post < ActiveRecord::Base
-  validates :author_id, :user_id, :content, null: false
+  validates :author_id, :user_id, :content, presence: true
 
   belongs_to :author,
     foreign_key: :author_id,
