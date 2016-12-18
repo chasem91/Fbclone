@@ -1,10 +1,10 @@
 import React from 'react'
-import Greeting from '../greeting/greeting'
+import Post from '../newsfeed/post/post'
 import renderer from 'react-test-renderer'
 
-test('Greeting renders', () => {
+test('Post renders', () => {
   const component = renderer.create(
-    <Greeting />
+    <Post />
   )
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()

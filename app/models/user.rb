@@ -19,7 +19,8 @@
 class User < ActiveRecord::Base
 	attr_reader :password
 
-	validates :email, :password_digest, :session_token, presence: true
+	validates :email, :password_digest, :session_token, :first_name, :last_name, :birthday,
+		:gender, :profile_picture_id, :banner_picture_id, presence: true
 	validates :email, uniqueness: true
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
@@ -112,5 +113,4 @@ class User < ActiveRecord::Base
 			self.session_token = new_session_token
 		end
 	end
-
 end

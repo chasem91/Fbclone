@@ -1,1 +1,1 @@
-exports[`test Greeting displays properly 1`] = `<div />`;
+exports[`test Greeting renders 1`] = `<div />`;

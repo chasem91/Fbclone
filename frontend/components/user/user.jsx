@@ -10,7 +10,7 @@ class User extends React.Component {
 		this.id = parseInt(this.props.params.userId);
 		this.updateProfilePic = this.updateProfilePic.bind(this);
 		this.updateBannerPic = this.updateBannerPic.bind(this);
-	}
+	}k
 
 	shouldComponentUpdate(nextProps, nextState) {
 		return !!nextProps.currentUser && this.id !== nextProps.params.userId

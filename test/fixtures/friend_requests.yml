@@ -13,17 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: MyString
-  integer,: MyString
-  friend_id: MyString
-  integer,: MyString
-  approved: MyString
-  bool: MyString
+  user_id: 1
+  friend_id: 2
+  approved: true
 
 two:
-  user_id: MyString
-  integer,: MyString
-  friend_id: MyString
-  integer,: MyString
-  approved: MyString
-  bool: MyString
+  user_id: 3
+  friend_id: 4
+  approved: false

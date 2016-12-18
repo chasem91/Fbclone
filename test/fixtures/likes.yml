@@ -16,8 +16,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  liker_id: 1
+  likeable_id: 1
+  likeable_type: MyString
 # column: value
 #
-two: {}
+two:
+  liker_id: 2
+  likeable_id: 2
+  likeable_type: MyString
 #  column: value
