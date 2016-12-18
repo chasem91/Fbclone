@@ -16,6 +16,8 @@
 #  banner_picture_id  :integer
 #
 
+require 'byebug'
+
 class User < ActiveRecord::Base
 	attr_reader :password
 
@@ -99,7 +101,6 @@ class User < ActiveRecord::Base
 	end
 
 	private
-
 	def ensure_session_token
 		self.session_token ||= new_session_token
 	end

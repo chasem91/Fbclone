@@ -24,3 +24,5 @@ bundle.js.map
 /.byebug_history
 
 /npm-debug.log
+
+.vscode/

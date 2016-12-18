@@ -13,32 +13,18 @@
 require 'test_helper'
 
 class LikeTest < ActiveSupport::TestCase
-  def like_params
-    {
-      liker_id: 1,
-      likeable_id: 1,
-      likeable_type: 'Post'
-    }
-  end
-
   test "should not validate like without liker_id" do
-    params = like_params
-    params[:liker_id] = nil
-    like = Like.new(params)
+    like = build(:like, liker_id: nil)
     assert_not like.valid?
   end
 
   test "should not validate like without likeable_id" do
-    params = like_params
-    params[:likeable_id] = nil
-    like = Like.new(params)
+    like = build(:like, likeable_id: nil)
     assert_not like.valid?
   end
 
   test "should not validate like without likeable_type" do
-    params = like_params
-    params[:likeable_type] = nil
-    like = Like.new(params)
+    like = build(:like, likeable_type: nil)
     assert_not like.valid?
   end
 end

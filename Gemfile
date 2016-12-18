@@ -61,7 +61,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'faster_require'
+  gem 'factory_girl_rails'
 end
 
 group :development do
