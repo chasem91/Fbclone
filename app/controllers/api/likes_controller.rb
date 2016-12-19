@@ -2,7 +2,8 @@ class Api::LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     if @like.save
-      @like = Like.includes(:liker).where("id = ?", @like.id).first
+      # @like = Like.includes(:liker).where("id = ?", @like.id).first
+      @like = Like.includes(:liker).find(@like.id)
       render 'api/likes/show'
     else
       render json: @like.errors.full_messages, status: 422
